@@ -2571,9 +2571,7 @@ h6 {
     margin-top: 2.25rem;
   }
 
-  .footer {
-    --bottom: 9.9206349206vh;
-  }
+ 
 }
 
 @media (min-width: 768px) {
@@ -3617,6 +3615,7 @@ h6 {
   font-size: 1.5rem;
   display: inline-block;
   width: 100%;
+  line-height: 2rem;
 }
 
 
@@ -3638,6 +3637,7 @@ h6 {
   font-size: 1rem;
   color: var(--white-color);
   padding: 0.5rem;
+  line-height: 2rem;
 }
 
 .signup-form {

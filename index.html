@@ -400,9 +400,9 @@
               id="locations"
               class="absolute z-50 mt-2 flex gap-4 text-white p-2 hidden"
             >
-              <p>Scarborough Location</p>
-              <p>North York Location</p>
-              <p>Brampton Location</p>
+              <p><a href="#new">North York Location</a></p>
+              <p><a href="#scar">Scarborough Location</a></p>
+              <p><a href="#bramp">Brampton Location</a></p>
             </span>
           </div>
         </div>
@@ -783,8 +783,8 @@
               All Locations
             </p>
             <div id="location" class="location-menu hidden">
-              <p>Scarborough Location</p>
               <p>North York Location</p>
+              <p>Scarborough Location</p>
               <p>Brampton Location</p>
             </div>
           </div>
@@ -1342,10 +1342,10 @@
               <p class="footer-title">Helpful Links</p>
               <ul class="footer-links">
                 <li class="footer-item">
-                  <a href="/" class="footer-link">About Us</a>
+                  <a href="#about" class="footer-link">About Us</a>
                 </li>
                 <li class="footer-item">
-                  <a href="/" class="footer-link">Contact Us</a>
+                  <a href="#customer" class="footer-link">Contact Us</a>
                 </li>
                 <li class="footer-item">
                   <a href="/" class="footer-link">Delivery & FAQ</a>
@@ -1366,7 +1366,7 @@
                   <a href="/" class="footer-link">Decoration Accessories</a>
                 </li>
                 <li class="footer-item">
-                  <a href="/" class="footer-link">Deals</a>
+                  <a href="#deal" class="footer-link">Deals</a>
                 </li>
               </ul>
             </div>
@@ -1375,18 +1375,28 @@
             <div class="footer-section">
               <p class="footer-title">Outlets</p>
               <div class="outlet-info">
-                <div>
-                  <p class="outlet-title">Oxford (UK)</p>
+                <section id="new">
+                  <p class="outlet-title">North York location</p>
                   <p class="outlet-address">
-                    1-3 Abbey Street<br />Eynsham<br />Oxford<br />OX29 4TB
+                    3711 Keele St<br />
+                    North York<br />ON M3J 1N1 <br />Tel: (416) 398-3339<br />
                   </p>
-                </div>
-                <div>
-                  <p class="outlet-title">London (UK)</p>
+                </section>
+                <section id="scar">
+                  <p class="outlet-title">Scarborough Location</p>
                   <p class="outlet-address">
-                    21 High Street<br />Central London<br />London<br />WC2N 5DU
+                    1329 Kennedy <br />Rd Unit 101<br />
+                    Scarborough<br />ON M1P 2L6 <br />Tel : (416) 398-3339
+                    <br />
                   </p>
-                </div>
+                </section>
+                <section id="bramp">
+                  <p class="outlet-title">Brampton Location</p>
+                  <p class="outlet-address">
+                    74 Devon Rd<br />Brampton<br />ON L6T 5H3 <br />Tel : (416)
+                    809-1011
+                  </p>
+                </section>
               </div>
             </div>
             <!-- Signup Section -->
@@ -1402,7 +1412,9 @@
           <hr class="footer-divider" />
           <!-- Footer Bottom Section -->
           <div class="footer-bottom">
-            <p class="contact-email">furniture@gmail.com</p>
+            <p class="contact-email">
+              <a href="mailto:furniture@gmail.com">furniture@gmail.com</a>
+            </p>
             <div class="footer-icons">
               <!-- Facebook Icon -->
               <a
