@@ -326,7 +326,7 @@ html {
 
 
 .img-logo {
-  width: 130px; 
+  width: 150px; 
   transition: width 0.3s ease-in-out;
 }
 
@@ -339,7 +339,7 @@ html {
  
 
   .img-logo {
-    width: 130px;
+    width: 150px;
   }
 }
 
@@ -347,6 +347,7 @@ html {
   .header_logo {
     top: 3.7vh; 
     left: 5vw; 
+    
   }
 
   .img-logo {
@@ -362,7 +363,7 @@ html {
   }
 
   .img-logo {
-    width: 160px;
+    width: 180px;
   }
 }
 
@@ -1112,7 +1113,7 @@ svg.active {
 .search-svg {
   font-size: 1.5rem; 
   margin-right: 0.5rem;
-  color: #2c2e3fb2; 
+  color:var(--ash-color); 
   display: inline-flex;
   align-items: center;
 }
@@ -1234,13 +1235,14 @@ svg.active {
   position: relative;
   width: 100%;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  
   transition: transform 0.3s;
   margin: 0 auto;
 }
 .store-components:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease-linear;
+  box-shadow: 0 4px 15px var(--red-color);
 }
 /* Store Title */
 .store-title {
@@ -1263,7 +1265,7 @@ svg.active {
   line-height: 50px;
   text-align: center;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.2); 
+  border: 1px solid var(--ash-color); 
   font-weight: 600; 
   letter-spacing: 1px; 
 }
@@ -1631,7 +1633,7 @@ strong {
 }
 
 .sub-content {
-  color: hsla(37, 18%, 66%, 0.5);
+  color: var(--ash-color);
   font-weight: 400;
   margin-bottom: 0;
 }
