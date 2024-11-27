@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paramount Furniture</title>
+    <link rel="stylesheet" href="app.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header_logo">
+        <a class="link-logo" aria-label="Home page" href="index.html">
+          <img src="assets/img/logo.png" class="img-logo" alt="logo" />
+        </a>
+      </div>
+      <div class="navbar">
+        <div class="nav-items lg:flex hidden gap-6 font-semibold text-[18px]">
+          <a
+            aria-current="page"
+            class="text-white flex items-center justify-center"
+            href="/"
+            >Home</a
+          >
+          <a class="text-white flex items-center justify-center" href="#deal"
+            >Deals</a
+          >
+          <div class="text-white flex items-center gap-1">
+            <p class="cursor-pointer flex items-center justify-center">
+              Category
+            </p>
+            <svg
+              id="toggleArrow"
+              class="arrow-toggle"
+              stroke="currentColor"
+              fill="currentColor"
+              viewBox="0 0 512 512"
+              width="20"
+              height="20"
+            >
+              <path
+                d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+              ></path>
+            </svg>
+          </div>
+          <!-- Hidden Category Section -->
+          <div id="categorySection" class="category-section hidden">
+            <div class="p-5">
+              <!-- All Category -->
+              <div
+                class="2xl:text-[20px] lg:text-[16px] p-1 cursor-pointer flex items-center gap-2 text-white"
+              >
+                <p class="my-1 font-bold">All</p>
+              </div>
+              <!-- Bed & Bedroom Sets Category with toggle functionality -->
+              <div
+                id="bedroom-toggle"
+                class="category-container 2xl:text-[20px] lg:text-[16px] p-1 cursor-pointer flex items-start gap-2 text-white"
+                onclick="toggleBedroomSection()"
+              >
+                <!-- Category and Icon Container -->
+                <div class="flex items-center gap-2">
+                  <p class="my-1 font-bold">Bed &amp; Bedroom Sets</p>
+                  <!-- SVG Arrow Icon initially hidden -->
+                  <svg
+                    id="arrow-icon"
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    class="hidden"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                    ></path>
+                  </svg>
+                </div>
+                <!-- Grid Section initially hidden, positioned beside the category -->
+                <div id="bedroom-grid" class="grid-container hidden">
+                  <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-1 p-6">
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Adult Bedroom Sets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Children/Kids Bedroom Sets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Italian Bedroom Sets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Twin/Double Beds</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Queen/King Beds</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Storage Beds</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Bunk Beds</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Trundle/Day Beds</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Armoire/Wardrobe</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Other Categories -->
+              <div
+                id="dining-toggle"
+                class="category-container 2xl:text-[20px] lg:text-[16px] p-1 cursor-pointer flex items-start gap-2 text-white"
+                onclick="toggleDiningSection()"
+              >
+                <!-- Category and Icon Container -->
+                <div class="flex items-center gap-2">
+                  <p class="my-1 font-bold">Dining Room Furniture</p>
+                  <!-- SVG Arrow Icon initially hidden -->
+                  <svg
+                    id="dining-arrow-icon"
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    class="hidden"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                    ></path>
+                  </svg>
+                </div>
+                <!-- Grid Section initially hidden, positioned beside the category -->
+                <div id="dining-grid" class="grid-container hidden">
+                  <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-1 p-6">
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Small Dining Sets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Regular Dining Sets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Large Dining Sets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Marble Dining Sets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Italian Dining Sets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#"
+                        >Counter/Pub Height Dining Sets</a
+                      >
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Dining Chairs</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Barstools</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Counter Chairs</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Pub Chairs</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Servers/Buffets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">China Cabinets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Curio/Vitrin</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Food Carts</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Micro Oven Shelf</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="living-room-toggle"
+                class="category-container 2xl:text-[20px] lg:text-[16px] p-1 cursor-pointer flex items-start gap-2 text-white"
+                onclick="toggleLivingRoomSection()"
+              >
+                <!-- Category and Icon Container -->
+                <div class="flex items-center gap-2">
+                  <p class="my-1 font-bold">Living Room Furniture</p>
+                  <svg
+                    id="arrow-icon-living"
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    class="hidden"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                    ></path>
+                  </svg>
+                </div>
+                <!-- Grid Section initially hidden, positioned beside the category -->
+                <div id="living-room-grid" class="grid-container hidden">
+                  <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-1 p-6">
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Fabric Sofa Sets</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#"
+                        >Fabric Sectional Sofa Sets</a
+                      >
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Leather Sofa Sets</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#"
+                        >Leather Sectional Sofa Sets</a
+                      >
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#"
+                        >Gel/Bonded/Leather Air Sofa Sets</a
+                      >
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#"
+                        >Fabric Recliner Sofa & Sectional Sets</a
+                      >
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#"
+                        >Leather Recliner Sofa & Sectional Sets</a
+                      >
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Day Beds</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Sofa Beds</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Sectional Sofa Beds</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Futons/Klick Klacks</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Recliner Chairs</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Medical Lift Chairs</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Accent Chairs</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Ottomans</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Benches</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Coffee & End Tables</a>
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#"
+                        >Console/Hall/Sofa Tables</a
+                      >
+                    </div>
+                    <div
+                      class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="living-px-5" href="#">Rugs & Carpets</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a
+            class="text-white flex items-center justify-center"
+            href="#decoration"
+            >Decorations</a
+          >
+          <a class="text-white flex items-center justify-center" href="#about"
+            >About Us</a
+          >
+          <a
+            class="text-white flex items-center justify-center"
+            href="#customer"
+            >Customer Care</a
+          >
+          <div class="text-white flex flex-col items-center gap-1 relative">
+            <p class="cursor-pointer" onclick="toggleLocations()">
+              All Locations
+            </p>
+            <span
+              id="locations"
+              class="absolute z-50 mt-2 flex gap-4 text-white p-2 hidden"
+            >
+              <p>Scarborough Location</p>
+              <p>North York Location</p>
+              <p>Brampton Location</p>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="icon-container">
+        <!-- SVG Icons -->
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 7H24V9H19V7ZM17 12H24V14H17V12ZM20 17H24V19H20V17ZM2 22C2 17.5817 5.58172 14 10 14C14.4183 14 18 17.5817 18 22H16C16 18.6863 13.3137 16 10 16C6.68629 16 4 18.6863 4 22H2ZM10 13C6.685 13 4 10.315 4 7C4 3.685 6.685 1 10 1C13.315 1 16 3.685 16 7C16 10.315 13.315 13 10 13ZM10 11C12.21 11 14 9.21 14 7C14 4.79 12.21 3 10 3C7.79 3 6 4.79 6 7C6 9.21 7.79 11 10 11Z"
+          ></path>
+        </svg>
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 256 256"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"
+          ></path>
+        </svg>
+        <!-- The SVG that toggles visibility -->
+        <svg
+          id="toggleMenu"
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          class="lg:hidden cursor-pointer"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
+          ></path>
+        </svg>
+      </div>
+      <!-- Toggleable Menu Section -->
+      <div id="toggleSection" class="hidden menu-container">
+        <div class="menu-header">
+          <a href="/" class="link">
+            <div
+              class="bg-center bg-cover logo"
+              alt="Logo"
+              style="background-image: url('./assets/img/logo.png')"
+            ></div>
+          </a>
+          <!-- Close SVG -->
+          <svg
+            id="closeMenu"
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            class="close-icon cursor-pointer text-black"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill="none" d="M0 0h24v24H0z"></path>
+            <path
+              d="M14.59 8 12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41z"
+            ></path>
+          </svg>
+        </div>
+        <!-- Navigation Links -->
+        <div class="nav-item lg:flex hidden gap-6 font-semibold text-[18px]">
+          <a aria-current="page" class="text-white flex" href="/">Home</a>
+          <a class="text-white flex" href="#deal">Deals</a>
+          <div class="text-white flex items-center gap-1">
+            <p class="cursor-pointers">Category</p>
+            <svg
+              id="toggleArrows"
+              class="arrow-toggles"
+              stroke="currentColor"
+              fill="currentColor"
+              viewBox="0 0 512 512"
+              width="20"
+              height="20"
+            >
+              <path
+                d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+              ></path>
+            </svg>
+          </div>
+          <!-- Hidden Category Section -->
+          <div id="categorySections" class="category-sections hidden">
+            <!-- All Category -->
+            <div
+              class="2xl:text-[20px] lg:text-[16px] p-1 cursor-pointers flex items-center gap-2 text-white"
+            >
+              <p class="my-1 font-bold">All</p>
+            </div>
+
+            <!-- Bed & Bedroom Sets Category with toggle functionality -->
+            <div
+              id="bedroom-toggles"
+              class="category-containers 2xl:text-[20px] lg:text-[16px] p-1 cursor-pointers flex items-start gap-2 text-white"
+              onclick="toggleBedroomSections()"
+            >
+              <!-- Category and Icon Container -->
+              <div class="flex items-center gap-2">
+                <p class="my-1 font-bold">Bed &amp; Bedroom Sets</p>
+                <!-- SVG Arrow Icon initially hidden -->
+                <svg
+                  id="arrow-icons"
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  class="hidden"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                  ></path>
+                </svg>
+              </div>
+              <div id="bedroom-grids" class="grid-container hidden">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-1 p-6">
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Adult Bedroom Sets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Children/Kids Bedroom Sets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Italian Bedroom Sets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Twin/Double Beds</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Queen/King Beds</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Storage Beds</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Bunk Beds</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Trundle/Day Beds</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Armoire/Wardrobe</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Other Categories -->
+            <div
+              id="dining-toggles"
+              class="category-containers 2xl:text-[20px] lg:text-[16px] p-1 cursor-pointers flex items-start gap-2 text-white"
+              onclick="toggleDiningSections()"
+            >
+              <div class="flex items-center gap-2">
+                <p class="my-1 font-bold">Dining Room Furniture</p>
+                <svg
+                  id="dining-arrow-icons"
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  class="hidden"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                  ></path>
+                </svg>
+              </div>
+              <div id="dining-grids" class="grid-container hidden">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-1 p-6">
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Small Dining Sets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Regular Dining Sets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Large Dining Sets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Marble Dining Sets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Italian Dining Sets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Counter/Pub Height Dining Sets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Dining Chairs</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Barstools</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Counter Chairs</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Pub Chairs</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Servers/Buffets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">China Cabinets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Curio/Vitrin</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Food Carts</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Micro Oven Shelf</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              id="living-room-toggles"
+              class="category-containers 2xl:text-[20px] lg:text-[16px] p-1 cursor-pointers flex items-start gap-2 text-white"
+              onclick="toggleLivingRoomSections()"
+            >
+              <div class="flex items-center gap-2">
+                <p class="my-1 font-bold">Living Room Furniture</p>
+                <svg
+                  id="arrow-icon-livings"
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  class="hidden"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                  ></path>
+                </svg>
+              </div>
+              <div id="living-room-grids" class="grid-container hidden">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-1 p-6">
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Fabric Sofa Sets</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#"
+                      >Fabric Sectional Sofa Sets</a
+                    >
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Leather Sofa Sets</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#"
+                      >Leather Sectional Sofa Sets</a
+                    >
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#"
+                      >Gel/Bonded/Leather Air Sofa Sets</a
+                    >
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#"
+                      >Fabric Recliner Sofa & Sectional Sets</a
+                    >
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#"
+                      >Leather Recliner Sofa & Sectional Sets</a
+                    >
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Day Beds</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Sofa Beds</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Sectional Sofa Beds</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Futons/Klick Klacks</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Recliner Chairs</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Medical Lift Chairs</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Accent Chairs</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Ottomans</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Benches</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Coffee & End Tables</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Console/Hall/Sofa Tables</a>
+                  </div>
+                  <div
+                    class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
+                  >
+                    <a class="living-px-5" href="#">Rugs & Carpets</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="text-white flex" href="#decoration">Decorations</a>
+          <a class="text-white flex" href="#about">About Us</a>
+          <a class="text-white flex" href="#customer">Customer Care</a>
+          <div class="text-white flex flex-col gap-1">
+            <p class="cursor-pointers" onclick="toggleLocation()">
+              All Locations
+            </p>
+            <div id="location" class="location-menu hidden">
+              <p>Scarborough Location</p>
+              <p>North York Location</p>
+              <p>Brampton Location</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main-layer">
+      <div class="layer">
+        <div class="container">
+          <div class="hero">
+            <div class="hero_bg">
+              <div class="w-100 h-100 anim--fade"></div>
+              <video
+                id="hero-bg-video"
+                autoplay
+                muted
+                playsinline
+                loop
+                preload="auto"
+                data-pc="assets/video/hero.mp4"
+                data-mobile="assets/video/hero_mobile.mp4"
+                src="assets/video/hero.mp4"
+              ></video>
+            </div>
+            <div class="search">
+              <span class="search-bar">
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  class="search-svg"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M443.5 420.2L336.7 312.4c20.9-26.2 33.5-59.4 33.5-95.5 0-84.5-68.5-153-153.1-153S64 132.5 64 217s68.5 153 153.1 153c36.6 0 70.1-12.8 96.5-34.2l106.1 107.1c3.2 3.4 7.6 5.1 11.9 5.1 4.1 0 8.2-1.5 11.3-4.5 6.6-6.3 6.8-16.7.6-23.3zm-226.4-83.1c-32.1 0-62.3-12.5-85-35.2-22.7-22.7-35.2-52.9-35.2-84.9 0-32.1 12.5-62.3 35.2-84.9 22.7-22.7 52.9-35.2 85-35.2s62.3 12.5 85 35.2c22.7 22.7 35.2 52.9 35.2 84.9 0 32.1-12.5 62.3-35.2 84.9-22.7 22.7-52.9 35.2-85 35.2z"
+                  ></path>
+                </svg>
+                <input
+                  placeholder="Search..."
+                  class="search-input"
+                  type="text"
+                />
+              </span>
+            </div>
+            <div class="hero_content">
+              <div class="row justify-content-center">
+                <div class="col-12 hero_content_inner">
+                  <h1 class="text-center mb-0 anim--chars anim--chars--3d">
+                    <div
+                      class="line"
+                      style="display: block; text-align: center; width: 100%"
+                    >
+                      <div
+                        class="char anim--slide-up"
+                        style="
+                          display: inline-block;
+                          translate: none;
+                          rotate: none;
+                          scale: none;
+                          transform: translate(0px, 0%);
+                          color: #ffffff;
+                          letter-spacing: 0.01em;
+                        "
+                      >
+                        Special offer
+                      </div>
+                    </div>
+                    <div
+                      class="line"
+                      style="display: block; text-align: center; width: 100%"
+                    >
+                      <strong
+                        class=""
+                        style="display: inline-block; position: relative"
+                      >
+                        <div
+                          class="char anim--slide-up"
+                          style="
+                            display: inline-block;
+                            translate: none;
+                            rotate: none;
+                            scale: none;
+                            transform: translate(0px, 0%);
+                            letter-spacing: 0.01em;
+                          "
+                        >
+                          <div class="">Chirstmas</div>
+                        </div>
+
+                        <div
+                          class="char anim--slide-up"
+                          style="
+                            display: inline-block;
+                            translate: none;
+                            rotate: none;
+                            scale: none;
+                            transform: translate(0px, 0%);
+                          "
+                        >
+                          <div class=""></div>
+                        </div>
+                      </strong>
+                    </div>
+                    <div
+                      class="line"
+                      style="display: block; text-align: center; width: 100%"
+                    >
+                      <strong
+                        class=""
+                        style="display: inline-block; position: relative"
+                      >
+                        <div
+                          class="char anim--slide-up"
+                          style="
+                            display: inline-block;
+                            translate: none;
+                            rotate: none;
+                            scale: none;
+                            transform: translate(0px, 0%);
+                            letter-spacing: 0.01em;
+                          "
+                        >
+                          Sales
+                        </div>
+                      </strong>
+                    </div>
+                    <!-- Button container -->
+                    <div class="button-container">
+                      <button
+                        class="lines"
+                        style="
+                          display: block;
+                          width: 100%;
+                          background: transparent;
+                          border: none;
+                        "
+                      >
+                        <!-- Individual characters for "Shop Now" -->
+                        <div
+                          class="char anim--slide-up"
+                          style="letter-spacing: 0.01em"
+                        >
+                          Shop Now
+                        </div>
+
+                        <!-- SVG Icon -->
+                        <div class="char anim--slide-up">
+                          <svg
+                            class="svg-icon"
+                            version="1.1"
+                            id="icons_1_"
+                            xmlns="http://www.w3.org/2000/svg"
+                            x="0"
+                            y="0"
+                            viewBox="0 0 128 128"
+                            style="enable-background: new 0 0 128 128"
+                            xml:space="preserve"
+                          >
+                            <style>
+                              .st0 {
+                                display: none;
+                              }
+                              .st1 {
+                                display: inline;
+                              }
+                              .st2 {
+                                fill: #ffffff;
+                              }
+                            </style>
+                            <g id="row1_1_">
+                              <g id="_x31__3_">
+                                <path
+                                  class="st2"
+                                  d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 121.6C32.2 121.6 6.4 95.8 6.4 64S32.2 6.4 64 6.4s57.6 25.8 57.6 57.6-25.8 57.6-57.6 57.6zM49.2 38.4 73.6 64 49.2 89.6h13.5L86.4 64 62.7 38.4H49.2z"
+                                  id="_x32__2_"
+                                />
+                              </g>
+                            </g>
+                          </svg>
+                        </div>
+                      </button>
+                    </div>
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <section id="deal">
+            <div class="about">
+              <div class="about_me row">
+                <div class="col-sm-10 col-12 offset-sm-1">
+                  <div class="about_content">
+                    <div class="container_content">
+                      <div class="scroll-reveal" id="section1">
+                        <div class="about_content_label">
+                          <h2 class="body-text">
+                            <span class="">Store Special Offers</span>
+                          </h2>
+                        </div>
+                      </div>
+                      <div
+                        class="about_content_label scroll-reveal"
+                        id="section2"
+                      >
+                        <h3 class="body-text">
+                          <span class="">Special Offer based on outlines</span>
+                        </h3>
+                      </div>
+                      <!-- store -->
+                      <div class="stores">
+                        <div class="store-components">
+                          <p class="store-title">Scarborough</p>
+                          <div
+                            class="store-background"
+                            style="background-image: url(../assets/img/tab.png)"
+                          >
+                            <button class="store-btn" target="_blank" href="#">
+                              View Offers
+                            </button>
+                          </div>
+                        </div>
+                        <div class="store-components">
+                          <p class="store-title">North York</p>
+                          <div
+                            class="store-background"
+                            style="background-image: url(../assets/img/tab.png)"
+                          >
+                            <button class="store-btn" target="_blank" href="#">
+                              View Offers
+                            </button>
+                          </div>
+                        </div>
+                        <div class="store-components">
+                          <p class="store-title">Brampton</p>
+                          <div
+                            class="store-background"
+                            style="background-image: url(../assets/img/tab.png)"
+                          >
+                            <button class="store-btn" target="_blank" href="#">
+                              View Offers
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="explore">
+            <div class="explore-container">
+              <div class="explore-menu">
+                <h3 class="explore-title">Explore</h3>
+                <hr class="explore-divider" />
+                <div class="explore-links">
+                  <a href="#" class="explore-link-item">New Arrivals</a>
+                  <a href="#" class="explore-link-item">Clearance Offers</a>
+                  <a href="#" class="explore-link-item">View Our Collections</a>
+                  <a class="explore-link-item" onclick="toggleSubLinks()"
+                    >All Categories</a
+                  >
+                  <div id="explore-sub-links" class="explore-sub-links hidden">
+                    <a href="#" class="explore-sub-link-item"
+                      >Bed & Bedroom Sets</a
+                    >
+                    <a href="#" class="explore-sub-link-item"
+                      >Dining Room Furniture</a
+                    >
+                    <a href="#" class="explore-sub-link-item"
+                      >Living Room Furniture</a
+                    >
+                  </div>
+                  <a href="#" class="explore-link-item">Decorations</a>
+                  <a href="#contact" class="explore-link-item">Join Us</a>
+                  <a href="#customer" class="explore-link-item">Contact Us</a>
+                </div>
+              </div>
+              <div class="explore-image-right">
+                <div class="explore-grid">
+                  <div
+                    class="explore-grid-item"
+                    style="
+                      background-image: url('./assets/img/clearance_offer.jpg');
+                    "
+                  >
+                    <span class="explore-label"
+                      >Clearance and Liquidity Offers</span
+                    >
+                  </div>
+                  <div
+                    class="explore-grid-item"
+                    style="
+                      background-image: url('./assets/img/mattress_offer.jpg');
+                    "
+                  >
+                    <span class="explore-label">Mattress Offers</span>
+                  </div>
+                  <div
+                    class="explore-grid-item"
+                    style="
+                      background-image: url('./assets/img/decoration_offer.jpg');
+                    "
+                  >
+                    <span class="explore-label">Decoration Offers</span>
+                  </div>
+                  <div
+                    class="explore-grid-item"
+                    style="
+                      background-image: url('./assets/img/bed_room_offer.jpg');
+                    "
+                  >
+                    <span class="explore-label">Bedroom Section Offers</span>
+                  </div>
+                  <div
+                    class="explore-grid-item"
+                    style="
+                      background-image: url('./assets/img/living_room_offer.jpg');
+                    "
+                  >
+                    <span class="explore-label"
+                      >Living Room Section Offers</span
+                    >
+                  </div>
+                  <div
+                    class="explore-grid-item"
+                    style="
+                      background-image: url('./assets/img/dining_offer.jpg');
+                    "
+                  >
+                    <span class="explore-label"
+                      >Dining Room Section Offers</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="contact">
+            <div class="testimonials">
+              <div class="testimonials">
+                <div class="motto">
+                  <div class="motto_bg"></div>
+                  <div class="motto_content container_content">
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col-lg-8 col-12 motto_content_inner">
+                        <div class="form-container">
+                          <div class="form-content">
+                            <p class="special-offer-text">Special Offer</p>
+                            <p class="main-heading">Join Us</p>
+                            <p class="description">
+                              Sign up for the newsletter and receive future
+                              coupons, offers, promotions, and clearance
+                            </p>
+                            <form>
+                              <div class="form-inputs">
+                                <input
+                                  placeholder="Name"
+                                  class="input-form"
+                                  type="text"
+                                />
+                                <input
+                                  placeholder="abcd@gmail.com"
+                                  class="input-form email-input"
+                                  type="text"
+                                />
+                                <div class="terms">
+                                  <input class="terms-checkbox" type="radio" />
+                                  <p class="terms-text">
+                                    By subscribing you agree to our Terms &amp;
+                                    Conditions and Privacy &amp; Cookies Policy.
+                                  </p>
+                                </div>
+                                <button class="signup-button">
+                                  SIGN UP NOW
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="decoration">
+            <div class="video-container">
+              <div class="wrapper">
+                <input class="video-chk" type="checkbox" />
+                <div class="video">
+                  <video
+                    data-pc="./assets/video/reel-mobile.mp4"
+                    data-mobile="./assets/video/reel-mobile.mp4"
+                    src="./assets/video/reel.mp4"
+                    loop
+                    muted
+                    autoplay
+                    playsinline
+                  ></video>
+                </div>
+                <div class="text">
+                  <span data-text="Decoration"></span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="about">
+            <div class="about">
+              <div class="col-sm-10 col-12 offset-sm-1">
+                <div class="about_content">
+                  <div class="container_content">
+                    <div class="abouts_me row">
+                      <div class="about_content_label">
+                        <h2 class="body-text scroll-reveal" id="section3">
+                          <span>About us</span>
+                        </h2>
+                        <div class="about_content_desc">
+                          <div class="about-font">
+                            <div class="scroll-paragraph-parent">
+                              <div class="scroll-paragraph-mask is-masking">
+                                <div class="line scroll-reveal" id="section4">
+                                  Discover exquisite,
+                                  <strong
+                                    class="str"
+                                    style="
+                                      display: inline-block;
+                                      position: relative;
+                                    "
+                                    >handcrafted
+                                  </strong>
+                                  furniture that blends style and
+                                </div>
+                                <div class="line scroll-reveal" id="section5">
+                                  comfort. Custom designs,
+                                  <strong
+                                    class="str"
+                                    style="
+                                      display: inline-block;
+                                      position: relative;
+                                    "
+                                  >
+                                    premium materials,
+                                  </strong>
+                                  and to expert craftsmanship elevate
+                                </div>
+                                <div class="line scroll-reveal" id="section6">
+                                  your living space
+                                  <strong
+                                    class="str"
+                                    style="
+                                      display: inline-block;
+                                      position: relative;
+                                    "
+                                  >
+                                    effortlessly.
+                                  </strong>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="customer">
+            <div class="testimonials">
+              <div class="landing_page">
+                <div class="responsive-container-block big-container">
+                  <img
+                    class="bg-img"
+                    id="iq5bf"
+                    src="./assets/img/clothes-bg.png"
+                  />
+                  <div class="responsive-container-block container">
+                    <div
+                      class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 left-one"
+                    >
+                      <div class="content-box">
+                        <p class="text-blk section-head">Customer Care</p>
+                        <p class="text-blk section-subhead">
+                          We prioritize delivering exceptional service to ensure
+                          a seamless experience for every customer. Our Customer
+                          Care team is dedicated to addressing your needs with
+                          efficiency and professionalism, providing support from
+                          the moment you begin browsing our collection to after
+                          your furniture has been delivered. We believe that
+                          great customer service is about being available when
+                          you need us. Our team is ready to assist with product
+                          inquiries, provide guidance on orders, and resolve any
+                          issues related to delivery or returns.
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6 right-one"
+                      id="i1zj"
+                    >
+                      <form class="form-box">
+                        <div class="container-block form-wrapper">
+                          <h3 class="body-text">Lets Talk</h3>
+                          <p class="text-blk contactus-subhead">
+                            We will get back to you in 24 hours
+                          </p>
+                          <div class="input-forms">
+                            <input
+                              class="input-form"
+                              id="ijowk-7"
+                              name="Name"
+                              placeholder="Name"
+                            />
+                          </div>
+                          <div class="input-forms">
+                            <input
+                              class="input-form"
+                              id="ipmgh-7"
+                              name="Email"
+                              placeholder="Email"
+                            />
+                          </div>
+                          <div class="input-forms">
+                            <textarea
+                              aria-placeholder="Type message here"
+                              class="input-form"
+                              id="i5vyy-7"
+                              placeholder="Type message here"
+                            ></textarea>
+                          </div>
+                          <div class="input-forms">
+                            <button class="submit-btns">Send message</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-grid">
+            <!-- Helpful Links Section -->
+            <div class="footer-section">
+              <p class="footer-title">Helpful Links</p>
+              <ul class="footer-links">
+                <li class="footer-item">
+                  <a href="/" class="footer-link">About Us</a>
+                </li>
+                <li class="footer-item">
+                  <a href="/" class="footer-link">Contact Us</a>
+                </li>
+                <li class="footer-item">
+                  <a href="/" class="footer-link">Delivery & FAQ</a>
+                </li>
+                <li class="footer-item">
+                  <a href="/" class="footer-link">Return Policy</a>
+                </li>
+              </ul>
+            </div>
+            <!-- Products Section -->
+            <div class="footer-section">
+              <p class="footer-title">Products & Deals</p>
+              <ul class="footer-links">
+                <li class="footer-item">
+                  <a href="/" class="footer-link">All Furniture</a>
+                </li>
+                <li class="footer-item">
+                  <a href="/" class="footer-link">Decoration Accessories</a>
+                </li>
+                <li class="footer-item">
+                  <a href="/" class="footer-link">Deals</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Outlets Section -->
+            <div class="footer-section">
+              <p class="footer-title">Outlets</p>
+              <div class="outlet-info">
+                <div>
+                  <p class="outlet-title">Oxford (UK)</p>
+                  <p class="outlet-address">
+                    1-3 Abbey Street<br />Eynsham<br />Oxford<br />OX29 4TB
+                  </p>
+                </div>
+                <div>
+                  <p class="outlet-title">London (UK)</p>
+                  <p class="outlet-address">
+                    21 High Street<br />Central London<br />London<br />WC2N 5DU
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Signup Section -->
+            <div class="footer-section">
+              <p class="footer-title">Sign Up Now</p>
+              <div class="signup-form">
+                <input type="text" class="input-field" placeholder="Name" />
+                <input type="email" class="input-field" placeholder="Email" />
+                <button class="signup-button">Sign Up Now</button>
+              </div>
+            </div>
+          </div>
+          <hr class="footer-divider" />
+          <!-- Footer Bottom Section -->
+          <div class="footer-bottom">
+            <p class="contact-email">furniture@gmail.com</p>
+            <div class="footer-icons">
+              <!-- Facebook Icon -->
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                aria-label="Facebook"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                >
+                  <path
+                    d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 16.9912 5.65685 21.1286 10.4382 21.8785V14.891H7.89844V12H10.4382V9.79797C10.4382 7.29067 11.9306 5.95339 14.2093 5.95339C15.3122 5.95339 16.4605 6.15162 16.4605 6.15162V8.62036H15.1594C13.8744 8.62036 13.5618 9.41824 13.5618 10.2462V12H16.3484L15.8861 14.891H13.5618V21.8785C18.3431 21.1286 22 16.9912 22 12Z"
+                  ></path>
+                </svg>
+              </a>
+              <!--X Icon -->
+              <a href="https://X.com" target="_blank" aria-label="Twitter">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 512 512"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                  shape-rendering="geometricPrecision"
+                  text-rendering="geometricPrecision"
+                  image-rendering="optimizeQuality"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                >
+                  <path
+                    d="M256 0c141.385 0 256 114.615 256 256S397.385 512 256 512 0 397.385 0 256 114.615 0 256 0z"
+                  ></path>
+                  <path
+                    fill="#000"
+                    fill-rule="nonzero"
+                    d="M318.64 157.549h33.401l-72.973 83.407 85.85 113.495h-67.222l-52.647-68.836-60.242 68.836h-33.423l78.052-89.212-82.354-107.69h68.924l47.59 62.917 55.044-62.917zm-11.724 176.908h18.51L205.95 176.493h-19.86l120.826 157.964z"
+                  ></path>
+                </svg>
+              </a>
+              <!-- Instagram Icon -->
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                >
+                  <path
+                    d="M17.0912 2.6665H6.90942C6.35229 2.6665 5.80063 2.77624 5.28591 2.98944C4.7712 3.20264 4.30351 3.51514 3.90957 3.90908C3.11396 4.70469 2.66699 5.78377 2.66699 6.90893V17.0907C2.66699 17.6479 2.77673 18.1995 2.98993 18.7143C3.20313 19.229 3.51562 19.6966 3.90957 20.0906C4.70518 20.8862 5.78426 21.3332 6.90942 21.3332H17.0912C17.6484 21.3332 18.2 21.2234 18.7147 21.0102C19.2295 20.797 19.6971 20.4845 20.0911 20.0906C20.485 19.6966 20.7975 19.229 21.0107 18.7143C21.2239 18.1995 21.3337 17.6479 21.3337 17.0907V6.90893C21.3337 6.3518 21.2239 5.80014 21.0107 5.28542C20.7975 4.77071 20.485 4.30303 20.0911 3.90908C19.6971 3.51514 19.2295 3.20264 18.7147 2.98944C18.2 2.77624 17.6484 2.6665 17.0912 2.6665ZM6.06093 6.90893C5.89312 6.90893 5.72907 6.85917 5.58954 6.76593C5.45001 6.6727 5.34125 6.54018 5.27703 6.38514C5.21281 6.2301 5.19601 6.0595 5.22875 5.89491C5.26149 5.73032 5.3423 5.57914 5.46096 5.46047C5.57962 5.34181 5.73081 5.261 5.8954 5.22826C6.05999 5.19552 6.23059 5.21233 6.38563 5.27655C6.54067 5.34076 6.67319 5.44952 6.76642 5.58905C6.85965 5.72858 6.90942 5.89263 6.90942 6.06044C6.90942 6.28548 6.82002 6.50129 6.6609 6.66041C6.50178 6.81953 6.28596 6.90893 6.06093 6.90893ZM12.0003 17.0907C10.9934 17.0907 10.0092 16.7922 9.17197 16.2328C8.33477 15.6734 7.68226 14.8783 7.29694 13.948C6.91162 13.0178 6.8108 11.9942 7.00724 11.0066C7.20367 10.0191 7.68853 9.112 8.40051 8.40002C9.11249 7.68804 10.0196 7.20318 11.0071 7.00675C11.9947 6.81031 13.0183 6.91113 13.9485 7.29645C14.8788 7.68177 15.6739 8.33428 16.2333 9.17148C16.7927 10.0087 17.0912 10.993 17.0912 11.9998C17.0912 13.35 16.5549 14.6449 15.6001 15.5997C14.6454 16.5544 13.3505 17.0907 12.0003 17.0907Z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
