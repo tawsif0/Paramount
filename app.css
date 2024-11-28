@@ -901,8 +901,15 @@ svg.active {
 
 
 .px-5 {
-  padding-left: 1.25rem;
   padding-right: 1.25rem;
+  box-shadow: inset 0 0 0 0 #eb5939;
+  transition: color 2s linear, box-shadow 0.9s linear;
+}
+
+.px-5:hover {
+  box-shadow: inset 0 -100vw 0 0 #eb5939;
+  transition: box-shadow 2s ease-in-out;
+  color: var(--white-color);
 }
 
 svg {
@@ -929,9 +936,19 @@ svg.active {
 
 .category-container .block a {
   display: inline-block;
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 1rem 0 0;
   color: var(--ash-color);
   cursor: pointer;
+}
+.category-title{
+  padding: 0.6rem;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 0 #eb5939;
+  transition: color 2s linear, box-shadow 0.9s linear;
+}
+.category-title:hover {
+  box-shadow: inset 0 -100vw 0 0 #eb5939;
+  transition: box-shadow 2s ease-in-out;
 }
 
 #dining-container {
@@ -980,6 +997,7 @@ svg.active {
 .dining-px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+  
 }
 
 
@@ -1002,6 +1020,7 @@ svg.active {
   padding: 0.2rem 1rem;
   color: var(--ash-color);
   cursor: pointer;
+  
 }
 
 #living-room-container {
@@ -1056,9 +1075,16 @@ svg.active {
 
 /* Padding for Living Room Links */
 .living-px-5 {
-  padding-left: 1.25rem;
+  padding: 0.2rem;
   padding-right: 1.25rem;
   color: var(--ash-color);
+  box-shadow: inset 0 0 0 0 #eb5939;
+  transition: color 2s linear, box-shadow 0.9s linear;
+}
+.living-px-5:hover {
+  
+  box-shadow: inset 0 -100vw 0 0 #eb5939;
+  transition: box-shadow 2s ease-in-out;
 }
 
 /* SVG Styling for Living Room */
@@ -1296,6 +1322,7 @@ svg.active {
   font-weight: 600;
   border-bottom-right-radius: 0.5rem;
   z-index: 2;
+  font-size: 1.3rem;
   cursor: pointer;
   text-decoration: none;
 }
@@ -1810,188 +1837,8 @@ h6 {
   background-size: 100% 100%;
 }
 
-/* video */
 
-.video-container {
-  height: 800px;
-  font: 400 16px "Poppins", sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  padding-top: 3rem;
-}
 
-.wrapper {
-  --color: #1f242d;
-  --color-invert: var(--white-color);
-  --clip-path: circle(45px at 47% 50%);
-  --clip-path-hover: circle(70px at 47.5%);
-  --clip-path-clicked: polygon(0 0, 100% 0, 100% 0, calc(9px * 100));
-  --duration: 0.4s;
-  --timing-function: ease;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.video {
-  height: calc(8px * 100);
-  width: 100%; 
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  clip-path: var(--clip-path);
-  transition: clip-path var(--duration) var(--timing-function);
-}
-
-.video video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  background: #c4cbde00;
-  transition: transform 0.4s var(--timing-function);
-}
-
-.text {
-  position: absolute; 
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  opacity: var(--opacity);
-  transition: 0.3s var(--timing-function) 0.2s;
-  color: var(--color-invert);
-  z-index: 3;
-}
-
-.text::before,
-.text::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  height: 0;
-}
-
-.text::before {
-  box-shadow: 26px 0 0 5px var(--color);
-  right: var(--r, 100%);
-  opacity: var(--opacity, 0);
-  transition: right 0.5s ease-in, opacity 0.1s linear;
-}
-
-.text::after {
-  box-shadow: 0 0 1px var(--color-invert);
-  clip-path: var(--clip-path);
-  transition: clip-path var(--duration) var(--timing-function);
-}
-
-.text > span::before,
-.text > span::after {
-  content: attr(data-text);
-  padding-left: 26px;
-}
-
-.text > span::before {
-  color: var(--color);
-}
-
-.text > span::after {
-  color: var(--color-invert);
-  clip-path: var(--clip-path);
-  transition: clip-path var(--duration) var(--timing-function);
-  position: absolute;
-  left: 0;
-}
-
-.video-chk {
-  width: 220px;
-  height: 40px;
-  margin: auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  border-radius: 40px;
-  outline: none;
-  z-index: 2;
-  appearance: none;
-  cursor: pointer;
-}
-
-.video-chk:focus {
-  outline: 0;
-}
-
-.video-chk:hover ~ .video {
-  clip-path: var(--clip-path-hover);
-}
-
-.video-chk:hover ~ .text::after {
-  clip-path: var(--clip-path-hover);
-}
-
-.video-chk:hover ~ .text > span::after {
-  clip-path: var(--clip-path-hover);
-}
-
-.video-chk:checked {
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-}
-
-.video-chk:checked ~ .video {
-  clip-path: var(--clip-path-clicked);
-}
-
-.video-chk:checked ~ .text {
-  --opacity: 0;
-  transition: var(--opacity) 0.2s var(--timing-function);
-}
-
-.video-chk:checked ~ .text::after {
-  clip-path: var(--clip-path-clicked);
-}
-
-.video-chk:checked ~ .text > span::after {
-  clip-path: var(--clip-path-clicked);
-}
-@media (max-width: 768px) {
-  
-  .text {
-    font-size: 1.2rem;
-  }
-
-  .video-chk {
-    width: 180px;
-    height: 35px;
-  }
-
-  .wrapper {
-    --clip-path: circle(30px at 43% 50%);
-    --clip-path-hover: circle(60px at 47.5%);
-  }
-}
-
-@media (max-width: 576px) {
-  .text {
-    font-size: 1rem;
-  }
-
-  .video-chk {
-    width: 150px;
-    height: 30px;
-  }
-
-  .wrapper {
-    --clip-path: circle(25px at 43% 50%);
-    --clip-path-hover: circle(50px at 47.5%);
-  }
-}
 /* end */
 
 .testimonial {

@@ -52,52 +52,38 @@
               <div
                 class="2xl:text-[20px] lg:text-[16px] p-1 cursor-pointer flex items-center gap-2 text-white"
               >
-                <p class="my-1 font-bold">All</p>
+                <p class="category-title">All</p>
               </div>
               <!-- Bed & Bedroom Sets Category with toggle functionality -->
               <div
-                id="bedroom-toggle"
                 class="category-container 2xl:text-[20px] lg:text-[16px] p-1 cursor-pointer flex items-start gap-2 text-white"
-                onclick="toggleBedroomSection()"
               >
                 <!-- Category and Icon Container -->
                 <div class="flex items-center gap-2">
-                  <p class="my-1 font-bold">Bed &amp; Bedroom Sets</p>
+                  <p class="category-title">Beds</p>
                   <!-- SVG Arrow Icon initially hidden -->
+
                   <svg
-                    id="arrow-icon"
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 512 512"
-                    class="hidden"
+                    stroke-width="35"
+                    viewBox="0 0 330 330"
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
                   >
                     <path
-                      d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                      d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001
+                      c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213
+                      C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606
+                      C255,161.018,253.42,157.202,250.606,154.389z"
                     ></path>
                   </svg>
                 </div>
                 <!-- Grid Section initially hidden, positioned beside the category -->
-                <div id="bedroom-grid" class="grid-container hidden">
+                <div class="grid-container">
                   <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-1 p-6">
-                    <div
-                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
-                    >
-                      <a class="px-5" href="#">Adult Bedroom Sets</a>
-                    </div>
-                    <div
-                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
-                    >
-                      <a class="px-5" href="#">Children/Kids Bedroom Sets</a>
-                    </div>
-                    <div
-                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
-                    >
-                      <a class="px-5" href="#">Italian Bedroom Sets</a>
-                    </div>
                     <div
                       class="block text-white 2xl:text-[20px] lg:text-[16px]"
                     >
@@ -123,6 +109,57 @@
                     >
                       <a class="px-5" href="#">Trundle/Day Beds</a>
                     </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="bedroom-toggle"
+                class="category-container 2xl:text-[20px] lg:text-[16px] p-1 cursor-pointer flex items-start gap-2 text-white"
+                onclick="toggleBedroomSection()"
+              >
+                <!-- Category and Icon Container -->
+                <div class="flex items-center gap-2">
+                  <p class="category-title">Bedroom Sets</p>
+                  <!-- SVG Arrow Icon initially hidden -->
+
+                  <svg
+                    id="arrow-icon"
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="35"
+                    viewBox="0 0 330 330"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <path
+                      d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001
+                    c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213
+                    C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606
+                    C255,161.018,253.42,157.202,250.606,154.389z"
+                    ></path>
+                  </svg>
+                </div>
+                <!-- Grid Section initially hidden, positioned beside the category -->
+                <div id="bedroom-grid" class="grid-container hidden">
+                  <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-1 p-6">
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Adult Bedroom Sets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Children/Kids Bedroom Sets</a>
+                    </div>
+                    <div
+                      class="block text-white 2xl:text-[20px] lg:text-[16px]"
+                    >
+                      <a class="px-5" href="#">Italian Bedroom Sets</a>
+                    </div>
+
                     <div
                       class="block text-white 2xl:text-[20px] lg:text-[16px]"
                     >
@@ -139,21 +176,24 @@
               >
                 <!-- Category and Icon Container -->
                 <div class="flex items-center gap-2">
-                  <p class="my-1 font-bold">Dining Room Furniture</p>
+                  <p class="category-title">Dining Room Furniture</p>
                   <!-- SVG Arrow Icon initially hidden -->
                   <svg
                     id="dining-arrow-icon"
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 512 512"
-                    class="hidden"
+                    stroke-width="35"
+                    viewBox="0 0 330 330"
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
                   >
                     <path
-                      d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                      d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001
+                        c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213
+                        C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606
+                        C255,161.018,253.42,157.202,250.606,154.389z"
                     ></path>
                   </svg>
                 </div>
@@ -247,20 +287,24 @@
               >
                 <!-- Category and Icon Container -->
                 <div class="flex items-center gap-2">
-                  <p class="my-1 font-bold">Living Room Furniture</p>
+                  <p class="category-title">Living Room Furniture</p>
+
                   <svg
                     id="arrow-icon-living"
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 512 512"
-                    class="hidden"
+                    stroke-width="35"
+                    viewBox="0 0 330 330"
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
                   >
                     <path
-                      d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                      d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001
+                    c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213
+                    C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606
+                    C255,161.018,253.42,157.202,250.606,154.389z"
                     ></path>
                   </svg>
                 </div>
@@ -302,14 +346,14 @@
                       class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
                     >
                       <a class="living-px-5" href="#"
-                        >Fabric Recliner Sofa & Sectional Sets</a
+                        >Fabric Recliner Sofa &amp; Sectional Sets</a
                       >
                     </div>
                     <div
                       class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
                     >
                       <a class="living-px-5" href="#"
-                        >Leather Recliner Sofa & Sectional Sets</a
+                        >Leather Recliner Sofa &amp; Sectional Sets</a
                       >
                     </div>
                     <div
@@ -360,7 +404,9 @@
                     <div
                       class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
                     >
-                      <a class="living-px-5" href="#">Coffee & End Tables</a>
+                      <a class="living-px-5" href="#"
+                        >Coffee &amp; End Tables</a
+                      >
                     </div>
                     <div
                       class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
@@ -372,7 +418,7 @@
                     <div
                       class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
                     >
-                      <a class="living-px-5" href="#">Rugs & Carpets</a>
+                      <a class="living-px-5" href="#">Rugs &amp; Carpets</a>
                     </div>
                   </div>
                 </div>
@@ -506,46 +552,34 @@
             <div
               class="2xl:text-[20px] lg:text-[16px] p-1 cursor-pointers flex items-center gap-2 text-white"
             >
-              <p class="my-1 font-bold">All</p>
+              <p class="category-title">All</p>
             </div>
 
             <!-- Bed & Bedroom Sets Category with toggle functionality -->
             <div
-              id="bedroom-toggles"
               class="category-containers 2xl:text-[20px] lg:text-[16px] p-1 cursor-pointers flex items-start gap-2 text-white"
-              onclick="toggleBedroomSections()"
             >
               <!-- Category and Icon Container -->
               <div class="flex items-center gap-2">
-                <p class="my-1 font-bold">Bed &amp; Bedroom Sets</p>
+                <p class="category-title">Beds</p>
                 <!-- SVG Arrow Icon initially hidden -->
                 <svg
-                  id="arrow-icons"
+                  stroke-width="35"
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
                   viewBox="0 0 512 512"
-                  class="hidden"
-                  height="1em"
-                  width="1em"
+                  height="20"
+                  width="20"
                   xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <path
-                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                    d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
                   ></path>
                 </svg>
               </div>
-              <div id="bedroom-grids" class="grid-container hidden">
+              <div class="grid-container">
                 <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-1 p-6">
-                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
-                    <a class="px-5" href="#">Adult Bedroom Sets</a>
-                  </div>
-                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
-                    <a class="px-5" href="#">Children/Kids Bedroom Sets</a>
-                  </div>
-                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
-                    <a class="px-5" href="#">Italian Bedroom Sets</a>
-                  </div>
                   <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
                     <a class="px-5" href="#">Twin/Double Beds</a>
                   </div>
@@ -561,6 +595,47 @@
                   <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
                     <a class="px-5" href="#">Trundle/Day Beds</a>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div
+              id="bedroom-toggles"
+              class="category-containers 2xl:text-[20px] lg:text-[16px] p-1 cursor-pointers flex items-start gap-2 text-white"
+              onclick="toggleBedroomSections()"
+            >
+              <!-- Category and Icon Container -->
+              <div class="flex items-center gap-2">
+                <p class="category-title">Bedroom Sets</p>
+                <!-- SVG Arrow Icon initially hidden -->
+                <svg
+                  stroke-width="35"
+                  id="arrow-icons"
+                  stroke="currentColor"
+                  class="arrow-toggles"
+                  fill="currentColor"
+                  viewBox="0 0 512 512"
+                  height="20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <path
+                    d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+                  ></path>
+                </svg>
+              </div>
+              <div id="bedroom-grids" class="grid-container hidden">
+                <div class="grid 2xl:grid-cols-3 lg:grid-cols-2 gap-1 p-6">
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Adult Bedroom Sets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Children/Kids Bedroom Sets</a>
+                  </div>
+                  <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
+                    <a class="px-5" href="#">Italian Bedroom Sets</a>
+                  </div>
+
                   <div class="block text-white 2xl:text-[20px] lg:text-[16px]">
                     <a class="px-5" href="#">Armoire/Wardrobe</a>
                   </div>
@@ -574,20 +649,21 @@
               onclick="toggleDiningSections()"
             >
               <div class="flex items-center gap-2">
-                <p class="my-1 font-bold">Dining Room Furniture</p>
+                <p class="category-title">Dining Room Furniture</p>
                 <svg
+                  stroke-width="35"
                   id="dining-arrow-icons"
                   stroke="currentColor"
+                  class="arrow-toggles"
                   fill="currentColor"
-                  stroke-width="0"
                   viewBox="0 0 512 512"
-                  class="hidden"
-                  height="1em"
-                  width="1em"
+                  height="20"
+                  width="20"
                   xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <path
-                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                    d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
                   ></path>
                 </svg>
               </div>
@@ -647,20 +723,22 @@
               onclick="toggleLivingRoomSections()"
             >
               <div class="flex items-center gap-2">
-                <p class="my-1 font-bold">Living Room Furniture</p>
+                <p class="category-title">Living Room Furniture</p>
+
                 <svg
+                  stroke-width="35"
                   id="arrow-icon-livings"
                   stroke="currentColor"
+                  class="arrow-toggles"
                   fill="currentColor"
-                  stroke-width="0"
                   viewBox="0 0 512 512"
-                  class="hidden"
-                  height="1em"
-                  width="1em"
+                  height="20"
+                  width="20"
                   xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <path
-                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"
+                    d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
                   ></path>
                 </svg>
               </div>
@@ -701,14 +779,14 @@
                     class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
                   >
                     <a class="living-px-5" href="#"
-                      >Fabric Recliner Sofa & Sectional Sets</a
+                      >Fabric Recliner Sofa &amp; Sectional Sets</a
                     >
                   </div>
                   <div
                     class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
                   >
                     <a class="living-px-5" href="#"
-                      >Leather Recliner Sofa & Sectional Sets</a
+                      >Leather Recliner Sofa &amp; Sectional Sets</a
                     >
                   </div>
                   <div
@@ -759,7 +837,7 @@
                   <div
                     class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
                   >
-                    <a class="living-px-5" href="#">Coffee & End Tables</a>
+                    <a class="living-px-5" href="#">Coffee &amp; End Tables</a>
                   </div>
                   <div
                     class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
@@ -769,7 +847,7 @@
                   <div
                     class="living-block text-white 2xl:text-[20px] lg:text-[16px]"
                   >
-                    <a class="living-px-5" href="#">Rugs & Carpets</a>
+                    <a class="living-px-5" href="#">Rugs &amp; Carpets</a>
                   </div>
                 </div>
               </div>
@@ -781,6 +859,23 @@
           <div class="text-white flex flex-col gap-1">
             <p class="cursor-pointers" onclick="toggleLocation()">
               All Locations
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="35"
+                viewBox="0 0 330 330"
+                height="0.7em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <path
+                  d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001
+              c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213
+              C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606
+              C255,161.018,253.42,157.202,250.606,154.389z"
+                ></path>
+              </svg>
             </p>
             <div id="location" class="location-menu hidden">
               <p>North York Location</p>
@@ -835,6 +930,31 @@
             <div class="hero_content">
               <div class="row justify-content-center">
                 <div class="col-12 hero_content_inner">
+                  <h2 class="text-center mb-0 anim--chars anim--chars--3d">
+                    <div
+                      class="line"
+                      style="display: block; text-align: center; width: 100%"
+                    >
+                      <strong
+                        class=""
+                        style="display: inline-block; position: relative"
+                      >
+                        <div
+                          class="char anim--slide-up"
+                          style="
+                            display: inline-block;
+                            translate: none;
+                            rotate: none;
+                            scale: none;
+                            transform: translate(0px, 0%);
+                            letter-spacing: 0.01em;
+                          "
+                        >
+                          Paramount Furnitures
+                        </div>
+                      </strong>
+                    </div>
+                  </h2>
                   <h1 class="text-center mb-0 anim--chars anim--chars--3d">
                     <div
                       class="line"
@@ -924,6 +1044,7 @@
                           background: transparent;
                           border: none;
                         "
+                        onclick="redirectToDeal()"
                       >
                         <!-- Individual characters for "Shop Now" -->
                         <div
@@ -988,14 +1109,7 @@
                           </h2>
                         </div>
                       </div>
-                      <div
-                        class="about_content_label scroll-reveal"
-                        id="section2"
-                      >
-                        <h3 class="body-text">
-                          <span class="">Special Offer based on outlines</span>
-                        </h3>
-                      </div>
+
                       <!-- store -->
                       <div class="stores">
                         <div class="store-components">
@@ -1046,13 +1160,25 @@
                 <div class="explore-links">
                   <a href="#" class="explore-link-item">New Arrivals</a>
                   <a href="#" class="explore-link-item">Clearance Offers</a>
-                  <a href="#" class="explore-link-item">View Our Collections</a>
                   <a class="explore-link-item" onclick="toggleSubLinks()"
-                    >All Categories</a
-                  >
+                    >All Categories
+                    <svg
+                      class="arrow-toggle"
+                      stroke="currentColor"
+                      fill="currentColor"
+                      viewBox="0 0 512 512"
+                      width="20"
+                      height="20"
+                    >
+                      <path
+                        d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+                      ></path>
+                    </svg>
+                  </a>
+
                   <div id="explore-sub-links" class="explore-sub-links hidden">
                     <a href="#" class="explore-sub-link-item"
-                      >Bed & Bedroom Sets</a
+                      >Bed &amp; Bedroom Sets</a
                     >
                     <a href="#" class="explore-sub-link-item"
                       >Dining Room Furniture</a
@@ -1074,9 +1200,7 @@
                       background-image: url('./assets/img/clearance_offer.jpg');
                     "
                   >
-                    <span class="explore-label"
-                      >Clearance and Liquidity Offers</span
-                    >
+                    <span class="explore-label">Clearance Offers</span>
                   </div>
                   <div
                     class="explore-grid-item"
@@ -1100,7 +1224,7 @@
                       background-image: url('./assets/img/bed_room_offer.jpg');
                     "
                   >
-                    <span class="explore-label">Bedroom Section Offers</span>
+                    <span class="explore-label">Bedroom Offers</span>
                   </div>
                   <div
                     class="explore-grid-item"
@@ -1108,9 +1232,7 @@
                       background-image: url('./assets/img/living_room_offer.jpg');
                     "
                   >
-                    <span class="explore-label"
-                      >Living Room Section Offers</span
-                    >
+                    <span class="explore-label">Living Room Offers</span>
                   </div>
                   <div
                     class="explore-grid-item"
@@ -1118,9 +1240,7 @@
                       background-image: url('./assets/img/dining_offer.jpg');
                     "
                   >
-                    <span class="explore-label"
-                      >Dining Room Section Offers</span
-                    >
+                    <span class="explore-label">Dining Room Offers</span>
                   </div>
                 </div>
               </div>
@@ -1175,27 +1295,7 @@
               </div>
             </div>
           </section>
-          <section id="decoration">
-            <div class="video-container">
-              <div class="wrapper">
-                <input class="video-chk" type="checkbox" />
-                <div class="video">
-                  <video
-                    data-pc="./assets/video/reel-mobile.mp4"
-                    data-mobile="./assets/video/reel-mobile.mp4"
-                    src="./assets/video/reel.mp4"
-                    loop
-                    muted
-                    autoplay
-                    playsinline
-                  ></video>
-                </div>
-                <div class="text">
-                  <span data-text="Decoration"></span>
-                </div>
-              </div>
-            </div>
-          </section>
+
           <section id="about">
             <div class="about">
               <div class="col-sm-10 col-12 offset-sm-1">
@@ -1348,7 +1448,7 @@
                   <a href="#customer" class="footer-link">Contact Us</a>
                 </li>
                 <li class="footer-item">
-                  <a href="/" class="footer-link">Delivery & FAQ</a>
+                  <a href="/" class="footer-link">Delivery &amp; FAQ</a>
                 </li>
                 <li class="footer-item">
                   <a href="/" class="footer-link">Return Policy</a>
@@ -1357,7 +1457,7 @@
             </div>
             <!-- Products Section -->
             <div class="footer-section">
-              <p class="footer-title">Products & Deals</p>
+              <p class="footer-title">Products &amp; Deals</p>
               <ul class="footer-links">
                 <li class="footer-item">
                   <a href="/" class="footer-link">All Furniture</a>

@@ -32,19 +32,19 @@ document.addEventListener("DOMContentLoaded", function () {
 function toggleBedroomSection() {
   var arrowIcon = document.getElementById("arrow-icon");
   var bedroomGrid = document.getElementById("bedroom-grid");
-  arrowIcon.classList.toggle("hidden");
+  arrowIcon.classList.toggle("show");
   bedroomGrid.classList.toggle("hidden");
 }
 function toggleDiningSection() {
   var arrowIcon = document.getElementById("dining-arrow-icon");
   var diningGrid = document.getElementById("dining-grid");
-  arrowIcon.classList.toggle("hidden");
+  arrowIcon.classList.toggle("show");
   diningGrid.classList.toggle("hidden");
 }
 function toggleLivingRoomSection() {
   var arrowIcon = document.getElementById("arrow-icon-living");
   var livingRoomGrid = document.getElementById("living-room-grid");
-  arrowIcon.classList.toggle("hidden");
+  arrowIcon.classList.toggle("show");
   livingRoomGrid.classList.toggle("hidden");
 }
 // Toggle menu visibility
@@ -79,19 +79,19 @@ document.addEventListener("DOMContentLoaded", function () {
 function toggleBedroomSections() {
   var arrowIcon = document.getElementById("arrow-icons");
   var bedroomGrid = document.getElementById("bedroom-grids");
-  arrowIcon.classList.toggle("hidden");
+  arrowIcon.classList.toggle("visible");
   bedroomGrid.classList.toggle("hidden");
 }
 function toggleDiningSections() {
   var arrowIcon = document.getElementById("dining-arrow-icons");
   var diningGrid = document.getElementById("dining-grids");
-  arrowIcon.classList.toggle("hidden");
+  arrowIcon.classList.toggle("visible");
   diningGrid.classList.toggle("hidden");
 }
 function toggleLivingRoomSections() {
   var arrowIcon = document.getElementById("arrow-icon-livings");
   var livingRoomGrid = document.getElementById("living-room-grids");
-  arrowIcon.classList.toggle("hidden");
+  arrowIcon.classList.toggle("visible");
   livingRoomGrid.classList.toggle("hidden");
 }
 //parallox video
@@ -209,4 +209,9 @@ document.addEventListener("DOMContentLoaded", function () {
 function toggleSubLinks() {
   const subLinks = document.getElementById("explore-sub-links");
   subLinks.classList.toggle("shown");
+}
+//button click
+function redirectToDeal() {
+  const dealSection = document.getElementById("deal");
+  dealSection.scrollIntoView({ behavior: "smooth", block: "start" });
 }
