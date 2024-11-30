@@ -215,3 +215,13 @@ function redirectToDeal() {
   const dealSection = document.getElementById("deal");
   dealSection.scrollIntoView({ behavior: "smooth", block: "start" });
 }
+//form input for file
+function triggerInput(inputId) {
+  document.getElementById(inputId).click();
+}
+
+function updatePlaceholder(input) {
+  const placeholder = document.getElementById(`placeholder-${input.id}`);
+  placeholder.textContent =
+    input.files[0]?.name || placeholder.getAttribute("placeholder");
+}
