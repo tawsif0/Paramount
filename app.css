@@ -1294,7 +1294,7 @@ svg.active {
 }
 
 /* Large Screen Version (1600px and up) */
-@media (min-width: 1600px) {
+@media (min-width: 1400px) {
   .stores {
     flex-direction: row;
     gap: 2rem;
@@ -1335,8 +1335,6 @@ svg.active {
   margin: 0 auto;
   color: var(--white-color);
   background: linear-gradient(120deg, #ff6a00 0%, #ff4500 35%, #ff0000 70%, #b20000 100%);
-
-
   backdrop-filter: blur(15px); 
   -webkit-backdrop-filter: blur(15px); 
   border-top-left-radius: 10px;
