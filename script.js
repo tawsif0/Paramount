@@ -225,3 +225,49 @@ function updatePlaceholder(input) {
   placeholder.textContent =
     input.files[0]?.name || placeholder.getAttribute("placeholder");
 }
+//Toggle button
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleInput = document.getElementById("check");
+
+  // Function to apply the theme based on mode
+  function applyTheme(isLightMode) {
+    if (isLightMode) {
+      // Light theme
+      document.documentElement.style.setProperty("--ash-color", "#6f5f52");
+      document.documentElement.style.setProperty("--white-color", "#000000");
+      document.documentElement.style.setProperty(
+        "--background-color",
+        "#ffffff"
+      );
+      toggleInput.checked = true; // Ensure the toggle reflects the light mode
+    } else {
+      // Dark theme
+      document.documentElement.style.setProperty("--ash-color", "#b7ab98");
+      document.documentElement.style.setProperty("--white-color", "#ffffff");
+      document.documentElement.style.setProperty(
+        "--background-color",
+        "#0d0d0d"
+      );
+      toggleInput.checked = false; // Ensure the toggle reflects the dark mode
+    }
+  }
+
+  // Retrieve the theme from localStorage
+  const savedTheme = localStorage.getItem("theme");
+  const isLightMode = savedTheme === "light";
+
+  // Apply the saved theme on page load
+  applyTheme(isLightMode);
+
+  // Add event listener to the toggle button
+  if (toggleInput) {
+    toggleInput.addEventListener("change", function () {
+      const isChecked = this.checked;
+      // Update the theme and save the preference
+      applyTheme(isChecked);
+      localStorage.setItem("theme", isChecked ? "light" : "dark");
+    });
+  } else {
+    console.error('Checkbox with ID "check" not found.');
+  }
+});

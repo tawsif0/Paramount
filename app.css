@@ -51,17 +51,20 @@
   --spacing-sx: 1.5rem;
   --screen-left: 3rem;
   --size-btn: 78px;
+  
+
+}
+:root {
   --red-color: #eb5939;
   --reds-color: #e45a3bd2;
-  --ash-color:#b7ab98;
+  --ash-color: #b7ab98;
   --white-color: #ffffff;
   --background-color: #0d0d0d;
 }
 
 body,
 html {
-  margin: 0;
-  padding: 0;
+ 
   font-smooth: antialiased !important;
   background: var(--background-color);
   color: var(--ash-color);
@@ -69,9 +72,12 @@ html {
   font-weight: 400;
   line-height: 110%;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  margin-left: -0.02px !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+ 
 }
-
 
 .col-1 {
   width: 8.33333333%;
@@ -392,7 +398,14 @@ html {
   padding: 1rem;
 }
 
-/* Icon container shared across all views */
+.icon-container svg {
+  color: var(--white-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-size: 1.3rem;
+  pointer-events: auto;
+}
+
 .icon-container {
   display: flex;
   align-items: center;
@@ -409,14 +422,53 @@ html {
   pointer-events: none;
 }
 
-/* SVG Styles */
-.icon-container svg {
-  color: var(--white-color);
-  cursor: pointer;
-  transition: color 0.3s ease;
-  font-size: 1.3rem;
-  pointer-events: auto;
+/* Override pointer-events for toggle-wrapper */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3em;
+  height: 3em;
+  pointer-events: all;
 }
+
+.toggle-button {
+  background-color: rgb(255, 255, 255);
+  width: 2em;
+  height: 1em;
+  border-radius: 2em;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.toggle-button::before {
+  position: absolute;
+  content: '';
+  background-color: black;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  margin: 0.1em;
+  transition: 0.3s ease;
+}
+
+/* When checkbox is checked */
+.toggle-input:checked + .toggle-button {
+  background-color: black;
+}
+
+.toggle-input:checked + .toggle-button::before {
+  transform: translateX(1em);
+  background-color:white;
+}
+
+.toggle-input {
+  display: none;
+  pointer-events: all;
+}
+
+/* end */
 
 /* Tablet and Mobile view (max-width: 1024px) */
 @media (max-width: 1024px) {
@@ -474,7 +526,7 @@ html {
   .header.show-nav .nav-items {
     display: flex;
     opacity: 1;
-    margin-left: 5rem;
+    margin-left: 3rem;
   }
 
   .header.show-nav .nav-item {
@@ -721,7 +773,7 @@ svg.active {
   cursor: pointer;
   margin: 0;
   padding: 0;
-  color: var(--white-color);
+  color: white;
 }
 .flex {
   display: flex;
@@ -785,7 +837,9 @@ svg.active {
   padding: 1rem;
   margin-top: 5px; 
 }
-
+#locations p:hover{
+  color: var(--red-color);
+}
 #locations p {
   margin: 0;
 }
@@ -1126,7 +1180,7 @@ svg.active {
 .search-bar {
   display: flex;
   align-items: center;
-  background-color: var(--white-color); 
+  background-color: white; 
   border: 2px solid var(--red-color);
   border-radius: 1.5rem;
   padding: 0.7rem 1rem; 
@@ -1371,10 +1425,12 @@ a {
 
 .main-layer {
   position: relative;
+ 
 }
 
 .layer {
   width: 100%;
+ 
 }
 
 .container {
@@ -1386,11 +1442,12 @@ a {
 .hero {
   overflow: hidden;
   position: relative;
+  
 }
 
 .hero_bg {
   height: 100%;
-  left: 0;
+  left: 0 ;
   position: absolute;
   top: 0;
   width: 100%;
@@ -1411,6 +1468,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
 }
 
 .anim--fade {
@@ -1899,7 +1957,7 @@ h6 {
 
 .form-container {
   position: absolute;
-  background: var(--background-color);
+  background: #0d0d0d;
   padding: 20px;
   box-sizing: border-box;
   border-radius: 8px;
@@ -1909,7 +1967,7 @@ h6 {
 }
 
 .form-content {
-  color: var(--ash-color);
+  color: #b7ab98;
   text-align: center;
 }
 
@@ -1948,7 +2006,7 @@ h6 {
   width: 90%;
   padding: 13px;
   margin-bottom: 10px;
-  background-color: var(--white-color);
+  background-color:white;
   border: none;
   color: black;
   border-radius: 5px;
@@ -2708,7 +2766,7 @@ input[type="file"] {
 }
 
 .lines {
-  color: var(--white-color);
+  color: white;
   cursor: pointer;
   text-align: center;
   font-size: 2.3rem;
@@ -2755,7 +2813,7 @@ input[type="file"] {
 .button-container button {
   position: relative;
   z-index: 1;
-  color: var(--white-color);
+  color: white;
   transition: color 0.5s linear;
 }
 
@@ -2771,7 +2829,7 @@ input[type="file"] {
 }
 
 .button-container:hover .char {
-  color: var(--white-color);
+  color:white;
 }
 
 /* SVG icon styling */
@@ -2823,7 +2881,7 @@ input[type="file"] {
 }
 .landing_page .form-box {
   background-color: #000000;
-  color: var(--white-color);
+  color: white;
   padding: 35px 25px 35px 30px;
   border-radius: 10px;
   max-width: 400px;
@@ -2964,7 +3022,7 @@ input[type="file"] {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  color: var(--white-color);
+  color: white;
 }
 
 .landing_page .text-blk.section-subhead {
@@ -2973,7 +3031,7 @@ input[type="file"] {
   margin-bottom: 50px;
   margin-left: 0px;
   font-size: 24px;
-  color: var(--white-color);
+  color:white;
   max-width: 550px;
   line-height: 2rem;
 }
@@ -3311,7 +3369,7 @@ input[type="file"] {
   padding: 10px 15px;
   display: block;
   position: relative;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--ash-color);
   box-shadow: inset 0 0 0 0 #eb5939;
   transition: box-shadow 0.4s ease-in-out, color 0.4s ease-in-out;
   text-decoration: none;
@@ -3430,6 +3488,7 @@ input[type="file"] {
   position: relative;
   transition: transform 0.3s;
   border-radius: 10px;
+  border: 1px solid var(--white-color);
 }
 
 .explore-grid-item:hover {
