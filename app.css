@@ -1323,7 +1323,7 @@ svg.active {
 .store-components:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease-linear;
-  box-shadow: 0 4px 15px var(--red-color);
+  
 }
 /* Store Title */
 .store-title {
