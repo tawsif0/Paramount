@@ -3796,8 +3796,11 @@ input[type="file"] {
 .partner-grid-item {
   width: 300px;
   height: 180px;
-  background-image: linear-gradient(315deg, #a0b0e7, #bbb 57%);
-  background-color: rgba(120, 120, 120, 0.6);
+  background: hsla(197, 14%, 37%, 1); /* Even darker blue tone */
+  background: linear-gradient(90deg, hsla(197, 14%, 37%, 1) 0%, hsla(192, 17%, 74%, 1) 100%); /* Darker gradient */
+  background: -moz-linear-gradient(90deg, hsla(197, 14%, 37%, 1) 0%, hsla(192, 17%, 74%, 1) 100%);
+  background: -webkit-linear-gradient(90deg, hsla(197, 14%, 37%, 1) 0%, hsla(192, 17%, 74%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#4C6470", endColorstr="#C0C9CC", GradientType=1);
   background-blend-mode: overlay;
 
 
