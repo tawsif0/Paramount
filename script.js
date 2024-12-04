@@ -225,11 +225,9 @@ function updatePlaceholder(input) {
   placeholder.textContent =
     input.files[0]?.name || placeholder.getAttribute("placeholder");
 }
-//Toggle button
+//Toggle button for Theme
 document.addEventListener("DOMContentLoaded", () => {
   const toggleInput = document.getElementById("check");
-
-  // Function to apply the theme based on mode
   function applyTheme(isLightMode) {
     if (isLightMode) {
       // Light theme
@@ -248,26 +246,101 @@ document.addEventListener("DOMContentLoaded", () => {
         "--background-color",
         "#0d0d0d"
       );
-      toggleInput.checked = false; // Ensure the toggle reflects the dark mode
+      toggleInput.checked = false;
     }
   }
-
-  // Retrieve the theme from localStorage
   const savedTheme = localStorage.getItem("theme");
   const isLightMode = savedTheme === "light";
-
-  // Apply the saved theme on page load
   applyTheme(isLightMode);
-
-  // Add event listener to the toggle button
   if (toggleInput) {
     toggleInput.addEventListener("change", function () {
       const isChecked = this.checked;
-      // Update the theme and save the preference
+
       applyTheme(isChecked);
       localStorage.setItem("theme", isChecked ? "light" : "dark");
     });
   } else {
     console.error('Checkbox with ID "check" not found.');
   }
+});
+//Partner
+document.addEventListener("DOMContentLoaded", () => {
+  const partnerGrid = document.getElementById("partnerGrid");
+  const leftArrow = document.getElementById("prevPage");
+  const rightArrow = document.getElementById("nextPage");
+  const items = Array.from(
+    partnerGrid.getElementsByClassName("partner-grid-item")
+  );
+  const totalImages = items.length;
+  const imagesPerPage = 9; // Adjustable for different grid configurations
+  let currentPage = 1;
+
+  // Update grid display based on the current page
+  function updateGridDisplay() {
+    const startIndex = (currentPage - 1) * imagesPerPage;
+    const endIndex = Math.min(startIndex + imagesPerPage, totalImages);
+
+    // Hide all items
+    items.forEach((item, index) => {
+      item.style.display =
+        index >= startIndex && index < endIndex ? "flex" : "none";
+    });
+
+    // Update arrow visibility and disable state
+    if (currentPage === 1) {
+      leftArrow.classList.add("disabled"); // Disable left arrow
+    } else {
+      leftArrow.classList.remove("disabled"); // Enable left arrow
+    }
+
+    if (endIndex === totalImages) {
+      rightArrow.classList.add("disabled"); // Disable right arrow
+    } else {
+      rightArrow.classList.remove("disabled"); // Enable right arrow
+    }
+  }
+
+  // Navigate to the next page
+  function goToNextPage() {
+    if (currentPage * imagesPerPage < totalImages) {
+      currentPage++;
+      updateGridDisplay();
+    }
+  }
+
+  // Navigate to the previous page
+  function goToPreviousPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      updateGridDisplay();
+    }
+  }
+
+  // Handle touch swipe for mobile navigation
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  function handleSwipe() {
+    if (touchEndX < touchStartX) {
+      goToNextPage(); // Swipe left
+    } else if (touchEndX > touchStartX) {
+      goToPreviousPage(); // Swipe right
+    }
+  }
+
+  partnerGrid.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX; // Get initial touch position
+  });
+
+  partnerGrid.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX; // Get end touch position
+    handleSwipe(); // Check swipe direction
+  });
+
+  // Add event listeners for arrow buttons (for larger screens)
+  rightArrow.addEventListener("click", goToNextPage);
+  leftArrow.addEventListener("click", goToPreviousPage);
+
+  // Initialize the grid display
+  updateGridDisplay();
 });
