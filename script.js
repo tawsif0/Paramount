@@ -35,6 +35,18 @@ function toggleBedroomSection() {
   arrowIcon.classList.toggle("show");
   bedroomGrid.classList.toggle("hidden");
 }
+function toggleMattressSection() {
+  var arrowIcon = document.getElementById("arrow-iconss");
+  var matGrid = document.getElementById("mattress-grid");
+  arrowIcon.classList.toggle("show");
+  matGrid.classList.toggle("hidden");
+}
+function toggleDecSection() {
+  var arrowIcon = document.getElementById("arrow-iconsss");
+  var decGrid = document.getElementById("dec-grid");
+  arrowIcon.classList.toggle("show");
+  decGrid.classList.toggle("hidden");
+}
 function toggleDiningSection() {
   var arrowIcon = document.getElementById("dining-arrow-icon");
   var diningGrid = document.getElementById("dining-grid");
@@ -81,6 +93,18 @@ function toggleBedroomSections() {
   var bedroomGrid = document.getElementById("bedroom-grids");
   arrowIcon.classList.toggle("visible");
   bedroomGrid.classList.toggle("hidden");
+}
+function toggleMattressSections() {
+  var arrowIcon = document.getElementById("arrow-iconssss");
+  var MattressGrid = document.getElementById("mattress-grids");
+  arrowIcon.classList.toggle("visible");
+  MattressGrid.classList.toggle("hidden");
+}
+function toggleDecSections() {
+  var arrowIcon = document.getElementById("dec-arrow-icons");
+  var decGrid = document.getElementById("dec-grids");
+  arrowIcon.classList.toggle("visible");
+  decGrid.classList.toggle("hidden");
 }
 function toggleDiningSections() {
   var arrowIcon = document.getElementById("dining-arrow-icons");
@@ -210,6 +234,52 @@ function toggleSubLinks() {
   const subLinks = document.getElementById("explore-sub-links");
   subLinks.classList.toggle("shown");
 }
+function closeAllDropdowns(exceptElement = null) {
+  // Close all dropdowns except the one provided
+  const allDropdowns = document.querySelectorAll(".products-sub-links");
+  allDropdowns.forEach((dropdown) => {
+    if (dropdown !== exceptElement) {
+      dropdown.classList.remove("shown");
+    }
+  });
+}
+
+function toggleDropdown(dropdownId) {
+  const dropdown = document.getElementById(dropdownId);
+  const isCurrentlyShown = dropdown.classList.contains("shown");
+
+  // Close all other dropdowns
+  closeAllDropdowns(isCurrentlyShown ? dropdown : null);
+
+  // Toggle the visibility of the clicked dropdown
+  dropdown.classList.toggle("shown");
+}
+
+// Attach event handlers
+function toggleBedsProductLinks() {
+  toggleDropdown("products-sub-links");
+}
+
+function toggleBedroomProductLinks() {
+  toggleDropdown("products-sub-links-bedroom");
+}
+
+function toggleMattressProductLinks() {
+  toggleDropdown("products-sub-links-mat");
+}
+
+function toggleDiningProductLinks() {
+  toggleDropdown("products-sub-links-din");
+}
+
+function toggleLivingProductLinks() {
+  toggleDropdown("products-sub-links-liv");
+}
+
+function toggleDecProductLinks() {
+  toggleDropdown("products-sub-links-dec");
+}
+
 //button click
 function redirectToDeal() {
   const dealSection = document.getElementById("deal");
@@ -344,3 +414,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize the grid display
   updateGridDisplay();
 });
+//header background
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header.classList.add("scrolling");
+    } else {
+      header.classList.remove("scrolling");
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.querySelector(".menu-container");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      menu.classList.add("scrolling");
+    } else {
+      menu.classList.remove("scrolling");
+    }
+  });
+});
+//navbar
