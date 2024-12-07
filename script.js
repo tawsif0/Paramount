@@ -437,4 +437,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-//navbar

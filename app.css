@@ -874,6 +874,16 @@ svg.active {
   transform: rotate(180deg); 
 }
 
+.arrow-toggless {
+  width: 24px;
+  height: 14px;
+  fill: var(--white-color);
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+.arrow-toggless.active {
+  transform: rotate(180deg); 
+}
 
 .category-section {
   display: none; 
@@ -4010,8 +4020,23 @@ input[type="file"] {
 
 /* Default styles for products menu */
 .products-menu {
-  width: 100%;
-  margin-left: 1.5rem; /* No margin on mobile */
+  margin-left: 1.5rem; 
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.2); /* Light translucent background */
+  backdrop-filter: blur(15px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(15px); /* Frosted glass for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for depth */
+  border-radius: 12px; /* Rounded corners */
+  color: #fff; /* White text */
+  padding: 1.5rem; /* Internal padding */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Shadow for elevation */
+  max-height: fit-content; /* Height adjusts to content */
+  overflow: hidden; /* Prevent overflow */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Center horizontally */
 }
 
 /* Tablet view (min-width: 768px) */
@@ -4026,7 +4051,7 @@ input[type="file"] {
 @media (min-width: 1024px) {
   .products-menu {
     width: 575px;
-    margin-left: 5rem; /* Margin-left for laptop */
+    margin-left: 5rem;
   }
 }
 
@@ -4034,7 +4059,7 @@ input[type="file"] {
 @media (min-width: 1200px) {
   .products-menu {
     width: 575px;
-    margin-left: 12rem; /* Margin-left for desktop */
+    margin-left: 12rem;
   }
 }
 
@@ -4046,14 +4071,6 @@ input[type="file"] {
   line-height: 0;
 }
 
-
-@media (min-width: 1024px) {
-  .products-title {
-    font-size: 4rem;
-  }
-
-}
-
 .products-links {
   font-size: 1.7rem;
   margin: 0;
@@ -4063,7 +4080,7 @@ input[type="file"] {
 /* Responsive font size for products links */
 @media (min-width: 1024px) {
   .products-links {
-    font-size: 1.8rem; 
+    font-size: 1.4rem; 
   }
 }
 
@@ -4105,7 +4122,7 @@ input[type="file"] {
 /* Individual sub-link styles */
 .products-sub-link-item {
   color: var(--ash-color);
-  font-size: 1.6rem;
+  
   margin: 6px 0;
   padding: 8px 15px;
 }
@@ -4113,7 +4130,7 @@ input[type="file"] {
 /* Adjustments for larger screens */
 @media (min-width: 1024px) {
   .products-sub-link-item {
-    font-size: 1.7rem;
+    
     margin-bottom: 12px;
   }
 }
