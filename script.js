@@ -437,3 +437,68 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+//Category redirection
+document.addEventListener("DOMContentLoaded", function () {
+  const categoryElement = document.getElementById("category-all");
+  if (categoryElement) {
+    categoryElement.addEventListener("click", function () {
+      window.location.href = "products.html";
+    });
+  }
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const categoryElement = document.getElementById("category-all-mobile");
+  if (categoryElement) {
+    categoryElement.addEventListener("click", function () {
+      window.location.href = "products.html";
+    });
+  }
+});
+//Product page js
+document.addEventListener("DOMContentLoaded", function () {
+  // Set the first tab as active by default
+  const defaultTab = document.querySelector(".tab.active");
+  const defaultSection = document.getElementById(
+    defaultTab.getAttribute("data-target")
+  );
+
+  // Show the default section
+  defaultSection.classList.remove("hidden");
+
+  document.querySelectorAll(".tab").forEach((tab) => {
+    tab.addEventListener("click", function () {
+      // Remove 'active' class from all tabs
+      document
+        .querySelectorAll(".tab")
+        .forEach((t) => t.classList.remove("active"));
+
+      // Add 'active' class to the clicked tab
+      this.classList.add("active");
+
+      // Hide all content sections
+      document.querySelectorAll(".info-section").forEach((section) => {
+        section.classList.add("hidden");
+      });
+
+      // Show the clicked section
+      const target = this.getAttribute("data-target");
+      document.getElementById(target).classList.remove("hidden");
+    });
+  });
+});
+//Option Button
+document.addEventListener("DOMContentLoaded", function () {
+  // Select all buttons with the class 'option-btn'
+  const buttons = document.querySelectorAll(".option-btn");
+
+  buttons.forEach((button) => {
+    // Add event listener for each button
+    button.addEventListener("click", function () {
+      // Remove the active class from all buttons
+      buttons.forEach((btn) => btn.classList.remove("active"));
+
+      // Add the active class to the clicked button
+      this.classList.add("active");
+    });
+  });
+});

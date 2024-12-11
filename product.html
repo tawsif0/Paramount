@@ -7,6 +7,113 @@
     <title>Paramount Furniture</title>
     <link rel="stylesheet" href="app.css" />
     <script src="script.js"></script>
+    <style>
+      .product-page {
+        max-width: 1200px;
+        padding: 20px;
+      }
+
+      .product-container {
+        display: flex;
+        gap: 20px;
+      }
+
+      .product-images {
+        flex: 1;
+      }
+
+      .main-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      .quantity {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        gap: 10px;
+      }
+
+      .quantity input {
+        width: 50px;
+        text-align: center;
+      }
+
+      .add-to-cart {
+        background: #ff5722;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .add-to-cart:hover {
+        background: #ff7043;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .tab {
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 1rem;
+        color: #555;
+        transition: border-color 0.3s, color 0.3s;
+      }
+
+      .tab.active {
+        border-color: #ff5722;
+        color: #ff5722;
+      }
+      .tab:hover {
+        color: white;
+      }
+      .product-info {
+        margin-top: 30px;
+      }
+
+      .info-section {
+        display: none; /* Hide all sections by default */
+      }
+
+      .hidden {
+        display: none; /* Explicitly hide sections with the 'hidden' class */
+      }
+
+      .info-section:not(.hidden) {
+        display: block; /* Show section when 'hidden' class is removed */
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
 
   <body>
@@ -1262,644 +1369,97 @@
     <main class="main-layer">
       <div class="layer">
         <div class="container">
-          <section id="products">
-            <div class="products-container">
-              <!-- <div class="products-menu">
-                <h2 class="products-title">Filter</h2>
-                <div class="products-links">
-                  <a href="#" class="products-link-item">All products</a>
-                  <a
-                    class="products-link-item"
-                    onclick="toggleBedsProductLinks()"
-                  >
-                    Beds
-                    <svg
-                      class="arrow-toggless"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      viewBox="0 0 512 512"
-                      width="20"
-                      height="20"
-                    >
-                      <path
-                        d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-                      ></path>
-                    </svg>
-                  </a>
-
-                  <div id="products-sub-links" class="products-sub-links">
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Twin/Double Beds" />
-                      Twin/Double Beds
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Queen/King Beds" />
-                      Queen/King Beds
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Storage Beds" /> Storage
-                      Beds
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Bunk Beds" /> Bunk Beds
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Trundle/Day Beds" />
-                      Trundle/Day Beds
-                    </label>
+          <section id="product">
+            <div class="product-wrapper">
+              <div class="product-page">
+                <div class="product-container">
+                  <!-- Left Column: Product Image and Thumbnails -->
+                  <div class="product-images">
+                    <div class="main-image">
+                      <img
+                        src="./assets/img/twin-beds.png"
+                        alt="Bedroom chair"
+                      />
+                    </div>
                   </div>
 
-                  <a
-                    class="products-link-item"
-                    onclick="toggleBedroomProductLinks()"
-                  >
-                    Bedroom Sets
-                    <svg
-                      class="arrow-toggless"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      viewBox="0 0 512 512"
-                      width="20"
-                      height="20"
-                    >
-                      <path
-                        d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-                      ></path>
-                    </svg>
-                  </a>
+                  <!-- Right Column: Product Details -->
+                  <div class="product-details">
+                    <h4 class="product-titles">Twin Double Bed</h4>
+                    <h4 class="product-price">
+                      <sup>$</sup>149.29
+                      <span class="cross"><sup>$</sup>179.29</span>
+                    </h4>
+                    <div class="product-options">
+                      <div class="button-row">
+                        <button class="option-btn active">
+                          CHAIR + OPTION ONE + OPTION TWO
+                        </button>
+                      </div>
+                      <div class="button-row">
+                        <button class="option-btn">CHAIR + OPTION ONE</button>
+                        <button class="option-btn">CHAIR + MATERIAL</button>
+                      </div>
+                      <div class="button-row">
+                        <button class="option-btn">
+                          CHAIR + OPTION ONE + OPTION 2 + MATERIALS
+                        </button>
+                      </div>
+                    </div>
 
-                  <div
-                    id="products-sub-links-bedroom"
-                    class="products-sub-links"
-                  >
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Adult Bedroom Sets" /> Adult
-                      Bedroom Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input
-                        type="checkbox"
-                        value="Children/Kids Bedroom Sets"
-                      />
-                      Children/Kids Bedroom Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Italian Bedroom Sets" />
-                      Italian Bedroom Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Armoire/Wardrobe" />
-                      Armoire/Wardrobe
-                    </label>
-                  </div>
-
-                  <a
-                    class="products-link-item"
-                    onclick="toggleMattressProductLinks()"
-                  >
-                    Mattresses
-                    <svg
-                      class="arrow-toggless"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      viewBox="0 0 512 512"
-                      width="20"
-                      height="20"
-                    >
-                      <path
-                        d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-                      ></path>
-                    </svg>
-                  </a>
-
-                  <div id="products-sub-links-mat" class="products-sub-links">
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Children/Kids Mattresses" />
-                      Children/Kids Mattresses
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Firm/Hard Mattresses" />
-                      Firm/Hard Mattresses
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Medium Firm Mattresses" />
-                      Medium Firm Mattresses
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Soft/Plush Mattresses" />
-                      Soft/Plush Mattresses
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input
-                        type="checkbox"
-                        value="Gel/Memory Foam Mattresses"
-                      />
-                      Gel/Memory Foam Mattresses
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Roll Pack Box Mattresses" />
-                      Roll Pack Box Mattresses
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Mattress Box Springs" />
-                      Mattress Box Springs
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Metal Frames" /> Metal
-                      Frames
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input
-                        type="checkbox"
-                        value="Electric Adjustable Bed Frames"
-                      />
-                      Electric Adjustable Bed Frames
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Pillow" /> Pillow
-                    </label>
-                  </div>
-
-                  <a
-                    class="products-link-item"
-                    onclick="toggleDiningProductLinks()"
-                    >Dining Room Furniture
-                    <svg
-                      class="arrow-toggless"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      viewBox="0 0 512 512"
-                      width="20"
-                      height="20"
-                    >
-                      <path
-                        d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-                      ></path>
-                    </svg>
-                  </a>
-
-                  <div id="products-sub-links-din" class="products-sub-links">
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Small Dining Sets" /> Small
-                      Dining Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Regular Dining Sets" />
-                      Regular Dining Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Large Dining Sets" /> Large
-                      Dining Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Marble Dining Sets" />
-                      Marble Dining Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Italian Dining Sets" />
-                      Italian Dining Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input
-                        type="checkbox"
-                        value="Counter/Pub Height Dining Sets"
-                      />
-                      Counter/Pub Height Dining Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Glass Top Dining Sets" />
-                      Glass Top Dining Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Dining Chairs" /> Dining
-                      Chairs
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Barstools" /> Barstools
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Counter Chairs" /> Counter
-                      Chairs
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Pub Chairs" /> Pub Chairs
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Servers/Buffets" />
-                      Servers/Buffets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="China Cabinets" /> China
-                      Cabinets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Curio/Vitrin" />
-                      Curio/Vitrin
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Food Carts" /> Food Carts
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Micro Oven Shelf" /> Micro
-                      Oven Shelf
-                    </label>
-                  </div>
-
-                  <a
-                    class="products-link-item"
-                    onclick="toggleLivingProductLinks()"
-                    >Living Room Furniture
-                    <svg
-                      class="arrow-toggless"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      viewBox="0 0 512 512"
-                      width="20"
-                      height="20"
-                    >
-                      <path
-                        d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-                      ></path>
-                    </svg>
-                  </a>
-
-                  <div id="products-sub-links-liv" class="products-sub-links">
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Fabric Sofa Sets" /> Fabric
-                      Sofa Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input
-                        type="checkbox"
-                        value="Fabric Sectional Sofa Sets"
-                      />
-                      Fabric Sectional Sofa Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Leather Sofa Sets" />
-                      Leather Sofa Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input
-                        type="checkbox"
-                        value="Leather Sectional Sofa Sets"
-                      />
-                      Leather Sectional Sofa Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input
-                        type="checkbox"
-                        value="Gel/Bonded/Leather Air Sofa Sets"
-                      />
-                      Gel/Bonded/Leather Air Sofa Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input
-                        type="checkbox"
-                        value="Fabric Recliner Sofa & Sectional Sets"
-                      />
-                      Fabric Recliner Sofa & Sectional Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input
-                        type="checkbox"
-                        value="Leather Recliner Sofa & Sectional Sets"
-                      />
-                      Leather Recliner Sofa & Sectional Sets
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Day Beds" /> Day Beds
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Sofa Beds" /> Sofa Beds
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Sectional Sofa Beds" />
-                      Sectional Sofa Beds
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Futons/Klick Klacks" />
-                      Futons/Klick Klacks
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Recliner Chairs" /> Recliner
-                      Chairs
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Medical Lift Chairs" />
-                      Medical Lift Chairs
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Accent Chairs" /> Accent
-                      Chairs
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Ottomans" /> Ottomans
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Benches" /> Benches
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Coffee & End Tables" />
-                      Coffee & End Tables
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Console/Hall/Sofa Tables" />
-                      Console/Hall/Sofa Tables
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Rugs & Carpets" /> Rugs &
-                      Carpets
-                    </label>
-                  </div>
-
-                  <a
-                    class="products-link-item"
-                    onclick="toggleDecProductLinks()"
-                    >Decoration &amp; Accessories
-
-                    <svg
-                      class="arrow-toggless"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      viewBox="0 0 512 512"
-                      width="20"
-                      height="20"
-                    >
-                      <path
-                        d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-                      ></path>
-                    </svg>
-                  </a>
-
-                  <div id="products-sub-links-dec" class="products-sub-links">
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="TV Stands" /> TV Stands
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Study Desks" /> Study Desks
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Computer Desks" /> Computer
-                      Desks
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Computer Chairs" /> Computer
-                      Chairs
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Office Desks" /> Office
-                      Desks
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Office Chairs" /> Office
-                      Chairs
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Bookshelves" /> Bookshelves
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Shoe Benches" /> Shoe
-                      Benches
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Mirrors" /> Mirrors
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Arts & Picture Frames" />
-                      Arts & Picture Frames
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Lamps" /> Lamps
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Coat Hangers" /> Coat
-                      Hangers
-                    </label>
-                    <label class="products-sub-link-item">
-                      <input type="checkbox" value="Nesting Table" /> Nesting
-                      Table
-                    </label>
+                    <div class="quantity">
+                      <label for="quantity">Qty:</label>
+                      <input type="number" id="quantity" min="1" value="1" />
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
                   </div>
                 </div>
-              </div> -->
-              <div class="products-image-right">
-                <div class="products-grid">
-                  <div class="products-grid-item">
-                    <div class="products-wrapper">
-                      <div class="products-image">
-                        <img
-                          src="./assets/img/twin-beds.png"
-                          alt="Twin Double Bed"
-                        />
-                      </div>
-                      <div class="products-details">
-                        <div class="products-header">
-                          <h4 class="product-title">Twin Double Bed</h4>
-                          <h4 class="products-price">
-                            <sup>$</sup>149.29
-                            <span class="cross"><sup>$</sup>179.29</span>
-                          </h4>
-                          <div class="products-availability">
-                            Availability: <span class="status">In Stock</span>
-                          </div>
-                        </div>
-                        <p class="products-description">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit
-                        </p>
-                        <div class="products-action">
-                          <button type="button" class="add-to-cart-btn">
-                            <span
-                              ><svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                class="bi bi-cart-plus-fill"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0"
-                                /></svg></span
-                            >BUY NOW
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+
+                <!-- Tabs Section -->
+                <div class="tabs">
+                  <button class="tab active" data-target="description">
+                    Description
+                  </button>
+                  <button class="tab" data-target="materials">Materials</button>
+                  <button class="tab" data-target="dimensions">
+                    Dimension
+                  </button>
+                </div>
+
+                <!-- Information Section -->
+                <div class="product-info">
+                  <div class="info-section" id="description">
+                    <h3 class="desc-title">Description</h3>
+                    <p class="desc-info">
+                      All trend spaces have a common denominator: chairs that
+                      are icons. And this chair has everything to become that,
+                      an icon of design. Its legs and seat are made of solid
+                      beech wood as its backrest, with rounded shapes, is made
+                      of polypropylene.
+                    </p>
                   </div>
-                  <div class="products-grid-item">
-                    <div class="products-wrapper">
-                      <div class="products-image">
-                        <img
-                          src="./assets/img/adult.jpeg"
-                          alt="Adult Bedroom"
-                        />
-                      </div>
-                      <div class="products-details">
-                        <div class="products-header">
-                          <h4 class="product-title">Adult Bedroom Set</h4>
-                          <h4 class="products-price">
-                            <sup>$</sup>149.29
-                            <span class="cross"><sup>$</sup>179.29</span>
-                          </h4>
-                          <div class="products-availability">
-                            Availability:
-                            <span class="status">In Stock</span>
-                          </div>
-                        </div>
-                        <p class="products-description">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit
-                        </p>
-                        <div class="products-action">
-                          <button type="button" class="add-to-cart-btn">
-                            <span
-                              ><svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                class="bi bi-cart-plus-fill"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0"
-                                /></svg></span
-                            >BUY NOW
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+
+                  <div class="info-section hidden" id="materials">
+                    <h3 class="desc-title">Materials</h3>
+                    <ul>
+                      <li>Frame: Solid wood/metal (based on design)</li>
+                      <li>
+                        Seat: High-density foam with fabric or leather
+                        upholstery
+                      </li>
+                      <li>Legs: Metal with anti-slip caps for safety</li>
+                    </ul>
                   </div>
-                  <div class="products-grid-item">
-                    <div class="products-wrapper">
-                      <div class="products-image">
-                        <img
-                          src="./assets/img/italian.jpg"
-                          alt="Italian Bedroom Set"
-                        />
-                      </div>
-                      <div class="products-details">
-                        <div class="products-header">
-                          <h4 class="product-title">Italian Bedroom Set</h4>
-                          <h4 class="products-price">
-                            <sup>$</sup>149.29
-                            <span class="cross"><sup>$</sup>179.29</span>
-                          </h4>
-                          <div class="products-availability">
-                            Availability:
-                            <span class="status">In Stock</span>
-                          </div>
-                        </div>
-                        <p class="products-description">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit
-                        </p>
-                        <div class="products-action">
-                          <button type="button" class="add-to-cart-btn">
-                            <span
-                              ><svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                class="bi bi-cart-plus-fill"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0"
-                                /></svg></span
-                            >BUY NOW
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="products-grid-item">
-                    <div class="products-wrapper">
-                      <div class="products-image">
-                        <img
-                          src="./assets/img/day.jpg"
-                          alt="Trundle/Day Beds"
-                        />
-                      </div>
-                      <div class="products-details">
-                        <div class="products-header">
-                          <h4 class="product-title">Trundle/Day Beds</h4>
-                          <h4 class="products-price">
-                            <sup>$</sup>149.29
-                            <span class="cross"><sup>$</sup>179.29</span>
-                          </h4>
-                          <div class="products-availability">
-                            Availability:
-                            <span class="status">In Stock</span>
-                          </div>
-                        </div>
-                        <p class="products-description">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit
-                        </p>
-                        <div class="products-action">
-                          <button type="button" class="add-to-cart-btn">
-                            <span
-                              ><svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                class="bi bi-cart-plus-fill"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0"
-                                /></svg></span
-                            >BUY NOW
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="products-grid-item">
-                    <div class="products-wrapper">
-                      <div class="products-image">
-                        <img
-                          src="./assets/img/mattress_box.jpg"
-                          alt="Mattress Box Springs"
-                        />
-                      </div>
-                      <div class="products-details">
-                        <div class="products-header">
-                          <h4 class="product-title">Mattress Box Springs</h4>
-                          <h4 class="products-price"><sup>$</sup>149.29</h4>
-                          <div class="products-availability">
-                            Availability:
-                            <span class="status-red">Stock Out</span>
-                          </div>
-                        </div>
-                        <p class="products-description">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit
-                        </p>
-                        <div class="products-action">
-                          <button type="button" class="add-to-cart-btn">
-                            <span
-                              ><svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                class="bi bi-cart-plus-fill"
-                                viewBox="0 0 16 16"
-                              >
-                                <path
-                                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0"
-                                /></svg></span
-                            >BUY NOW
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+
+                  <div class="info-section hidden" id="dimensions">
+                    <h3 class="desc-title">Chair Dimension</h3>
+                    <ul>
+                      <li>Overall Height: 90 cm (35.4 inches)</li>
+                      <li>Seat Height: 45 cm (17.7 inches)</li>
+                      <li>Seat Width: 50 cm (19.7 inches)</li>
+                      <li>Seat Depth: 45 cm (17.7 inches)</li>
+                      <li>Weight Capacity: 120 kg (264 lbs)</li>
+                    </ul>
                   </div>
                 </div>
               </div>
