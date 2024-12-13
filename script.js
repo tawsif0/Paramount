@@ -488,17 +488,85 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 //Option Button
 document.addEventListener("DOMContentLoaded", function () {
-  // Select all buttons with the class 'option-btn'
   const buttons = document.querySelectorAll(".option-btn");
-
   buttons.forEach((button) => {
-    // Add event listener for each button
     button.addEventListener("click", function () {
-      // Remove the active class from all buttons
       buttons.forEach((btn) => btn.classList.remove("active"));
-
-      // Add the active class to the clicked button
       this.classList.add("active");
     });
+  });
+});
+//Thumbnail image change
+document.addEventListener("DOMContentLoaded", function () {
+  const mainImage = document.getElementById("mainImage");
+  const thumbnails = document.querySelectorAll(".thumbnail");
+  thumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener("click", function () {
+      thumbnails.forEach((thumb) => thumb.classList.remove("active"));
+      this.classList.add("active");
+      mainImage.src = this.src;
+    });
+  });
+});
+//Pagination
+document.addEventListener("DOMContentLoaded", function () {
+  const products = document.querySelectorAll(".products-grid-item");
+  let currentPage = 1;
+  const itemsPerPage = 6;
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+
+  function showPage(page) {
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    products.forEach((product) => (product.style.display = "none"));
+
+    for (let i = startIndex; i < endIndex && i < products.length; i++) {
+      products[i].style.display = "block";
+    }
+
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    if (page === 1) {
+      prevBtn.style.opacity = "0.5";
+      prevBtn.disabled = true;
+    } else {
+      prevBtn.style.opacity = "1";
+      prevBtn.disabled = false;
+    }
+
+    if (page === totalPages) {
+      nextBtn.style.opacity = "0.5";
+      nextBtn.disabled = true;
+    } else {
+      nextBtn.style.opacity = "1";
+      nextBtn.disabled = false;
+    }
+  }
+
+  document.getElementById("prevBtn").addEventListener("click", function () {
+    if (currentPage > 1) {
+      currentPage--;
+      showPage(currentPage);
+    }
+  });
+
+  document.getElementById("nextBtn").addEventListener("click", function () {
+    if (currentPage < totalPages) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  });
+
+  showPage(currentPage);
+});
+//Product Menu Toggle
+document.addEventListener("DOMContentLoaded", function () {
+  const productsTitle = document.querySelector(".products-title");
+  const productsMenu = document.querySelector(".products-menus");
+
+  productsTitle.addEventListener("click", function () {
+    productsMenu.classList.toggle("active");
   });
 });

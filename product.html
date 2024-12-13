@@ -32,6 +32,34 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         background-color: white;
       }
+      .thumbnails {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .thumbnail {
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border: 2px solid transparent;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        transition: border-color 0.3s;
+        border-radius: 10px;
+      }
+
+      .thumbnail.active {
+        border-color: #ff5722;
+        border-radius: 10px;
+      }
+
+      .thumbnail:hover {
+        border-color: #ff5722;
+        border-radius: 10px;
+      }
 
       .quantity {
         display: flex;
@@ -1329,10 +1357,36 @@
                 <div class="product-container">
                   <!-- Left Column: Product Image and Thumbnails -->
                   <div class="product-images">
+                    <!-- Main Image -->
                     <div class="main-image">
                       <img
                         src="./assets/img/twin-beds.png"
-                        alt="Bedroom chair"
+                        alt="Main Product Image"
+                        id="mainImage"
+                      />
+                    </div>
+
+                    <!-- Thumbnails -->
+                    <div class="thumbnails">
+                      <img
+                        src="./assets/img/twin-beds.png"
+                        alt="Twin Beds Thumbnail"
+                        class="thumbnail active"
+                      />
+                      <img
+                        src="./assets/img/chair.png"
+                        alt="Chair Thumbnail"
+                        class="thumbnail"
+                      />
+                      <img
+                        src="./assets/img/chair2.png"
+                        alt="Chair 2 Thumbnail"
+                        class="thumbnail"
+                      />
+                      <img
+                        src="./assets/img/chair3.png"
+                        alt="Chair 3 Thumbnail"
+                        class="thumbnail"
                       />
                     </div>
                   </div>
