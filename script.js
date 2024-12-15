@@ -525,6 +525,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "--background-color",
         "#ffffff"
       );
+      document.documentElement.style.setProperty(
+        "--nav-black",
+        "rgba(255, 255, 255, 0.3)"
+      );
+      document.documentElement.style.setProperty(
+        "--nav-blacks",
+        "rgba(255, 255, 255, 0.1)"
+      );
       toggleInput.checked = true; // Ensure the toggle reflects the light mode
     } else {
       // Dark theme
@@ -533,6 +541,14 @@ document.addEventListener("DOMContentLoaded", () => {
       document.documentElement.style.setProperty(
         "--background-color",
         "#0d0d0d"
+      );
+      document.documentElement.style.setProperty(
+        "--nav-black",
+        "rgba(0, 0, 0, 0.3)"
+      );
+      document.documentElement.style.setProperty(
+        "--nav-blacks",
+        "rgba(0, 0, 0, 0.1)"
       );
       toggleInput.checked = false;
     }

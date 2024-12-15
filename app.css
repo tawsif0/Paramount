@@ -60,6 +60,8 @@
   --ash-color: #b7ab98;
   --white-color: #ffffff;
   --background-color: #0d0d0d;
+  --nav-black:rgba(0, 0, 0, 0.3);
+  --nav-blacks:rgba(0, 0, 0, 0.1);
 }
 
 body,
@@ -319,20 +321,23 @@ html {
   display: flex;
   flex-direction: column; 
   align-items: center;
-  padding: 0 1rem; 
+  padding: 0 1rem 5rem 0; 
   transition: all 0.5s ease-in-out; 
   background-color: transparent; /* Default transparent background */
   box-shadow: none;
   transition: backdrop-filter 0.5s ease-in-out, background 0.5s ease-in-out;
   backdrop-filter: blur(0px); /* No blur initially */
 }
-
-/* When scrolled, apply the blackish glass effect */
+.header.scrolled {
+  background:var(--nav-black); /* Blackish background with some transparency */
+  box-shadow: 0 4px 6px var(--nav-blacks); /* Add shadow on scroll */
+  backdrop-filter: blur(10px); /* Apply the blur effect for the glass effect */
+}
 
 /* Default styles for header logo */
 .header_logo {
   position: fixed;
-  top: 3.1vh;
+  top: 1.4rem;
   left: 4.05vw;
   z-index: 10;
   margin-left: auto; 
@@ -347,10 +352,11 @@ html {
 /* Tablet view (min-width: 768px) */
 @media (min-width: 768px) {
   .header{
-    padding: 0 1rem 0.45rem 1rem;
+    padding: 2.45rem 1rem 1.6rem 1rem;
   }
+
   .header_logo {
-    top: 3.4vh; 
+  
     left: 6vw; 
   }
  
@@ -360,12 +366,13 @@ html {
   }
 }
 
+
 @media (min-width: 1024px) {
   .header{
-    padding: 0 1rem 0.45rem 1rem;
+    padding: 0rem 1rem 4rem 1rem;
   }
   .header_logo {
-    top: 3.7vh; 
+    /* top: 5.2vh;  */
     left: 5vw; 
     
   }
@@ -387,17 +394,13 @@ html {
   .img-logo {
     width: 140px;
   }
-  .header.scrolled {
-    background: rgba(0, 0, 0, 0.3); /* Blackish background with some transparency */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow on scroll */
-    backdrop-filter: blur(10px); /* Apply the blur effect for the glass effect */
-  }
+
 }
 
 /* Desktop view (min-width: 1200px) */
 @media (min-width: 1200px) {
   .header{
-    padding: 0 1rem 0.45rem 1rem;
+    padding: 0 1rem 0.75rem 1rem;
   }
   .header_logo {
     top: 2.9vh;
@@ -407,11 +410,7 @@ html {
   .img-logo {
     width: 220px;
   }
-  .header.scrolled {
-    background: rgba(0, 0, 0, 0.3); /* Blackish background with some transparency */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow on scroll */
-    backdrop-filter: blur(10px); /* Apply the blur effect for the glass effect */
-  }
+
   
 }
 
@@ -419,7 +418,7 @@ html {
 
 .nav-items {
 
-  color:white;
+  color:var(--white-color);
   margin-top: 2.4vh;
   display: none; /* Default hidden */
   gap: 1.5rem;
@@ -455,11 +454,10 @@ html {
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
-  margin-top: 1vh;
+  margin-top: 0.3vh;
   width: 100%;
   z-index: 10;
   position: absolute;
-
   right: 3%;
   top: 50%;
   transform: translateY(-50%);
@@ -532,10 +530,10 @@ html {
     display: flex; 
     justify-content: flex-end;
     align-items: center;
-    margin-top: 4.7vh;
     right: 6%;
     position: absolute;
     top: 50%;
+    margin-top: 0.46vh;
     transform: translateY(-50%);
   }
 
@@ -561,6 +559,7 @@ html {
     right: 3%;
     top: 50%;
     transform: translateY(-50%);
+    margin-top: 0.56vh;
   }
 
   .icon-container svg.lg\:hidden {
@@ -608,7 +607,7 @@ html {
 }
 
 .text-whites{
-  color: white;
+  color:var(--white-color);
 }
 
 .menu-container {
@@ -913,7 +912,7 @@ svg.active {
 .arrow-toggle {
   width: 24px;
   height: 24px;
-  fill: white;
+  fill: var(--white-color);
   cursor: pointer;
   transition: transform 0.3s ease; 
 }
