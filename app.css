@@ -3430,7 +3430,7 @@ input[type="file"] {
   .explore-container {
     flex-direction: row;
     gap: 0;
-    height: 700px;
+    height: 900px;
     margin-top: 250px;
   }
 }
@@ -3438,6 +3438,7 @@ input[type="file"] {
 /* Default styles for explore menu */
 .explore-menu {
   width: 100%;
+ 
   margin-left: 1.5rem; /* No margin on mobile */
 }
 
