@@ -309,6 +309,7 @@ html {
   margin-bottom: auto !important;
 }
 /* Header Styles */
+/* Default Header Style */
 .header {
   position: fixed;
   top: 0;
@@ -322,7 +323,12 @@ html {
   transition: all 0.5s ease-in-out; 
   background-color: transparent; /* Default transparent background */
   box-shadow: none;
+  transition: backdrop-filter 0.5s ease-in-out, background 0.5s ease-in-out;
+  backdrop-filter: blur(0px); /* No blur initially */
 }
+
+/* When scrolled, apply the blackish glass effect */
+
 /* Default styles for header logo */
 .header_logo {
   position: fixed;
@@ -340,6 +346,9 @@ html {
 
 /* Tablet view (min-width: 768px) */
 @media (min-width: 768px) {
+  .header{
+    padding: 0 1rem 0.45rem 1rem;
+  }
   .header_logo {
     top: 3.4vh; 
     left: 6vw; 
@@ -352,6 +361,9 @@ html {
 }
 
 @media (min-width: 1024px) {
+  .header{
+    padding: 0 1rem 0.45rem 1rem;
+  }
   .header_logo {
     top: 3.7vh; 
     left: 5vw; 
@@ -362,9 +374,31 @@ html {
     width: 140px;
   }
 }
+@media (min-width: 1025px) {
+  .header{
+    padding: 0 1rem 0.45rem 1rem;
+  }
+  .header_logo {
+    top: 3.7vh; 
+    left: 5vw; 
+    
+  }
+
+  .img-logo {
+    width: 140px;
+  }
+  .header.scrolled {
+    background: rgba(0, 0, 0, 0.3); /* Blackish background with some transparency */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow on scroll */
+    backdrop-filter: blur(10px); /* Apply the blur effect for the glass effect */
+  }
+}
 
 /* Desktop view (min-width: 1200px) */
 @media (min-width: 1200px) {
+  .header{
+    padding: 0 1rem 0.45rem 1rem;
+  }
   .header_logo {
     top: 2.9vh;
     left: 4vw; 
@@ -373,13 +407,19 @@ html {
   .img-logo {
     width: 220px;
   }
+  .header.scrolled {
+    background: rgba(0, 0, 0, 0.3); /* Blackish background with some transparency */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow on scroll */
+    backdrop-filter: blur(10px); /* Apply the blur effect for the glass effect */
+  }
+  
 }
 
 /* Default styles for nav items */
-/* Default styles for nav items */
+
 .nav-items {
 
-  color: var(--white-color);
+  color:white;
   margin-top: 2.4vh;
   display: none; /* Default hidden */
   gap: 1.5rem;
@@ -390,7 +430,8 @@ html {
 }
 
 .nav-item {
-  color: white;
+ 
+  color:white;
   margin-left: 2.4vh;
   display: none; /* Default hidden */
   gap: 1.5rem;
@@ -418,11 +459,13 @@ html {
   width: 100%;
   z-index: 10;
   position: absolute;
+
   right: 3%;
   top: 50%;
   transform: translateY(-50%);
   padding: 0 1rem;
   pointer-events: none;
+  
 }
 
 /* Override pointer-events for toggle-wrapper */
@@ -509,7 +552,8 @@ html {
   }
 
   .nav-items {
-    display: flex; /* Visible for laptops and desktops */
+    display: flex; 
+  
   }
 
   /* Adjust icon container for larger screens */
@@ -530,6 +574,7 @@ html {
     display: flex;
     opacity: 1;
     margin-left: 3rem;
+  
   }
 
   .header.show-nav .nav-item {
@@ -562,7 +607,9 @@ html {
   }
 }
 
-
+.text-whites{
+  color: white;
+}
 
 .menu-container {
   position: fixed;
@@ -589,7 +636,7 @@ html {
   display: flex;
   align-items: center;
   background-color: white;
-  padding: 1rem;
+  padding: 1rem 2.6rem 1rem 1rem;
   justify-content: space-between;
 }
 
@@ -603,7 +650,7 @@ html {
 
 /* Logo Styling */
 .logo {
-  width: 135px;
+  width: 157px;
   height: 35px;
   background-size: cover;
   background-position: center;
@@ -866,7 +913,7 @@ svg.active {
 .arrow-toggle {
   width: 24px;
   height: 24px;
-  fill: var(--white-color);
+  fill: white;
   cursor: pointer;
   transition: transform 0.3s ease; 
 }
@@ -956,6 +1003,10 @@ svg.active {
 }
 .category-section,
 .grid-container {
+  transition: all 0.3s ease-in-out;
+}
+.category-section,
+.grid-contain {
   transition: all 0.3s ease-in-out;
 }
 
@@ -1246,6 +1297,80 @@ svg.active {
     font-size: 0.9rem; 
   }
 }
+.suggestions {
+  display: block;
+  position: absolute;
+  top: 95%; /* Ensures it's positioned correctly below the search bar */
+  
+  width: 50%;
+  height: auto;
+  background-color: var(--background-color);
+  border: 1px solid var(--background-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-height: 600px;
+  max-width: 600px;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 5px;
+  max-height: 600px; /* Scrollable if content exceeds max height */
+  overflow-y: auto;
+  opacity: 90%;
+  z-index: 9; 
+}
+.suggestions::-webkit-scrollbar {
+  width: 6px; 
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); 
+  border-radius: 1rem; 
+}
+
+.suggestions::-webkit-scrollbar-track {
+  background: transparent; 
+}
+.suggestions.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Grid layout for suggestions */
+  gap: 0.5rem;
+  display: none;
+}
+
+.suggestion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+/* From https://css.glass */
+background: rgba(0, 0, 0, 0.51);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(0, 0, 0, 0.78);
+  transition: background-color 0.3s;
+ 
+  
+}
+
+.suggestion-item:hover {
+  background-color: #eb5939;
+  color: white;
+}
+
+.suggestion-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
 /* store */
 
 .stores {
@@ -1259,7 +1384,7 @@ svg.active {
 }
 
 /* Tablet Version (768px and up) */
-@media (min-width: 768px) and (max-width: 1029px) {
+@media (min-width: 768px) and (max-width: 1190px) {
   .stores {
     flex-direction: row;
     gap: 2rem;
@@ -1274,8 +1399,8 @@ svg.active {
   }
 
   .store-background {
-    width: 100%;
-    height: 250px;
+    width: 500px;
+    height: 300px;
     margin: 0 auto;
   }
 
@@ -1286,13 +1411,13 @@ svg.active {
 }
 
 /* Desktop Version (1030px and up) */
-@media (min-width: 1030px) and (max-width: 1599px) {
+@media (min-width: 1200px) and (max-width: 1599px) {
   .stores {
     flex-direction: row;
-    gap: 3rem;
+    gap: 1rem;
     justify-content: center;
-    margin-top: 9.7rem;
-    flex-wrap: wrap;
+    margin-top: 3.7rem;
+   
   }
 
   .store-components {
@@ -1302,8 +1427,11 @@ svg.active {
   }
 
   .store-background {
-    width: 100%;
-    height: 300px;
+    width: 350px;
+    height: 230px;
+  }
+  .store-btn{
+    padding: 1rem 2rem;
   }
 }
 
@@ -1321,8 +1449,11 @@ svg.active {
   }
 
   .store-background {
-    width: 100%;
-    height: 300px;
+    width: 500px;
+    height: 320px;
+  }
+  .store-btn{
+    padding: 1.3rem 3rem;
   }
 }
 
@@ -1369,8 +1500,7 @@ svg.active {
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 500px;
-  height: 320px;
+  
   padding: 0;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -1385,7 +1515,7 @@ svg.active {
   position: absolute;
   bottom: 0.01px;
   right: 0.01px;
-  padding: 1.5rem 3rem;
+  
   background-color: var(--red-color);
   color: var(--white-color);
   font-weight: 600;
@@ -1407,6 +1537,9 @@ svg.active {
   .store-background {
     width: 100%;
     height: 200px;
+  }
+  .store-btn{
+    padding: 1rem 2rem;
   }
 }
 
@@ -1499,7 +1632,6 @@ a {
   height: calc(0.1rem * 100);
   justify-content: center;
   min-height: 32.5rem;
-  position: relative;
   width: 100%;
   z-index: 2;
   padding-top: 13.7738095238vh;
@@ -4499,16 +4631,37 @@ input[type="file"] {
   margin-top: 20px;
 }
 
+
 .pagination-btn {
-  padding: 10px 20px;
+  padding: 10px 15px;
+  margin: 0 5px;
   font-size: 16px;
   cursor: pointer;
+  background-color: #f5f5f5;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+ 
+}
+.pagination-btn[disabled] {
+  font-size: 24px; /* Make dots larger */
+  font-weight: bold; /* Make dots bold */
+  padding: 10px 15px;
+  margin: 0 5px;
+  font-size: 16px;
+  cursor: none;
+  background-color: #f5f5f5;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.pagination-btn[style*="opacity: 0.5"] {
-  opacity: 0.5;
-  cursor: not-allowed;
+.pagination-btn.active {
+  background-color: #eb5939;
+  color: #fff;
+  border-color: #eb5939;
 }
+
 
 /* Product Page */
 .product-wrapper {

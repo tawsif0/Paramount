@@ -28,37 +28,146 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleArrow.classList.toggle("active");
   });
 });
+//end.................................................................................
+document.addEventListener("DOMContentLoaded", function () {
+  // Function to hide all sections
+  function hideAllSections() {
+    var sections = document.querySelectorAll(".grid-contain");
+    var arrows = document.querySelectorAll(".arrows-icons");
 
-function toggleBedroomSection() {
-  var arrowIcon = document.getElementById("arrow-icon");
-  var bedroomGrid = document.getElementById("bedroom-grid");
-  arrowIcon.classList.toggle("show");
-  bedroomGrid.classList.toggle("hidden");
-}
-function toggleMattressSection() {
-  var arrowIcon = document.getElementById("arrow-iconss");
-  var matGrid = document.getElementById("mattress-grid");
-  arrowIcon.classList.toggle("show");
-  matGrid.classList.toggle("hidden");
-}
-function toggleDecSection() {
-  var arrowIcon = document.getElementById("arrow-iconsss");
-  var decGrid = document.getElementById("dec-grid");
-  arrowIcon.classList.toggle("show");
-  decGrid.classList.toggle("hidden");
-}
-function toggleDiningSection() {
-  var arrowIcon = document.getElementById("dining-arrow-icon");
-  var diningGrid = document.getElementById("dining-grid");
-  arrowIcon.classList.toggle("show");
-  diningGrid.classList.toggle("hidden");
-}
-function toggleLivingRoomSection() {
-  var arrowIcon = document.getElementById("arrow-icon-living");
-  var livingRoomGrid = document.getElementById("living-room-grid");
-  arrowIcon.classList.toggle("show");
-  livingRoomGrid.classList.toggle("hidden");
-}
+    // Hide all sections
+    sections.forEach(function (section) {
+      section.classList.add("hidden"); // Ensure section is hidden
+    });
+
+    // Remove 'show' class from all arrows
+    arrows.forEach(function (arrow) {
+      arrow.classList.remove("show");
+    });
+  }
+
+  // Function to toggle Bedroom section
+  function toggleBedroomSection() {
+    var arrowIcon = document.getElementById("arrow-icon");
+    var bedroomGrid = document.getElementById("bedroom-grid");
+
+    // Check if the bedroom grid is already visible
+    if (bedroomGrid.classList.contains("hidden")) {
+      // Hide all sections first
+      hideAllSections();
+
+      // Show the bedroom section
+      bedroomGrid.classList.remove("hidden");
+      arrowIcon.classList.add("show");
+    } else {
+      // Hide the bedroom section if it's already visible
+      bedroomGrid.classList.add("hidden");
+      arrowIcon.classList.remove("show");
+    }
+  }
+
+  // Function to toggle Mattress section
+  function toggleMattressSection() {
+    var arrowIcon = document.getElementById("arrow-iconss");
+    var matGrid = document.getElementById("mattress-grid");
+
+    // Check if the mattress grid is already visible
+    if (matGrid.classList.contains("hidden")) {
+      // Hide all sections first
+      hideAllSections();
+
+      // Show the mattress section
+      matGrid.classList.remove("hidden");
+      arrowIcon.classList.add("show");
+    } else {
+      // Hide the mattress section if it's already visible
+      matGrid.classList.add("hidden");
+      arrowIcon.classList.remove("show");
+    }
+  }
+
+  // Function to toggle Decor section
+  function toggleDecSection() {
+    var arrowIcon = document.getElementById("arrow-iconsss");
+    var decGrid = document.getElementById("dec-grid");
+
+    // Check if the decor grid is already visible
+    if (decGrid.classList.contains("hidden")) {
+      // Hide all sections first
+      hideAllSections();
+
+      // Show the decor section
+      decGrid.classList.remove("hidden");
+      arrowIcon.classList.add("show");
+    } else {
+      // Hide the decor section if it's already visible
+      decGrid.classList.add("hidden");
+      arrowIcon.classList.remove("show");
+    }
+  }
+
+  // Function to toggle Dining section
+  function toggleDiningSection() {
+    var arrowIcon = document.getElementById("dining-arrow-icon");
+    var diningGrid = document.getElementById("dining-grid");
+
+    // Check if the dining grid is already visible
+    if (diningGrid.classList.contains("hidden")) {
+      // Hide all sections first
+      hideAllSections();
+
+      // Show the dining section
+      diningGrid.classList.remove("hidden");
+      arrowIcon.classList.add("show");
+    } else {
+      // Hide the dining section if it's already visible
+      diningGrid.classList.add("hidden");
+      arrowIcon.classList.remove("show");
+    }
+  }
+
+  // Function to toggle Living Room section
+  function toggleLivingRoomSection() {
+    var arrowIcon = document.getElementById("arrow-icon-living");
+    var livingRoomGrid = document.getElementById("living-room-grid");
+
+    // Check if the living room grid is already visible
+    if (livingRoomGrid.classList.contains("hidden")) {
+      // Hide all sections first
+      hideAllSections();
+
+      // Show the living room section
+      livingRoomGrid.classList.remove("hidden");
+      arrowIcon.classList.add("show");
+    } else {
+      // Hide the living room section if it's already visible
+      livingRoomGrid.classList.add("hidden");
+      arrowIcon.classList.remove("show");
+    }
+  }
+
+  // Initially hide all sections
+  hideAllSections();
+
+  // Event listeners for each section toggle
+  document
+    .getElementById("bedroom-toggle")
+    .addEventListener("click", toggleBedroomSection);
+  document
+    .getElementById("mattress-toggle")
+    .addEventListener("click", toggleMattressSection);
+  document
+    .getElementById("dec-toggle")
+    .addEventListener("click", toggleDecSection);
+  document
+    .getElementById("dining-toggle")
+    .addEventListener("click", toggleDiningSection);
+  document
+    .getElementById("living-room-toggle")
+    .addEventListener("click", toggleLivingRoomSection);
+});
+
+//end.................................................................................
 // Toggle menu visibility
 const toggleMenu = document.getElementById("toggleMenu");
 const toggleSection = document.getElementById("toggleSection");
@@ -87,37 +196,146 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+//End.................................................
+document.addEventListener("DOMContentLoaded", function () {
+  // Function to hide all sections
+  function hideAllSections() {
+    var sections = document.querySelectorAll(".grid-contains");
+    var arrows = document.querySelectorAll(".arrow-toggles");
 
-function toggleBedroomSections() {
-  var arrowIcon = document.getElementById("arrow-icons");
-  var bedroomGrid = document.getElementById("bedroom-grids");
-  arrowIcon.classList.toggle("visible");
-  bedroomGrid.classList.toggle("hidden");
-}
-function toggleMattressSections() {
-  var arrowIcon = document.getElementById("arrow-iconssss");
-  var MattressGrid = document.getElementById("mattress-grids");
-  arrowIcon.classList.toggle("visible");
-  MattressGrid.classList.toggle("hidden");
-}
-function toggleDecSections() {
-  var arrowIcon = document.getElementById("dec-arrow-icons");
-  var decGrid = document.getElementById("dec-grids");
-  arrowIcon.classList.toggle("visible");
-  decGrid.classList.toggle("hidden");
-}
-function toggleDiningSections() {
-  var arrowIcon = document.getElementById("dining-arrow-icons");
-  var diningGrid = document.getElementById("dining-grids");
-  arrowIcon.classList.toggle("visible");
-  diningGrid.classList.toggle("hidden");
-}
-function toggleLivingRoomSections() {
-  var arrowIcon = document.getElementById("arrow-icon-livings");
-  var livingRoomGrid = document.getElementById("living-room-grids");
-  arrowIcon.classList.toggle("visible");
-  livingRoomGrid.classList.toggle("hidden");
-}
+    // Hide all sections
+    sections.forEach(function (section) {
+      section.classList.add("hidden"); // Ensure section is hidden
+    });
+
+    // Remove 'show' class from all arrows
+    arrows.forEach(function (arrow) {
+      arrow.classList.remove("show");
+    });
+  }
+
+  // Function to toggle Bedroom section
+  function toggleBedroomSections() {
+    var arrowIcon = document.getElementById("arrow-icons");
+    var bedroomGrid = document.getElementById("bedroom-grids");
+
+    // Check if the bedroom grid is already visible
+    if (bedroomGrid.classList.contains("hidden")) {
+      // Hide all sections first
+      hideAllSections();
+
+      // Show the bedroom section
+      bedroomGrid.classList.remove("hidden");
+      arrowIcon.classList.add("show");
+    } else {
+      // Hide the bedroom section if it's already visible
+      bedroomGrid.classList.add("hidden");
+      arrowIcon.classList.remove("show");
+    }
+  }
+
+  // Function to toggle Mattress section
+  function toggleMattressSections() {
+    var arrowIcon = document.getElementById("arrow-iconssss");
+    var mattressGrid = document.getElementById("mattress-grids");
+
+    // Check if the mattress grid is already visible
+    if (mattressGrid.classList.contains("hidden")) {
+      // Hide all sections first
+      hideAllSections();
+
+      // Show the mattress section
+      mattressGrid.classList.remove("hidden");
+      arrowIcon.classList.add("show");
+    } else {
+      // Hide the mattress section if it's already visible
+      mattressGrid.classList.add("hidden");
+      arrowIcon.classList.remove("show");
+    }
+  }
+
+  // Function to toggle Decor section
+  function toggleDecSections() {
+    var arrowIcon = document.getElementById("dec-arrow-icons");
+    var decGrid = document.getElementById("dec-grids");
+
+    // Check if the decor grid is already visible
+    if (decGrid.classList.contains("hidden")) {
+      // Hide all sections first
+      hideAllSections();
+
+      // Show the decor section
+      decGrid.classList.remove("hidden");
+      arrowIcon.classList.add("show");
+    } else {
+      // Hide the decor section if it's already visible
+      decGrid.classList.add("hidden");
+      arrowIcon.classList.remove("show");
+    }
+  }
+
+  // Function to toggle Dining section
+  function toggleDiningSections() {
+    var arrowIcon = document.getElementById("dining-arrow-icons");
+    var diningGrid = document.getElementById("dining-grids");
+
+    // Check if the dining grid is already visible
+    if (diningGrid.classList.contains("hidden")) {
+      // Hide all sections first
+      hideAllSections();
+
+      // Show the dining section
+      diningGrid.classList.remove("hidden");
+      arrowIcon.classList.add("show");
+    } else {
+      // Hide the dining section if it's already visible
+      diningGrid.classList.add("hidden");
+      arrowIcon.classList.remove("show");
+    }
+  }
+
+  // Function to toggle Living Room section
+  function toggleLivingRoomSections() {
+    var arrowIcon = document.getElementById("arrow-icon-livings");
+    var livingRoomGrid = document.getElementById("living-room-grids");
+
+    // Check if the living room grid is already visible
+    if (livingRoomGrid.classList.contains("hidden")) {
+      // Hide all sections first
+      hideAllSections();
+
+      // Show the living room section
+      livingRoomGrid.classList.remove("hidden");
+      arrowIcon.classList.add("show");
+    } else {
+      // Hide the living room section if it's already visible
+      livingRoomGrid.classList.add("hidden");
+      arrowIcon.classList.remove("show");
+    }
+  }
+
+  // Event listeners for each section toggle
+  document
+    .getElementById("bedroom-toggles")
+    .addEventListener("click", toggleBedroomSections);
+  document
+    .getElementById("mattreess-toggles")
+    .addEventListener("click", toggleMattressSections);
+  document
+    .getElementById("dec-toggles")
+    .addEventListener("click", toggleDecSections);
+  document
+    .getElementById("dining-toggles")
+    .addEventListener("click", toggleDiningSections);
+  document
+    .getElementById("living-room-toggles")
+    .addEventListener("click", toggleLivingRoomSections);
+
+  // Initially hide all sections
+  hideAllSections();
+});
+
+//end............................................................
 //parallox video
 window.addEventListener("scroll", function () {
   const scroll = window.scrollY;
@@ -415,17 +633,22 @@ document.addEventListener("DOMContentLoaded", () => {
   updateGridDisplay();
 });
 //header background
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   const header = document.querySelector(".header");
 
-  window.addEventListener("scroll", () => {
+  // Listen for the scroll event
+  window.addEventListener("scroll", function () {
     if (window.scrollY > 50) {
-      header.classList.add("scrolling");
+      // When you scroll down 50px
+      // Add the class to apply the blackish glass effect
+      header.classList.add("scrolled");
     } else {
-      header.classList.remove("scrolling");
+      // Remove the class when scrolled back to the top
+      header.classList.remove("scrolled");
     }
   });
 });
+
 document.addEventListener("DOMContentLoaded", () => {
   const menu = document.querySelector(".menu-container");
 
@@ -514,7 +737,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentPage = 1;
   const itemsPerPage = 6;
   const totalPages = Math.ceil(products.length / itemsPerPage);
+  const paginationContainer = document.querySelector(".pagination");
 
+  // Function to show products for the current page
   function showPage(page) {
     const startIndex = (page - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -525,42 +750,74 @@ document.addEventListener("DOMContentLoaded", function () {
       products[i].style.display = "block";
     }
 
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
+    // Update active page button styling
+    document.querySelectorAll(".pagination-btn").forEach((btn) => {
+      btn.classList.remove("active");
+    });
 
-    if (page === 1) {
-      prevBtn.style.opacity = "0.5";
-      prevBtn.disabled = true;
-    } else {
-      prevBtn.style.opacity = "1";
-      prevBtn.disabled = false;
-    }
-
-    if (page === totalPages) {
-      nextBtn.style.opacity = "0.5";
-      nextBtn.disabled = true;
-    } else {
-      nextBtn.style.opacity = "1";
-      nextBtn.disabled = false;
-    }
+    const activeButton = document.querySelector(
+      `.pagination-btn[data-page="${page}"]`
+    );
+    if (activeButton) activeButton.classList.add("active");
   }
 
-  document.getElementById("prevBtn").addEventListener("click", function () {
-    if (currentPage > 1) {
-      currentPage--;
-      showPage(currentPage);
-    }
-  });
+  // Function to create pagination buttons
+  function createPaginationButtons() {
+    paginationContainer.innerHTML = "";
 
-  document.getElementById("nextBtn").addEventListener("click", function () {
-    if (currentPage < totalPages) {
-      currentPage++;
-      showPage(currentPage);
-    }
-  });
+    const maxVisibleButtons = 5;
+    const pageButtons = [];
 
+    if (totalPages <= maxVisibleButtons) {
+      for (let i = 1; i <= totalPages; i++) {
+        pageButtons.push(i);
+      }
+    } else {
+      const startPage = Math.max(
+        2,
+        currentPage - Math.floor(maxVisibleButtons / 2)
+      );
+      const endPage = Math.min(
+        totalPages - 1,
+        currentPage + Math.floor(maxVisibleButtons / 2)
+      );
+
+      pageButtons.push(1);
+      if (startPage > 2) pageButtons.push("...");
+
+      for (let i = startPage; i <= endPage; i++) {
+        pageButtons.push(i);
+      }
+
+      if (endPage < totalPages - 1) pageButtons.push("...");
+      pageButtons.push(totalPages);
+    }
+
+    pageButtons.forEach((page) => {
+      const button = document.createElement("button");
+      button.classList.add("pagination-btn");
+      button.textContent = page;
+
+      if (page === "...") {
+        button.disabled = true;
+      } else {
+        button.setAttribute("data-page", page);
+
+        button.addEventListener("click", function () {
+          currentPage = parseInt(page);
+          createPaginationButtons();
+          showPage(currentPage);
+        });
+      }
+
+      paginationContainer.appendChild(button);
+    });
+  }
+
+  createPaginationButtons();
   showPage(currentPage);
 });
+
 //Product Menu Toggle
 document.addEventListener("DOMContentLoaded", function () {
   const productsTitle = document.querySelector(".products-title");
@@ -568,5 +825,326 @@ document.addEventListener("DOMContentLoaded", function () {
 
   productsTitle.addEventListener("click", function () {
     productsMenu.classList.toggle("active");
+  });
+});
+//Search Suggestions
+document.addEventListener("DOMContentLoaded", function () {
+  const suggestions = [
+    {
+      title: "Adult Bedroom Sets",
+      img: "./assets/img/adult.jpeg",
+      url: "Adult Bedroom Sets.html"
+    },
+    {
+      title: "Children/Kids Bedroom Sets",
+      img: "Children-Kids Bedroom Sets.png",
+      url: "Children-Kids Bedroom Sets.html"
+    },
+    {
+      title: "Italian Bedroom Sets",
+      img: "./assets/img/italian.jpg",
+      url: "Italian Bedroom Sets.html"
+    },
+    {
+      title: "Twin/Double Beds",
+      img: "Twin-Double Beds.png",
+      url: "Twin-Double Beds.html"
+    },
+    {
+      title: "Queen/King Beds",
+      img: "Queen-King Beds.png",
+      url: "Queen-King Beds.html"
+    },
+    {
+      title: "Storage Beds",
+      img: "Storage Beds.png",
+      url: "Storage Beds.html"
+    },
+    { title: "Bunk Beds", img: "Bunk Beds.png", url: "Bunk Beds.html" },
+    {
+      title: "Trundle/Day Beds",
+      img: "./assets/img/day.jpg",
+      url: "Trundle-Day Beds.html"
+    },
+    {
+      title: "Armoire/Wardrobe",
+      img: "Armoire-Wardrobe.png",
+      url: "Armoire-Wardrobe.html"
+    },
+    {
+      title: "Children/Kids Mattresses",
+      img: "Children-Kids Mattresses.png",
+      url: "Children-Kids Mattresses.html"
+    },
+    {
+      title: "Firm/Hard Mattresses",
+      img: "Firm-Hard Mattresses.png",
+      url: "Firm-Hard Mattresses.html"
+    },
+    {
+      title: "Medium Firm Mattresses",
+      img: "Medium Firm Mattresses.png",
+      url: "Medium Firm Mattresses.html"
+    },
+    {
+      title: "Soft/Plush Mattresses",
+      img: "Soft-Plush Mattresses.png",
+      url: "Soft-Plush Mattresses.html"
+    },
+    {
+      title: "Gel/Memory Foam Mattresses",
+      img: "Gel-Memory Foam Mattresses.png",
+      url: "Gel-Memory Foam Mattresses.html"
+    },
+    {
+      title: "Roll Pack Box Mattresses",
+      img: "Roll Pack Box Mattresses.png",
+      url: "Roll Pack Box Mattresses.html"
+    },
+    {
+      title: "Mattress Box Springs",
+      img: "./assets/img/mattress_box.jpg",
+      url: "Mattress Box Springs.html"
+    },
+    {
+      title: "Metal Frames",
+      img: "Metal Frames.png",
+      url: "Metal Frames.html"
+    },
+    {
+      title: "Electric Adjustable Bed Frames",
+      img: "Electric Adjustable Bed Frames.png",
+      url: "Electric Adjustable Bed Frames.html"
+    },
+    { title: "Pillows", img: "Pillows.png", url: "Pillows.html" },
+    {
+      title: "Small Dining Sets",
+      img: "Small Dining Sets.png",
+      url: "Small Dining Sets.html"
+    },
+    {
+      title: "Regular Dining Sets",
+      img: "Regular Dining Sets.png",
+      url: "Regular Dining Sets.html"
+    },
+    {
+      title: "Large Dining Sets",
+      img: "Large Dining Sets.png",
+      url: "Large Dining Sets.html"
+    },
+    {
+      title: "Marble Dining Sets",
+      img: "Marble Dining Sets.png",
+      url: "Marble Dining Sets.html"
+    },
+    {
+      title: "Italian Dining Sets",
+      img: "Italian Dining Sets.png",
+      url: "Italian Dining Sets.html"
+    },
+    {
+      title: "Counter/Pub Height Dining Sets",
+      img: "Counter-Pub Height Dining Sets.png",
+      url: "Counter-Pub Height Dining Sets.html"
+    },
+    {
+      title: "Dining Chairs",
+      img: "Dining Chairs.png",
+      url: "Dining Chairs.html"
+    },
+    { title: "Barstools", img: "Barstools.png", url: "Barstools.html" },
+    {
+      title: "Counter Chairs",
+      img: "Counter Chairs.png",
+      url: "Counter Chairs.html"
+    },
+    { title: "Pub Chairs", img: "Pub Chairs.png", url: "Pub Chairs.html" },
+    {
+      title: "Servers/Buffets",
+      img: "Servers-Buffets.png",
+      url: "Servers-Buffets.html"
+    },
+    {
+      title: "China Cabinets",
+      img: "China Cabinets.png",
+      url: "China Cabinets.html"
+    },
+    {
+      title: "Curio/Vitrin",
+      img: "Curio-Vitrin.png",
+      url: "Curio-Vitrin.html"
+    },
+    { title: "Food Carts", img: "Food Carts.png", url: "Food Carts.html" },
+    {
+      title: "Micro Oven Shelf",
+      img: "Micro Oven Shelf.png",
+      url: "Micro Oven Shelf.html"
+    },
+    {
+      title: "Fabric Sofa Sets",
+      img: "Fabric Sofa Sets.png",
+      url: "Fabric Sofa Sets.html"
+    },
+    {
+      title: "Fabric Sectional Sofa Sets",
+      img: "Fabric Sectional Sofa Sets.png",
+      url: "Fabric Sectional Sofa Sets.html"
+    },
+    {
+      title: "Leather Sofa Sets",
+      img: "Leather Sofa Sets.png",
+      url: "Leather Sofa Sets.html"
+    },
+    {
+      title: "Leather Sectional Sofa Sets",
+      img: "Leather Sectional Sofa Sets.png",
+      url: "Leather Sectional Sofa Sets.html"
+    },
+    {
+      title: "Gel/Bonded/Leather Air Sofa Sets",
+      img: "Gel-Bonded-Leather Air Sofa Sets.png",
+      url: "Gel-Bonded-Leather Air Sofa Sets.html"
+    },
+    {
+      title: "Fabric Recliner Sofa & Sectional Sets",
+      img: "Fabric Recliner Sofa Sectional Sets.png",
+      url: "Fabric Recliner Sofa Sectional Sets.html"
+    },
+    {
+      title: "Leather Recliner Sofa & Sectional Sets",
+      img: "Leather Recliner Sofa Sectional Sets.png",
+      url: "Leather Recliner Sofa Sectional Sets.html"
+    },
+    { title: "Day Beds", img: "Day Beds.png", url: "Day Beds.html" },
+    { title: "Sofa Beds", img: "Sofa Beds.png", url: "Sofa Beds.html" },
+    {
+      title: "Sectional Sofa Beds",
+      img: "Sectional Sofa Beds.png",
+      url: "Sectional Sofa Beds.html"
+    },
+    {
+      title: "Futons/Klick Klacks",
+      img: "Futons-Klick Klacks.png",
+      url: "Futons-Klick Klacks.html"
+    },
+    {
+      title: "Recliner Chairs",
+      img: "Recliner Chairs.png",
+      url: "Recliner Chairs.html"
+    },
+    {
+      title: "Medical Lift Chairs",
+      img: "Medical Lift Chairs.png",
+      url: "Medical Lift Chairs.html"
+    },
+    {
+      title: "Accent Chairs",
+      img: "Accent Chairs.png",
+      url: "Accent Chairs.html"
+    },
+    { title: "Ottomans", img: "Ottomans.png", url: "Ottomans.html" },
+    { title: "Benches", img: "Benches.png", url: "Benches.html" },
+    {
+      title: "Coffee & End Tables",
+      img: "Coffee-End Tables.png",
+      url: "Coffee-End Tables.html"
+    },
+    {
+      title: "Console/Hall/Sofa Tables",
+      img: "Console-Hall-Sofa Tables.png",
+      url: "Console-Hall-Sofa Tables.html"
+    },
+    {
+      title: "Rugs & Carpets",
+      img: "Rugs-Carpets.png",
+      url: "Rugs-Carpets.html"
+    },
+    { title: "TV Stands", img: "TV Stands.png", url: "TV Stands.html" },
+    { title: "Study Desks", img: "Study Desks.png", url: "Study Desks.html" },
+    {
+      title: "Computer Desks",
+      img: "Computer Desks.png",
+      url: "Computer Desks.html"
+    },
+    {
+      title: "Computer Chairs",
+      img: "Computer Chairs.png",
+      url: "Computer Chairs.html"
+    },
+    {
+      title: "Office Desks",
+      img: "Office Desks.png",
+      url: "Office Desks.html"
+    },
+    {
+      title: "Office Chairs",
+      img: "./assets/img/chair.png",
+      url: "product.html"
+    },
+    { title: "Bookshelves", img: "Bookshelves.png", url: "Bookshelves.html" },
+    {
+      title: "Shoe Benches",
+      img: "Shoe Benches.png",
+      url: "Shoe Benches.html"
+    },
+    { title: "Mirrors", img: "Mirrors.png", url: "Mirrors.html" },
+    {
+      title: "Arts & Picture Frames",
+      img: "Arts-Picture Frames.png",
+      url: "Arts-Picture Frames.html"
+    },
+    { title: "Lamps", img: "Lamps.png", url: "Lamps.html" },
+    {
+      title: "Coat Hangers",
+      img: "Coat Hangers.png",
+      url: "Coat Hangers.html"
+    },
+    {
+      title: "Nesting Table",
+      img: "Nesting Table.png",
+      url: "Nesting Table.html"
+    }
+  ];
+
+  const searchBox = document.getElementById("search-box");
+  const suggestionsList = document.getElementById("suggestions-list");
+
+  searchBox.addEventListener("input", function () {
+    const query = searchBox.value.toLowerCase();
+    suggestionsList.innerHTML = "";
+    suggestionsList.style.display = query ? "grid" : "none";
+
+    if (query) {
+      const filteredSuggestions = suggestions.filter((item) =>
+        item.title.toLowerCase().includes(query)
+      );
+
+      if (filteredSuggestions.length === 0) {
+        // Show "Not Found" message
+        const notFoundMessage = document.createElement("div");
+        notFoundMessage.className = "not-found";
+        notFoundMessage.textContent = "No results found.";
+        suggestionsList.appendChild(notFoundMessage);
+      } else {
+        filteredSuggestions.forEach((item) => {
+          const suggestionItem = document.createElement("div");
+          suggestionItem.className = "suggestion-item";
+          suggestionItem.innerHTML = `
+            <img src="${item.img}" alt="${item.title}" />
+            <span>${item.title}</span>
+          `;
+          suggestionItem.addEventListener("click", () => {
+            window.location.href = item.url; // Navigate to the item's URL
+          });
+          suggestionsList.appendChild(suggestionItem);
+        });
+      }
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".search")) {
+      suggestionsList.style.display = "none";
+    }
   });
 });
