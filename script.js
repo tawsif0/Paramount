@@ -412,6 +412,41 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+//Moto background
+// document.addEventListener("DOMContentLoaded", function () {
+//   var workBg = document.querySelector(".motto_bg");
+
+//   function setBackground(imageUrl, isMobile) {
+//     workBg.style.backgroundImage = "url('" + imageUrl + "')";
+//     workBg.style.backgroundSize = "cover";
+//     workBg.style.backgroundRepeat = "no-repeat";
+//     workBg.style.transition = "background-image 0.5s ease-in-out";
+//     if (isMobile) {
+//       workBg.style.backgroundAttachment = "fixed";
+//     } else {
+//       workBg.style.backgroundAttachment = "fixed";
+//     }
+//   }
+//   function updateBackground() {
+//     const isMobile = window.innerWidth <= 768;
+//     if (isMobile) {
+//       setBackground("./assets/img/mobile.jpeg", true);
+//     } else {
+//       setBackground("./assets/img/join_us.png", false);
+//     }
+//   }
+//   updateBackground();
+//   window.addEventListener("resize", function () {
+//     clearTimeout(this.resizeTimeout);
+//     this.resizeTimeout = setTimeout(function () {
+//       updateBackground();
+//     }, 200);
+//   });
+
+//   if ("scrollBehavior" in document.documentElement.style) {
+//     document.documentElement.style.scrollBehavior = "smooth";
+//   }
+// });
 //Sub-links dropdown
 function toggleSubLinks() {
   const subLinks = document.getElementById("explore-sub-links");
