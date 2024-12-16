@@ -330,8 +330,8 @@ html {
 }
 .header.scrolled {
   background:var(--nav-black); /* Blackish background with some transparency */
-  box-shadow: 0 4px 6px var(--nav-blacks); /* Add shadow on scroll */
-  backdrop-filter: blur(10px); /* Apply the blur effect for the glass effect */
+  box-shadow: 0 4px 6px var(--nav-blacks); 
+  backdrop-filter: blur(10px); 
 }
 
 /* Default styles for header logo */
@@ -753,6 +753,18 @@ html {
 
 .grid-containers.active {
   display: grid;
+}
+.grid-contain {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out; /* Smooth transition */
+}
+
+.grid-contain.fade-out {
+  opacity: 0; /* Gradual fade-out */
+}
+
+.grid-contain.hidden {
+  display: none; /* Fully hidden after transition */
 }
 
 @media (min-width: 1030px) {
@@ -4606,7 +4618,7 @@ input[type="file"] {
 }
 
 .products-price sup {
-  font-size: 1rem;
+ 
   vertical-align: top;
 }
 
@@ -4680,6 +4692,76 @@ input[type="file"] {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3); 
 }
+/* Modal Styles */
+.modal {
+  display: none; /* Hide modal by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--nav-black); /* Glass effect background */
+  box-shadow: 0 4px 6px var(--nav-blacks); 
+  backdrop-filter: blur(10px); 
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.modal-content {
+  position: relative;
+  width: 60%; /* Default size for larger screens */
+  max-width: 600px;
+  border-radius: 15px;
+  background-color: white;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal img {
+  width: 100%; /* Ensure image fits within the modal */
+  height: auto;
+  border-radius: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  color: var(--ash-color);
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.close-button:hover {
+  color: var(--red-color);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .modal-content {
+      
+    max-width: 90%; /* Ensure it doesn't exceed screen width */
+    padding: 10px; /* Reduce padding for better fit */
+  }
+
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%; /* Further reduce width for very small screens */
+    padding: 8px;
+  }
+
+
+}
+
+
+
+/* Main image styling (optional, to make it look better) */
+
 
 
 
@@ -4726,7 +4808,6 @@ input[type="file"] {
 }
 
 .product-price sup {
-  font-size: 1rem;
   vertical-align: top;
 }
 

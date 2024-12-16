@@ -30,6 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 //end.................................................................................
 document.addEventListener("DOMContentLoaded", function () {
+  const scrollableContainer = document.querySelector(".category-section"); // Replace with the actual class or ID if different
+
+  if (!scrollableContainer) {
+    console.error("Scrollable container '.category-section' not found!");
+    return;
+  }
+
+  console.log("Scrollable container found:", scrollableContainer);
   // Function to hide all sections
   function hideAllSections() {
     var sections = document.querySelectorAll(".grid-contain");
@@ -51,16 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var arrowIcon = document.getElementById("arrow-icon");
     var bedroomGrid = document.getElementById("bedroom-grid");
 
-    // Check if the bedroom grid is already visible
     if (bedroomGrid.classList.contains("hidden")) {
-      // Hide all sections first
       hideAllSections();
-
-      // Show the bedroom section
       bedroomGrid.classList.remove("hidden");
       arrowIcon.classList.add("show");
     } else {
-      // Hide the bedroom section if it's already visible
       bedroomGrid.classList.add("hidden");
       arrowIcon.classList.remove("show");
     }
@@ -71,16 +74,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var arrowIcon = document.getElementById("arrow-iconss");
     var matGrid = document.getElementById("mattress-grid");
 
-    // Check if the mattress grid is already visible
     if (matGrid.classList.contains("hidden")) {
-      // Hide all sections first
       hideAllSections();
-
-      // Show the mattress section
       matGrid.classList.remove("hidden");
       arrowIcon.classList.add("show");
     } else {
-      // Hide the mattress section if it's already visible
       matGrid.classList.add("hidden");
       arrowIcon.classList.remove("show");
     }
@@ -91,16 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var arrowIcon = document.getElementById("arrow-iconsss");
     var decGrid = document.getElementById("dec-grid");
 
-    // Check if the decor grid is already visible
     if (decGrid.classList.contains("hidden")) {
-      // Hide all sections first
       hideAllSections();
-
-      // Show the decor section
       decGrid.classList.remove("hidden");
       arrowIcon.classList.add("show");
     } else {
-      // Hide the decor section if it's already visible
       decGrid.classList.add("hidden");
       arrowIcon.classList.remove("show");
     }
@@ -111,16 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var arrowIcon = document.getElementById("dining-arrow-icon");
     var diningGrid = document.getElementById("dining-grid");
 
-    // Check if the dining grid is already visible
     if (diningGrid.classList.contains("hidden")) {
-      // Hide all sections first
       hideAllSections();
-
-      // Show the dining section
       diningGrid.classList.remove("hidden");
       arrowIcon.classList.add("show");
     } else {
-      // Hide the dining section if it's already visible
       diningGrid.classList.add("hidden");
       arrowIcon.classList.remove("show");
     }
@@ -131,16 +119,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var arrowIcon = document.getElementById("arrow-icon-living");
     var livingRoomGrid = document.getElementById("living-room-grid");
 
-    // Check if the living room grid is already visible
     if (livingRoomGrid.classList.contains("hidden")) {
-      // Hide all sections first
       hideAllSections();
-
-      // Show the living room section
       livingRoomGrid.classList.remove("hidden");
       arrowIcon.classList.add("show");
     } else {
-      // Hide the living room section if it's already visible
       livingRoomGrid.classList.add("hidden");
       arrowIcon.classList.remove("show");
     }
@@ -165,6 +148,31 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("living-room-toggle")
     .addEventListener("click", toggleLivingRoomSection);
+
+  // Hide sections when scrolled down about 50% of the page
+  // scrollableContainer.addEventListener("scroll", function () {
+  //   console.log("Scroll event triggered inside category-section!");
+
+  //   const scrollTop = scrollableContainer.scrollTop; // Current scroll position inside the container
+  //   const scrollHeight = scrollableContainer.scrollHeight; // Total scrollable height of the container
+  //   const clientHeight = scrollableContainer.clientHeight; // Visible height of the container
+
+  //   console.log("Scroll Top:", scrollTop);
+  //   console.log("Scroll Height:", scrollHeight);
+  //   console.log("Client Height:", clientHeight);
+
+  //   if (scrollTop > (scrollHeight - clientHeight) * 0.99) {
+  //     console.log(
+  //       "Scrolled beyond 50% inside category-section - hiding sections"
+  //     );
+  //     hideAllSections();
+  //   } else {
+  //     console.log("Scroll position is above 50%");
+  //   }
+  // });
+
+  // Initially hide all sections
+  hideAllSections();
 });
 
 //end.................................................................................
@@ -1161,6 +1169,50 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".search")) {
       suggestionsList.style.display = "none";
+    }
+  });
+});
+//Image Modal Effect
+// Open the modal
+function openModal() {
+  const modal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage");
+  const mainImage = document.getElementById("mainImage");
+
+  // Set the modal image to the source of the clicked image
+  modalImage.src = mainImage.src;
+
+  // Show the modal
+  modal.classList.remove("hidden");
+  modal.style.display = "flex"; // Make it visible with flex layout
+}
+
+// Close the modal
+function closeModal() {
+  const modal = document.getElementById("imageModal");
+
+  // Hide the modal
+  modal.classList.add("hidden");
+  modal.style.display = "none"; // Ensure it's not visible
+}
+//quantity buttons
+document.addEventListener("DOMContentLoaded", function () {
+  // Select elements
+  const quantityInput = document.getElementById("quantity");
+  const incrementButton = document.querySelector(".increment");
+  const decrementButton = document.querySelector(".decrement");
+
+  // Increment quantity
+  incrementButton.addEventListener("click", () => {
+    const currentValue = parseInt(quantityInput.value);
+    quantityInput.value = currentValue + 1;
+  });
+
+  // Decrement quantity
+  decrementButton.addEventListener("click", () => {
+    const currentValue = parseInt(quantityInput.value);
+    if (currentValue > 1) {
+      quantityInput.value = currentValue - 1;
     }
   });
 });

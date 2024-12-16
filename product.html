@@ -72,6 +72,55 @@
         width: 50px;
         text-align: center;
       }
+      #quantity {
+        -moz-appearance: textfield; /* For Firefox */
+        -webkit-appearance: none; /* For Chrome, Safari, Edge */
+        appearance: none; /* Standard property */
+        text-align: center; /* Center text for better alignment */
+        width: 50px; /* Adjust width as needed */
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 5px;
+      }
+      #quantity::-webkit-inner-spin-button,
+      #quantity::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0; /* Removes margin */
+      }
+      .quantity-controls {
+        display: flex;
+        align-items: center;
+        gap: 5px; /* Add spacing between elements */
+      }
+
+      .quantity-controls button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.5rem;
+        text-align: center;
+        border: none;
+        background-color: var(--white-color);
+        color: var(--background-color);
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease, background-color 0.3s;
+      }
+
+      .quantity-controls button:hover {
+        background-color: var(--red-color);
+        color: var(--white-color);
+        transform: scale(1.1); /* Slight enlargement on hover */
+      }
+
+      .quantity-controls input {
+        width: 60px;
+        text-align: center;
+        font-size: 1rem;
+        padding: 5px;
+        border: 1px solid var(--background-color);
+        border-radius: 5px;
+      }
 
       .add-to-cart {
         background: #ff5722;
@@ -1364,7 +1413,18 @@
                         src="./assets/img/twin-beds.png"
                         alt="Main Product Image"
                         id="mainImage"
+                        onclick="openModal()"
                       />
+                    </div>
+
+                    <!-- Modal Structure -->
+                    <div id="imageModal" class="modal hidden">
+                      <div class="modal-content">
+                        <span class="close-button" onclick="closeModal()"
+                          >&times;</span
+                        >
+                        <img id="modalImage" alt="Enlarged Image" />
+                      </div>
                     </div>
 
                     <!-- Thumbnails -->
@@ -1418,8 +1478,13 @@
 
                     <div class="quantity">
                       <label for="quantity">Qty:</label>
-                      <input type="number" id="quantity" min="1" value="1" />
+                      <div class="quantity-controls">
+                        <button class="decrement">−</button>
+                        <input type="number" id="quantity" min="1" value="1" />
+                        <button class="increment">+</button>
+                      </div>
                     </div>
+
                     <button class="add-to-cart">Add to Cart</button>
                   </div>
                 </div>
