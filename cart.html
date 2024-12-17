@@ -1,14 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/png" href="assets/img/logo.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paramount Furniture</title>
+    <title>Shopping Cart</title>
     <link rel="stylesheet" href="app.css" />
+    <style>
+      .cart-card {
+        display: flex;
+        flex-direction: row;
+        max-width: 950px;
+        background: #fff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        border-radius: 1rem;
+        overflow: hidden;
+        width: 100%;
+        margin-top: 7rem;
+        z-index: 1;
+      }
+
+      /* Cart Row */
+      .cart-row {
+        display: flex;
+        flex-direction: row; /* Default to row layout */
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        width: 100%;
+      }
+      .cart-col {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+      .cart-cols {
+        display: flex;
+        align-items: center; /* Vertically center each column */
+        gap: 0.4rem;
+        width: 100%;
+      }
+      .text-right {
+        text-align: right;
+      }
+      /* Cart Container - Items Section */
+      .cart-container {
+        width: 60%;
+        flex: 1;
+        padding: 2rem 0 2rem 2rem;
+        gap: 1.5rem;
+      }
+
+      .cart-item {
+        display: flex;
+        align-items: center; /* Vertically center the content */
+        justify-content: space-between; /* Spread items horizontally */
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .cart-col-image {
+        flex-shrink: 0; /* Prevent the image from resizing */
+        display: flex;
+        align-items: center;
+      }
+
+      .cart-image {
+        width: 60px;
+
+        border-radius: 0.5rem;
+        object-fit: cover; /* Maintain aspect ratio */
+      }
+
+      .cart-col-details {
+        flex: 1;
+        display: flex;
+        align-items: center;
+      }
+
+      .cart-item-title {
+        font-weight: bold;
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Number of lines to show */
+        -webkit-box-orient: vertical;
+        line-height: 1.2; /* Adjust line-height for better alignment */
+      }
+
+      .cart-col-quantity {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .cart-quantity-number {
+        border: 1px solid #ddd;
+        border-radius: 0.5rem;
+        text-align: center;
+      }
+      #quantity {
+        -moz-appearance: textfield; /* For Firefox */
+        -webkit-appearance: none; /* For Chrome, Safari, Edge */
+        appearance: none; /* Standard property */
+        text-align: center; /* Center text for better alignment */
+        width: 50px; /* Adjust width as needed */
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      #quantity::-webkit-inner-spin-button,
+      #quantity::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0; /* Removes margin */
+      }
+      .quantity-button {
+        border: none;
+        padding: 0.2rem 0.5rem;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: white;
+        background-color: #eb5939;
+      }
+
+      .quantity-button:hover {
+        background-color: #e45a3bd2;
+      }
+
+      .cart-col-price {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: bold;
+        color: #333;
+        padding: 0.6rem;
+      }
+
+      .cart-close {
+        color: red;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+      .empty-cart {
+        display: block;
+        text-align: center;
+        padding: 0.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+      .hidden {
+        display: none;
+      }
+      .cart-back-to-shop {
+        padding: 1rem 0.6rem;
+      }
+      /* Cart Summary */
+      .cart-summary {
+        width: 40%;
+        padding: 2rem;
+        background-color: #f9f9f9;
+      }
+
+      .cart-summary h5 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .cart-summary form p {
+        margin-top: 1rem;
+      }
+
+      .cart-summary input,
+      #address {
+        width: 95%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+      }
+      .cart-summary select {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+      }
+      .cart-total {
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem 0;
+        font-weight: bold;
+      }
+
+      .cart-btn {
+        background-color: #000;
+        color: #fff;
+        padding: 0.8rem;
+        text-transform: uppercase;
+        width: 100%;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .cart-btn:hover {
+        background-color: #333;
+      }
+
+      /* Back to Shop */
+      .cart-back-to-shop a {
+        text-decoration: none;
+        color: #000;
+      }
+
+      .cart-back-to-shop a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive Layout */
+      @media (max-width: 1024px) {
+        .cart-card {
+          flex-direction: column;
+          width: 98%;
+        }
+        .cart-cols {
+          width: 100%;
+        }
+        .cart-container {
+          width: 100%;
+          border-right: none;
+        }
+
+        .cart-summary {
+          margin: 0 auto;
+          margin-bottom: 3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cart-card {
+          flex-direction: column;
+        }
+        .cart-cols {
+          width: 95%;
+        }
+
+        .cart-row {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .cart-container {
+          padding: 1.5rem;
+          border-right: none;
+          border-bottom: 1px solid #ddd;
+        }
+
+        .cart-summary {
+          border-top: 1px solid #ddd;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cart-item {
+          text-align: center;
+        }
+        .cart-cols {
+          width: 90%;
+        }
+
+        .cart-summary {
+          padding: 0 1.5rem 1.5rem 1.5rem;
+          width: 80%;
+          border-radius: 10px;
+          margin-bottom: 1rem;
+        }
+
+        .cart-btn {
+          padding: 0.6rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+    <script>
+      //cart counter and remover
+      document.addEventListener("DOMContentLoaded", function () {
+        const cartItemsContainer = document.querySelector(".cart-container");
+        const emptyCartMessage = document.querySelector(".empty-cart");
+        const itemCountElements = document.querySelectorAll(".item-count"); // Select all item-count elements
+
+        function updateItemCount() {
+          const cartItems = cartItemsContainer.querySelectorAll(".cart-item");
+          const itemCount = cartItems.length;
+          itemCountElements.forEach((itemCountElement) => {
+            itemCountElement.textContent = `${itemCount} Item${
+              itemCount !== 1 ? "s" : ""
+            }`;
+          });
+        }
+        function checkCartEmpty() {
+          const cartItems = cartItemsContainer.querySelectorAll(".cart-item");
+          if (cartItems.length === 0) {
+            emptyCartMessage.classList.remove("hidden");
+          } else {
+            emptyCartMessage.classList.add("hidden");
+          }
+          updateItemCount();
+        }
+        function removeCartItem(event) {
+          const cartItem = event.target.closest(".cart-item");
+          if (cartItem) {
+            cartItem.remove();
+            checkCartEmpty();
+          }
+        }
+        const closeButtons = document.querySelectorAll(".cart-close");
+        closeButtons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            removeCartItem(e);
+          });
+        });
+        checkCartEmpty();
+      });
+
+      //end
+      //increase Decrease
+      document.addEventListener("DOMContentLoaded", function () {
+        const decreaseButtons = document.querySelectorAll(".decrease");
+        const increaseButtons = document.querySelectorAll(".increase");
+        const quantityInputs = document.querySelectorAll("#quantity");
+        decreaseButtons.forEach(function (decreaseButton, index) {
+          decreaseButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            const quantityInput = quantityInputs[index];
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+              quantity--;
+              quantityInput.value = quantity;
+            }
+          });
+        });
+        increaseButtons.forEach(function (increaseButton, index) {
+          increaseButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            const quantityInput = quantityInputs[index];
+            let quantity = parseInt(quantityInput.value);
+            quantity++;
+            quantityInput.value = quantity;
+          });
+        });
+      });
+    </script>
     <script src="script.js"></script>
   </head>
-
   <body>
     <div class="header">
       <div class="header_logo">
@@ -1323,978 +1672,150 @@
       </div>
     </div>
     <main class="main-layer">
-      <div class="layer">
-        <div class="container">
-          <div class="hero">
-            <div class="hero_bg">
-              <div class="w-100 h-100 anim--fade"></div>
-              <video
-                id="hero-bg-video"
-                autoplay
-                muted
-                playsinline
-                loop
-                preload="auto"
-                data-pc="assets/video/hero.mp4"
-                data-mobile="assets/video/hero_mobile.mp4"
-                src="assets/video/hero.mp4"
-              ></video>
+      <div class="cart-body">
+        <div class="cart-card">
+          <div class="cart-row">
+            <!-- Cart Items Section -->
+            <div class="cart-container">
+              <div class="cart-title">
+                <div class="cart-row">
+                  <div class="cart-col">
+                    <h4><b>Shopping Cart</b></h4>
+                  </div>
+                  <div class="cart-col text-right">
+                    <h4 class="item-count">0 Items</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart-item">
+                <div class="cart-cols">
+                  <div class="cart-col-image">
+                    <img
+                      class="cart-image"
+                      src="./assets/img/mattress_box.jpg"
+                      alt="Item 3"
+                    />
+                  </div>
+                  <div class="cart-col-details">
+                    <div class="cart-item-title">Mattress Box Springs</div>
+                  </div>
+                  <div class="cart-col-quantity">
+                    <a class="quantity-button decrease">-</a>
+                    <span>
+                      <input
+                        type="number"
+                        class="cart-quantity-number"
+                        id="quantity"
+                        min="1"
+                        value="1"
+                      />
+                    </span>
+                    <a class="quantity-button increase">+</a>
+                  </div>
+
+                  <div class="cart-col-price">
+                    <div>&dollar; 44.00</div>
+                  </div>
+                  <div class="cart-close">
+                    <span>&#10005;</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart-item">
+                <div class="cart-cols">
+                  <div class="cart-col-image">
+                    <img
+                      class="cart-image"
+                      src="assets/img/chair.png"
+                      alt="Item 3"
+                    />
+                  </div>
+                  <div class="cart-col-details">
+                    <div class="cart-item-title">Office Chair</div>
+                  </div>
+                  <div class="cart-col-quantity">
+                    <a class="quantity-button decrease">-</a>
+                    <span>
+                      <input
+                        type="number"
+                        class="cart-quantity-number"
+                        id="quantity"
+                        min="1"
+                        value="1"
+                      />
+                    </span>
+                    <a class="quantity-button increase">+</a>
+                  </div>
+                  <div class="cart-col-price">
+                    <div>&dollar; 44.00</div>
+                  </div>
+                  <div class="cart-close">
+                    <span>&#10005;</span>
+                  </div>
+                </div>
+              </div>
+              <div class="empty-cart hidden">Your cart is empty.</div>
+              <!-- Back to Shop -->
+              <div class="cart-back-to-shop">
+                <a href="products.html" class="cart-back-button">
+                  <span class="cart-back-arrow">&leftarrow;</span>
+                  <span class="text-muted">Back to shop</span>
+                </a>
+              </div>
             </div>
-            <div class="search">
-              <div class="search-bar">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 512 512"
-                  class="search-svg"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M443.5 420.2L336.7 312.4c20.9-26.2 33.5-59.4 33.5-95.5 0-84.5-68.5-153-153.1-153S64 132.5 64 217s68.5 153 153.1 153c36.6 0 70.1-12.8 96.5-34.2l106.1 107.1c3.2 3.4 7.6 5.1 11.9 5.1 4.1 0 8.2-1.5 11.3-4.5 6.6-6.3 6.8-16.7.6-23.3zm-226.4-83.1c-32.1 0-62.3-12.5-85-35.2-22.7-22.7-35.2-52.9-35.2-84.9 0-32.1 12.5-62.3 35.2-84.9 22.7-22.7 52.9-35.2 85-35.2s62.3 12.5 85 35.2c22.7 22.7 35.2 52.9 35.2 84.9 0 32.1-12.5 62.3-35.2 84.9-22.7 22.7-52.9 35.2-85 35.2z"
-                  ></path>
-                </svg>
+
+            <!-- Summary Section -->
+            <div class="cart-summary">
+              <h5><b>Summary</b></h5>
+              <hr />
+              <div class="cart-col">
+                <div class="cart-summary-items">
+                  <span class="item-count">0</span>
+                </div>
+                <div class="cart-summary-price">&dollar; 132.00</div>
+              </div>
+              <form>
+                <p><b>Name</b></p>
                 <input
-                  placeholder="Search..."
-                  class="search-input"
                   type="text"
-                  id="search-box"
+                  id="name"
+                  placeholder="Enter your name"
+                  required
                 />
+
+                <p><b>Email</b></p>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Enter your email"
+                  required
+                />
+
+                <p><b>Billing Address</b></p>
+                <textarea
+                  id="address"
+                  placeholder="Enter your billing address"
+                  rows="4"
+                  required
+                ></textarea>
+
+                <p><b>SHIPPING</b></p>
+                <select>
+                  <option>Standard-Delivery- &dollar;5.00</option>
+                </select>
+
+                <p><b>Coupon Code</b></p>
+                <input id="code" placeholder="Enter your coupon code" />
+              </form>
+              <div class="cart-total">
+                <div>TOTAL PRICE</div>
+                <div>&dollar; 137.00</div>
               </div>
-              <div class="suggestions grid" id="suggestions-list"></div>
-            </div>
-
-            <div class="hero_content">
-              <div class="row justify-content-center">
-                <div class="col-12 hero_content_inner">
-                  <h2 class="text-center mb-0 anim--chars anim--chars--3d">
-                    <div
-                      class="line"
-                      style="display: block; text-align: center; width: 100%"
-                    >
-                      <strong
-                        class=""
-                        style="display: inline-block; position: relative"
-                      >
-                        <div
-                          class="char anim--slide-up"
-                          style="
-                            display: inline-block;
-                            translate: none;
-                            rotate: none;
-                            scale: none;
-                            transform: translate(0px, 0%);
-                            letter-spacing: 0.01em;
-                          "
-                        >
-                          Paramount Furnitures
-                        </div>
-                      </strong>
-                    </div>
-                  </h2>
-                  <h1 class="text-center mb-0 anim--chars anim--chars--3d">
-                    <div
-                      class="line"
-                      style="display: block; text-align: center; width: 100%"
-                    >
-                      <div
-                        class="char anim--slide-up"
-                        style="
-                          display: inline-block;
-                          translate: none;
-                          rotate: none;
-                          scale: none;
-                          transform: translate(0px, 0%);
-                          color: #ffffff;
-                          letter-spacing: 0.01em;
-                        "
-                      >
-                        Special offers
-                      </div>
-                    </div>
-                    <div
-                      class="line"
-                      style="display: block; text-align: center; width: 100%"
-                    >
-                      <strong
-                        class=""
-                        style="display: inline-block; position: relative"
-                      >
-                        <div
-                          class="char anim--slide-up"
-                          style="
-                            display: inline-block;
-                            translate: none;
-                            rotate: none;
-                            scale: none;
-                            transform: translate(0px, 0%);
-                            letter-spacing: 0.01em;
-                          "
-                        >
-                          <div class="">Winter Sales</div>
-                        </div>
-
-                        <div
-                          class="char anim--slide-up"
-                          style="
-                            display: inline-block;
-                            translate: none;
-                            rotate: none;
-                            scale: none;
-                            transform: translate(0px, 0%);
-                          "
-                        >
-                          <div class=""></div>
-                        </div>
-                      </strong>
-                    </div>
-
-                    <!-- Button container -->
-                    <div class="button-container">
-                      <button
-                        class="lines"
-                        style="
-                          display: block;
-                          width: 100%;
-                          background: transparent;
-                          border: none;
-                        "
-                        onclick="redirectToDeal()"
-                      >
-                        <!-- Individual characters for "Shop Now" -->
-                        <div
-                          class="char anim--slide-up"
-                          style="letter-spacing: 0.01em"
-                        >
-                          Shop Now
-                        </div>
-
-                        <!-- SVG Icon -->
-                        <div class="char anim--slide-up">
-                          <svg
-                            class="svg-icon"
-                            version="1.1"
-                            id="icons_1_"
-                            xmlns="http://www.w3.org/2000/svg"
-                            x="0"
-                            y="0"
-                            viewBox="0 0 128 128"
-                            style="enable-background: new 0 0 128 128"
-                            xml:space="preserve"
-                          >
-                            <style>
-                              .st0 {
-                                display: none;
-                              }
-                              .st1 {
-                                display: inline;
-                              }
-                              .st2 {
-                                fill: #ffffff;
-                              }
-                            </style>
-                            <g id="row1_1_">
-                              <g id="_x31__3_">
-                                <path
-                                  class="st2"
-                                  d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 121.6C32.2 121.6 6.4 95.8 6.4 64S32.2 6.4 64 6.4s57.6 25.8 57.6 57.6-25.8 57.6-57.6 57.6zM49.2 38.4 73.6 64 49.2 89.6h13.5L86.4 64 62.7 38.4H49.2z"
-                                  id="_x32__2_"
-                                />
-                              </g>
-                            </g>
-                          </svg>
-                        </div>
-                      </button>
-                    </div>
-                  </h1>
-                </div>
-              </div>
+              <button class="cart-btn">CHECKOUT</button>
             </div>
           </div>
-          <section id="deal">
-            <div class="about">
-              <div class="about_me row">
-                <div class="col-sm-10 col-12 offset-sm-1">
-                  <div class="about_content">
-                    <div class="container_content">
-                      <div class="scroll-reveal" id="section1">
-                        <div class="about_content_label">
-                          <h2 class="body-text">
-                            <span class="">Store Special Offers</span>
-                          </h2>
-                        </div>
-                      </div>
-
-                      <!-- store -->
-                      <div class="stores">
-                        <div class="store-components">
-                          <p class="store-title">Scarborough</p>
-                          <div
-                            class="store-background"
-                            style="
-                              background-image: url(./assets/img/Scarbrough.jpg);
-                            "
-                          >
-                            <button class="store-btn" target="_blank" href="#">
-                              View Offers
-                            </button>
-                          </div>
-                        </div>
-                        <div class="store-components">
-                          <p class="store-title">North York</p>
-                          <div
-                            class="store-background"
-                            style="
-                              background-image: url(./assets/img/NorthYork.jpg);
-                            "
-                          >
-                            <button class="store-btn" target="_blank" href="#">
-                              View Offers
-                            </button>
-                          </div>
-                        </div>
-                        <div class="store-components">
-                          <p class="store-title">Brampton</p>
-                          <div
-                            class="store-background"
-                            style="
-                              background-image: url(./assets/img/Brampton.jpg);
-                            "
-                          >
-                            <button class="store-btn" target="_blank" href="#">
-                              View Offers
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section id="explore">
-            <div class="explore-container">
-              <div class="explore-menu">
-                <h3 class="explore-title">Explore</h3>
-                <hr class="explore-divider" />
-                <div class="explore-links">
-                  <a href="#" class="explore-link-item">New Arrivals</a>
-                  <a href="#" class="explore-link-item">Clearance Offers</a>
-                  <a class="explore-link-item" onclick="toggleSubLinks()"
-                    >All Categories
-                    <svg
-                      class="arrow-toggle"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      viewBox="0 0 512 512"
-                      width="20"
-                      height="20"
-                    >
-                      <path
-                        d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-                      ></path>
-                    </svg>
-                  </a>
-
-                  <div id="explore-sub-links" class="explore-sub-links hidden">
-                    <a href="#" class="explore-sub-link-item">Beds</a>
-                    <a href="#" class="explore-sub-link-item"> Bedroom Sets</a>
-                    <a href="#" class="explore-sub-link-item"
-                      >Dining Room Furniture</a
-                    >
-                    <a href="#" class="explore-sub-link-item"
-                      >Living Room Furniture</a
-                    >
-                  </div>
-                  <a href="#" class="explore-link-item">Pictures &amp; Arts</a>
-                  <a href="#contact" class="explore-link-item">Join Us</a>
-                  <a href="#customer" class="explore-link-item">Contact Us</a>
-                </div>
-              </div>
-              <div class="explore-image-right">
-                <div class="explore-grid">
-                  <div
-                    class="explore-grid-item"
-                    style="
-                      background-image: url('./assets/img/clearance_offer.jpg');
-                    "
-                  >
-                    <span class="explore-label">Clearance Offers</span>
-                  </div>
-                  <div
-                    class="explore-grid-item"
-                    style="
-                      background-image: url('./assets/img/mattress_offer.jpg');
-                    "
-                  >
-                    <span class="explore-label">Mattress Offers</span>
-                  </div>
-                  <div
-                    class="explore-grid-item"
-                    style="
-                      background-image: url('./assets/img/decoration_offer.jpg');
-                    "
-                  >
-                    <span class="explore-label">Decoration Offers</span>
-                  </div>
-                  <div
-                    class="explore-grid-item"
-                    style="
-                      background-image: url('./assets/img/bed_room_offer.jpg');
-                    "
-                  >
-                    <span class="explore-label">Bedroom Offers</span>
-                  </div>
-                  <div
-                    class="explore-grid-item"
-                    style="
-                      background-image: url('./assets/img/living_room_offer.jpg');
-                    "
-                  >
-                    <span class="explore-label">Living Room Offers</span>
-                  </div>
-                  <div
-                    class="explore-grid-item"
-                    style="
-                      background-image: url('./assets/img/dining_offer.jpg');
-                    "
-                  >
-                    <span class="explore-label">Dining Room Offers</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!-- <section id="contact">
-            <div class="testimonials">
-              <div class="testimonials">
-                <div class="motto">
-                  <div class="motto_bg"></div>
-                  <div class="motto_content container_content">
-                    <div class="row justify-content-center align-items-center">
-                      <div class="col-lg-8 col-12 motto_content_inner">
-                        <div class="form-container">
-                          <div class="form-content">
-                            <p class="special-offer-text">Special Offer</p>
-                            <p class="main-heading">Join Us</p>
-                            <p class="description">
-                              Sign up for the newsletter and receive future
-                              coupons, offers, promotions, and clearance
-                            </p>
-                            <form>
-                              <div class="form-inputs">
-                                <input
-                                  placeholder="Name"
-                                  class="input-form"
-                                  type="text"
-                                />
-                                <input
-                                  placeholder="abcd@gmail.com"
-                                  class="input-form email-input"
-                                  type="text"
-                                />
-                                <div class="terms">
-                                  <input class="terms-checkbox" type="radio" />
-                                  <p class="terms-text">
-                                    By subscribing you agree to our Terms &amp;
-                                    Conditions and Privacy &amp; Cookies Policy.
-                                  </p>
-                                </div>
-                                <button class="signup-button">
-                                  SIGN UP NOW
-                                </button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section> -->
-
-          <!-- <section id="about">
-            <div class="about">
-              <div class="col-sm-10 col-12 offset-sm-1">
-                <div class="about_content">
-                  <div class="container_content">
-                    <div class="abouts_me row">
-                      <div class="about_content_label">
-                        <h2 class="body-text scroll-reveal" id="section3">
-                          <span>About us</span>
-                        </h2>
-                        <div class="about_content_desc">
-                          <div class="about-font">
-                            <div class="scroll-paragraph-parent">
-                              <div class="scroll-paragraph-mask is-masking">
-                                <div class="line scroll-reveal" id="section4">
-                                  Discover exquisite,
-                                  <strong
-                                    class="str"
-                                    style="
-                                      display: inline-block;
-                                      position: relative;
-                                    "
-                                    >handcrafted
-                                  </strong>
-                                  furniture that blends style and
-                                </div>
-                                <div class="line scroll-reveal" id="section5">
-                                  comfort. Custom designs,
-                                  <strong
-                                    class="str"
-                                    style="
-                                      display: inline-block;
-                                      position: relative;
-                                    "
-                                  >
-                                    premium materials,
-                                  </strong>
-                                  and to expert craftsmanship elevate
-                                </div>
-                                <div class="line scroll-reveal" id="section6">
-                                  your living space
-                                  <strong
-                                    class="str"
-                                    style="
-                                      display: inline-block;
-                                      position: relative;
-                                    "
-                                  >
-                                    effortlessly.
-                                  </strong>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section> -->
-          <div class="testimonial">
-            <div class="partner-section">
-              <h2 class="body-text">Trusted Partners</h2>
-              <div class="partner-container">
-                <button class="arrow-btn left-arrow" id="prevPage">◀</button>
-                <div class="partner-image">
-                  <div class="partner-grid" id="partnerGrid">
-                    <a
-                      href="https://Mazinfurniture.com"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Mazinfurniture.com"
-                    >
-                      <img
-                        class="bright"
-                        src="./assets/img/mazin.png"
-                        alt="Mazin Logo"
-                      />
-                    </a>
-                    <a
-                      href="http://www.homelegance.com"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="homelegance.com"
-                    >
-                      <img
-                        class="bright"
-                        src="./assets/img/homelegance.png"
-                        alt="Homelegance Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://Ifdc.ca"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Ifdc.ca"
-                    >
-                      <img
-                        class="bright"
-                        src="./assets/img/ifdc.png"
-                        alt="IFDC Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://Titusfurniture.ca"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Titusfurniture.ca"
-                    >
-                      <img src="./assets/img/titus.png" alt="Titus Logo" />
-                    </a>
-                    <a
-                      href="https://Littlespills.com"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Littlespills.com"
-                    >
-                      <img
-                        src="./assets/img/little-logo.jpg"
-                        alt="Little Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://Matrixfurnituregroup.ca"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Matrixfurnituregroup.ca"
-                    >
-                      <img src="./assets/img/matrix.png" alt="Matrix Logo" />
-                    </a>
-                    <a
-                      href="https://Galaxyhomefurniture.com"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Galaxyhomefurniture.com"
-                    >
-                      <img src="./assets/img/Galaxy.png" alt="Galaxy Logo" />
-                    </a>
-                    <a
-                      href="https://Kwalityfurniture.com"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Kwalityfurniture.com"
-                    >
-                      <img src="./assets/img/Kwality.png" alt="Kwality Logo" />
-                    </a>
-                    <a
-                      href="https://urbandecorfurnishings.com"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="urbandecorfurnishings.com"
-                    >
-                      <img src="./assets/img/urban.png" alt="Urban Logo" />
-                    </a>
-                    <a
-                      href="https://Sofabyfancy.com"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Sofabyfancy.com"
-                    >
-                      <img
-                        class="bright"
-                        src="./assets/img/sofa_by_fancy.png"
-                        alt="Sofa by Fancy Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://mundisofa.ca"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="mundisofa.ca"
-                    >
-                      <img
-                        src="./assets/img/Mundi-Sofa.png"
-                        alt="Mundi Sofa Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://Mindstyledecor.com"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Mindstyledecor.com"
-                    >
-                      <img
-                        src="./assets/img/mindStyle.png"
-                        alt="MindStyle Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://Creative-homedecor.com"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Creative-homedecor.com"
-                    >
-                      <img
-                        src="./assets/img/creative_Home.jpg"
-                        alt="Creative Home Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://Stylzncomfort.com"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Stylzncomfort.com"
-                    >
-                      <img src="./assets/img/Stylz.jpg" alt="Stylz Logo" />
-                    </a>
-                    <a
-                      href="https://Xcella.ca"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="Xcella.ca"
-                    >
-                      <img
-                        class="bright"
-                        src="./assets/img/xcella.png"
-                        alt="Xcella Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://mfurniture.ca/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="mfurniture.ca"
-                    >
-                      <img src="./assets/img/modern.jpg" alt="modern Logo" />
-                    </a>
-                    <a
-                      href="https://goodwooddesign.ca/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="goodwooddesign.ca"
-                    >
-                      <img src="./assets/img/good.png" alt="good Logo" />
-                    </a>
-                    <a
-                      href="https://aclassfurniture.ca/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="aclassfurniture.ca"
-                    >
-                      <img src="./assets/img/a_class.png" alt="a class Logo" />
-                    </a>
-                    <a
-                      href="https://www.coast2coastfurnishings.ca/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="coast2coastfurnishings.ca"
-                    >
-                      <img src="./assets/img/coast.png" alt="Coast Logo" />
-                    </a>
-                    <a
-                      href="http://www.bolgattifurniture.com/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="bolgattifurniture.com"
-                    >
-                      <img
-                        src="./assets/img/bolgati.png"
-                        alt="Bolgatti Furniture Logo"
-                        class="bright"
-                      />
-                    </a>
-                    <a
-                      href="https://www.newgillfurniture.com/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="newgillfurniture.com"
-                    >
-                      <img
-                        src="./assets/img/newGill.png"
-                        alt="New Gill Furniture Logo"
-                      />
-                    </a>
-                    <a
-                      href="http://www.vfifurnitureimport.ca/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="vfifurnitureimport.ca"
-                    >
-                      <img
-                        src="./assets/img/vfif.png"
-                        alt="VFI Furniture Import Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://cosmosfurniture.com/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="cosmosfurniture.com"
-                    >
-                      <img
-                        src="./assets/img/cosmost.png"
-                        alt="Cosmos Furniture Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://fairfieldimports.ca/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="fairfieldimports.ca"
-                    >
-                      <img
-                        src="./assets/img/fair.png"
-                        alt="Fairfield Imports Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://allmoderninteriors.ca/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="allmoderninteriors.ca"
-                    >
-                      <img
-                        src="./assets/img/all_modern.png"
-                        alt="All Modern Interiors Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://www.furcofurniture.ca/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="furcofurniture.ca"
-                    >
-                      <img
-                        src="./assets/img/furco.png"
-                        alt="Furco Furniture Logo"
-                      />
-                    </a>
-                    <a
-                      href="http://www.relaxsofa.ca/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="relaxsofa.ca"
-                    >
-                      <img src="./assets/img/relax.png" alt="Relax Sofa Logo" />
-                    </a>
-                    <a
-                      href="https://www.woodtechfurniture.com/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="woodtechfurniture.com"
-                    >
-                      <img
-                        src="./assets/img/woodTech.png"
-                        alt="WoodTech Furniture Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://www.worldwidehomefurnishingsinc.com/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="worldwidehomefurnishingsinc.com"
-                    >
-                      <img
-                        src="./assets/img/world.svg"
-                        alt="Worldwide Home Furnishings Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://www.monarchspec.com/ms_index.asp"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="monarchspec.com"
-                    >
-                      <img
-                        src="./assets/img/MonarchSpec_logo.png"
-                        alt="Monarch Spec Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://www.queensons.com/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="queensons.com"
-                    >
-                      <img src="./assets/img/queen.jpg" alt="Queensons Logo" />
-                    </a>
-                    <a
-                      href="https://www.choihome.ca/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="choihome.ca"
-                    >
-                      <img
-                        src="./assets/img/donald.png"
-                        alt="Choi Home Logo"
-                        class="bright"
-                      />
-                    </a>
-                    <a
-                      href="https://maximfurnitureimports.com/"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="maximfurnitureimports.com"
-                    >
-                      <img
-                        src="./assets/img/Maxim_Logo.png"
-                        alt="Maxim Furniture Imports Logo"
-                      />
-                    </a>
-                    <a
-                      href="https://oakwoodfurniture.ca/catalog.html"
-                      target="_blank"
-                      class="partner-grid-item"
-                      data-website="oakwoodfurniture.ca"
-                    >
-                      <img
-                        class="bright"
-                        src="./assets/img/oakwood.png"
-                        alt="oakwoodfurniture"
-                      />
-                    </a>
-                  </div>
-                </div>
-
-                <button class="arrow-btn right-arrow" id="nextPage">▶</button>
-              </div>
-            </div>
-          </div>
-          <section id="customer">
-            <div class="testimonials">
-              <div class="landing_page">
-                <div class="responsive-container-block big-container">
-                  <img
-                    class="bg-img"
-                    id="iq5bf"
-                    src="./assets/img/clothes-bg.png"
-                  />
-                  <div class="responsive-container-block container">
-                    <div
-                      class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 left-one"
-                    >
-                      <div class="content-box">
-                        <p class="text-blk section-head">Customer Care</p>
-                        <p class="text-blk section-subhead">
-                          Our Customer Care team is always here to support you.
-                          Just fill out our form with the following details:
-                        </p>
-                        <ul class="details-list">
-                          <li class="list-item">Contact Information</li>
-                          <li class="list-item">Invoice/Bill Number</li>
-                          <li class="list-item">Photos of the Item</li>
-                          <li class="list-item">
-                            Photo of the Box (for new items)
-                          </li>
-                          <li class="list-item">
-                            A Brief Description of the Issue
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div
-                      class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6 right-one"
-                      id="i1zj"
-                    >
-                      <form class="form-box">
-                        <div class="container-block form-wrapper">
-                          <h3 class="body-text">Contact Us</h3>
-
-                          <div class="input-forms">
-                            <input
-                              class="input-form"
-                              name="Name"
-                              placeholder="Name"
-                              type="text"
-                            />
-                          </div>
-                          <div class="input-forms">
-                            <input
-                              class="input-form"
-                              name="Email"
-                              placeholder="Email"
-                              type="email"
-                            />
-                          </div>
-                          <div class="input-forms">
-                            <input
-                              class="input-form"
-                              name="Contact Number"
-                              placeholder="Contact Number"
-                              type="tel"
-                            />
-                          </div>
-                          <div class="input-forms">
-                            <input
-                              class="input-form"
-                              name="Invoice Number"
-                              placeholder="Invoice Number"
-                              type="number"
-                            />
-                          </div>
-                          <div class="input-forms">
-                            <div class="file-input-wrapper">
-                              <input
-                                type="file"
-                                id="photo-item"
-                                name="photo-item"
-                                accept="image/*"
-                                onchange="updatePlaceholder(this)"
-                              />
-                              <div
-                                class="custom-file-label"
-                                onclick="triggerInput('photo-item')"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                  fill="currentColor"
-                                  width="20"
-                                  height="20"
-                                  class="file-icon"
-                                >
-                                  <path
-                                    d="M12 2a4 4 0 014 4H8a4 4 0 014-4zm6 6h-2.35a5.96 5.96 0 01-7.3 0H6a4 4 0 00-4 4v8a4 4 0 004 4h12a4 4 0 004-4v-8a4 4 0 00-4-4zm-6 11a4 4 0 110-8 4 4 0 010 8z"
-                                  />
-                                </svg>
-                                <span id="placeholder-photo-item"
-                                  >Photo of the Item</span
-                                >
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="input-forms">
-                            <div class="file-input-wrapper">
-                              <input
-                                type="file"
-                                id="photo-box"
-                                name="photo-box"
-                                accept="image/*"
-                                onchange="updatePlaceholder(this)"
-                              />
-                              <div
-                                class="custom-file-label"
-                                onclick="triggerInput('photo-box')"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                  fill="currentColor"
-                                  width="20"
-                                  height="20"
-                                  class="file-icon"
-                                >
-                                  <path
-                                    d="M12 2a4 4 0 014 4H8a4 4 0 014-4zm6 6h-2.35a5.96 5.96 0 01-7.3 0H6a4 4 0 00-4 4v8a4 4 0 004 4h12a4 4 0 004-4v-8a4 4 0 00-4-4zm-6 11a4 4 0 110-8 4 4 0 010 8z"
-                                  />
-                                </svg>
-                                <span id="placeholder-photo-box"
-                                  >Photo of the Box</span
-                                >
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="input-forms">
-                            <textarea
-                              aria-placeholder="Type message here"
-                              class="input-form"
-                              id="i5vyy-7"
-                              placeholder="Detail description"
-                            ></textarea>
-                          </div>
-                          <div class="input-forms">
-                            <button class="submit-btns">Send message</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
         </div>
       </div>
 
@@ -2305,12 +1826,6 @@
             <div class="footer-section">
               <p class="footer-title">Helpful Links</p>
               <ul class="footer-links">
-                <li class="footer-item">
-                  <a href="#about" class="footer-link">About Us</a>
-                </li>
-                <li class="footer-item">
-                  <a href="#customer" class="footer-link">Contact Us</a>
-                </li>
                 <li class="footer-item">
                   <a href="/" class="footer-link">Delivery &amp; FAQ</a>
                 </li>

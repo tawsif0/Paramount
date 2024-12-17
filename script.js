@@ -1216,3 +1216,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+//cart menu
+function toggleCartMenu() {
+  const cartMenu = document.getElementById("cartMenu");
+  cartMenu.classList.toggle("active");
+}
+//Cart menu
+document.addEventListener("DOMContentLoaded", function () {
+  // Select all cart items with the class .cart-item
+  const cartItems = document.querySelectorAll(".cart-items");
+
+  cartItems.forEach((item) => {
+    // Select the input and buttons within each cart item
+    const quantityInput = item.querySelector(".quantity-value");
+    const incrementButton = item.querySelector(".plus");
+    const decrementButton = item.querySelector(".minus");
+
+    // Increment quantity
+    incrementButton.addEventListener("click", () => {
+      const currentValue = parseInt(quantityInput.value);
+      quantityInput.value = currentValue + 1;
+    });
+
+    // Decrement quantity
+    decrementButton.addEventListener("click", () => {
+      const currentValue = parseInt(quantityInput.value);
+      if (currentValue > 1) {
+        quantityInput.value = currentValue - 1;
+      }
+    });
+  });
+});

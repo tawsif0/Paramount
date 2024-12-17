@@ -830,19 +830,81 @@
             d="M19 7H24V9H19V7ZM17 12H24V14H17V12ZM20 17H24V19H20V17ZM2 22C2 17.5817 5.58172 14 10 14C14.4183 14 18 17.5817 18 22H16C16 18.6863 13.3137 16 10 16C6.68629 16 4 18.6863 4 22H2ZM10 13C6.685 13 4 10.315 4 7C4 3.685 6.685 1 10 1C13.315 1 16 3.685 16 7C16 10.315 13.315 13 10 13ZM10 11C12.21 11 14 9.21 14 7C14 4.79 12.21 3 10 3C7.79 3 6 4.79 6 7C6 9.21 7.79 11 10 11Z"
           ></path>
         </svg>
-        <svg
-          stroke="currentColor"
-          fill="currentColor"
-          stroke-width="0"
-          viewBox="0 0 256 256"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"
-          ></path>
-        </svg>
+        <div class="cart">
+          <!-- Cart Icon -->
+          <div class="cart-icon-container" onclick="toggleCartMenu()">
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 256 256"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"
+              ></path>
+            </svg>
+            <span class="cart-count">3</span>
+          </div>
+
+          <!-- Cart Menu -->
+          <div class="cart-menu" id="cartMenu">
+            <button class="close-btns" onclick="toggleCartMenu()">✕</button>
+            <div class="cart-items">
+              <img src="/assets/img/chair.png" alt="Item 1" />
+              <div class="item-details">
+                <p>Office Chair</p>
+                <div class="quantities">
+                  <button class="minus">-</button>
+                  <span>
+                    <input
+                      type="number"
+                      class="quantity-value"
+                      id="quan"
+                      min="1"
+                      value="1"
+                    />
+                  </span>
+                  <button class="plus">+</button>
+                </div>
+              </div>
+              <div class="cart-closes">
+                <span>&#10005;</span>
+              </div>
+            </div>
+            <div class="cart-items">
+              <img src="/assets/img/mattress_box.jpg" alt="Item 2" />
+              <div class="item-details">
+                <p>Mattress Box Springs</p>
+                <div class="quantities">
+                  <button class="minus">-</button>
+                  <span>
+                    <input
+                      type="number"
+                      class="quantity-value"
+                      id="quan"
+                      min="1"
+                      value="1"
+                    />
+                  </span>
+                  <button class="plus">+</button>
+                </div>
+              </div>
+              <div class="cart-closes">
+                <span>&#10005;</span>
+              </div>
+            </div>
+            <button
+              class="proceed-btn"
+              onclick="window.location.href='cart.html'"
+            >
+              Proceed
+            </button>
+          </div>
+        </div>
+
         <!-- The SVG that toggles visibility -->
         <svg
           id="toggleMenu"

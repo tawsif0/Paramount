@@ -465,6 +465,191 @@ html {
   pointer-events: none;
   
 }
+/* Cart menu */
+.cart {
+  position: relative;
+  z-index: 1000;
+}
+
+.cart-icon-container {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+}
+
+.cart-icon-container svg {
+  display: block;
+}
+
+.cart-count {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background-color: var(--red-color);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 1.1rem;
+  height: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cart-menu {
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  width: 300px;
+  height: 500px;
+  background-color: #f8f9fa;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 1rem;
+  overflow-y: auto;
+  display: none; /* Hidden by default */
+  z-index: 1010; /* Higher than .cart and .cart-body */
+  border-top-right-radius: 0; /* Remove top-right corner radius */
+}
+
+/* Create the arrow at the top-right corner */
+.cart-menu::before {
+  content: '';
+  position: absolute;
+  top: -10px; /* Position the arrow above the menu */
+  right: 10px; /* Position it slightly from the right edge */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f8f9fa; /* Match the background color */
+  transform: rotate(45deg); /* Rotate to make it look like the top of a cart */
+}
+@media (max-width: 768px) {
+  .cart-menu {
+top: 2.8rem;
+    width: 305px; /* Adjust width as needed */
+
+  }
+}
+
+
+
+
+.cart-menu.active {
+  display: block; /* Show the menu */
+  pointer-events: auto; /* Ensure interactions work */
+}
+.close-btns {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+.cart-closes {
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.cart-items {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 1rem 0;
+  justify-content: space-between; /* Spread items horizontally */
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-items img {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.item-details p {
+  color: black;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.quantities {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.quantities button {
+  background-color: var(--red-color);
+  color: white;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.quantities button:hover {
+  background-color: var(--reds-color);
+}
+
+.quantity-value {
+  font-size: 1rem;
+  font-weight: bold;
+}
+#quan {
+  -moz-appearance: textfield; /* For Firefox */
+  -webkit-appearance: none; /* For Chrome, Safari, Edge */
+  appearance: none; /* Standard property */
+  text-align: center; /* Center text for better alignment */
+  width: 50px; /* Adjust width as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#quan::-webkit-inner-spin-button,
+#quan::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Removes margin */
+}
+.proceed-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.proceed-btn:hover {
+  background-color: #333;
+}
 
 /* Override pointer-events for toggle-wrapper */
 .toggle-wrapper {
@@ -4893,7 +5078,17 @@ input[type="file"] {
 .info-section:not(.hidden) {
   display: block; /* Show section when 'hidden' class is removed */
 }
-
-
-
 /* end */
+/* cart */
+.cart-body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color:black;
+  position: relative;
+  z-index: 1; /* Lower than the cart menu */
+  
+}
