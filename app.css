@@ -502,7 +502,7 @@ html {
   position: absolute;
   top: 3rem;
   right: 0;
-  width: 300px;
+  width: 350px;
   height: 500px;
   background-color: #f8f9fa;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
@@ -529,7 +529,7 @@ html {
 }
 @media (max-width: 768px) {
   .cart-menu {
-top: 2.8rem;
+    top: 2.8rem;
     width: 305px; /* Adjust width as needed */
 
   }
@@ -541,6 +541,15 @@ top: 2.8rem;
 .cart-menu.active {
   display: block; /* Show the menu */
   pointer-events: auto; /* Ensure interactions work */
+}
+
+.cart-menu-price {
+  display: flex;
+  align-items: center;
+ font-size: 0.8rem;
+  font-weight: bold;
+  color: #333;
+ 
 }
 .close-btns {
   background: none;
@@ -566,7 +575,7 @@ top: 2.8rem;
   justify-content: space-between; /* Spread items horizontally */
   gap: 1rem;
   padding: 1rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px solid #eee;
 }
 
 .cart-items img {
@@ -592,6 +601,11 @@ top: 2.8rem;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+}
+
+.item-details .modal-desc {
+  font-size: 0.8rem; 
+  font-weight: normal; 
 }
 
 .quantities {
@@ -633,6 +647,13 @@ top: 2.8rem;
 #quan::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0; /* Removes margin */
+}
+.cart-menu-total {
+  color:black;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  font-weight: bold;
 }
 .proceed-btn {
   display: block;
