@@ -71,7 +71,8 @@
       .cart-image {
         width: 60px;
         border-radius: 0.5rem;
-        object-fit: cover; /* Maintain aspect ratio */
+        object-fit: cover;
+        margin-bottom: 0.3rem;
       }
 
       .cart-col-details {
@@ -205,6 +206,41 @@
         justify-content: space-between;
         margin: 1rem 0;
         font-weight: bold;
+      }
+      .cart-totalss {
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem 0;
+        font-weight: bold;
+        width: 94%; /* Default width for large screens (desktops) */
+      }
+
+      @media (max-width: 1200px) {
+        /* For laptops */
+        .cart-totalss {
+          width: 94%;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        /* For tablets */
+        .cart-totalss {
+          width: 93%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        /* For mobile devices */
+        .cart-totalss {
+          width: 91%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        /* For very small devices */
+        .cart-totalss {
+          width: 85%;
+        }
       }
 
       .cart-btn {
@@ -1093,11 +1129,12 @@
                   <button class="plus">+</button>
                 </div>
               </div>
-              <div class="cart-menu-price">
-                <div>&dollar;44.00</div>
+              <div class="item-detailss">
+                <p class="cart-menu-price">&dollar;44.00</p>
+                <p class="negotiated-badge">Negotiated</p>
               </div>
               <div class="cart-closes">
-                <span>&#10005;</span>
+                <p>&#10005;</p>
               </div>
             </div>
             <div class="cart-items">
@@ -1119,11 +1156,12 @@
                   <button class="plus">+</button>
                 </div>
               </div>
-              <div class="cart-menu-price">
-                <div>&dollar;44.00</div>
+              <div class="item-detailss">
+                <p class="cart-menu-price">&dollar;44.00</p>
+                <p class="negotiated-badge">Negotiated</p>
               </div>
               <div class="cart-closes">
-                <span>&#10005;</span>
+                <p>&#10005;</p>
               </div>
             </div>
             <div class="cart-menu-total">
@@ -1713,12 +1751,15 @@
 
               <div class="cart-item">
                 <div class="cart-cols">
-                  <div class="cart-col-image">
-                    <img
-                      class="cart-image"
-                      src="./assets/img/mattress_box.jpg"
-                      alt="Item 3"
-                    />
+                  <div class="cart-details">
+                    <div class="cart-col-image">
+                      <img
+                        class="cart-image"
+                        src="./assets/img/mattress_box.jpg"
+                        alt="Item 3"
+                      />
+                    </div>
+                    <p class="negotiated-badge">Negotiated</p>
                   </div>
                   <div class="cart-col-details">
                     <div class="cart-item-title">Mattress Box Springs</div>
@@ -1784,6 +1825,10 @@
                   </div>
                 </div>
               </div>
+              <div class="cart-totalss">
+                <div>TOTAL PRICE</div>
+                <div>&dollar; 137.00</div>
+              </div>
               <div class="empty-cart hidden">Your cart is empty.</div>
               <!-- Back to Shop -->
               <div class="cart-back-to-shop">
@@ -1798,12 +1843,7 @@
             <div class="cart-summary">
               <h5><b>Summary</b></h5>
               <hr />
-              <div class="cart-col">
-                <div class="cart-summary-items">
-                  <span class="item-count">0</span>
-                </div>
-                <div class="cart-summary-price">&dollar; 132.00</div>
-              </div>
+
               <form>
                 <p><b>Name</b></p>
                 <input

@@ -733,11 +733,12 @@
                   <button class="plus">+</button>
                 </div>
               </div>
-              <div class="cart-menu-price">
-                <div>&dollar;44.00</div>
+              <div class="item-detailss">
+                <p class="cart-menu-price">&dollar;44.00</p>
+                <p class="negotiated-badge">Negotiated</p>
               </div>
               <div class="cart-closes">
-                <span>&#10005;</span>
+                <p>&#10005;</p>
               </div>
             </div>
             <div class="cart-items">
@@ -759,11 +760,12 @@
                   <button class="plus">+</button>
                 </div>
               </div>
-              <div class="cart-menu-price">
-                <div>&dollar;44.00</div>
+              <div class="item-detailss">
+                <p class="cart-menu-price">&dollar;44.00</p>
+                <p class="negotiated-badge">Negotiated</p>
               </div>
               <div class="cart-closes">
-                <span>&#10005;</span>
+                <p>&#10005;</p>
               </div>
             </div>
             <div class="cart-menu-total">
@@ -2191,99 +2193,104 @@
                       <form class="form-box">
                         <div class="container-block form-wrapper">
                           <h3 class="body-text">Contact Us</h3>
-
-                          <div class="input-forms">
-                            <input
-                              class="input-form"
-                              name="Name"
-                              placeholder="Name"
-                              type="text"
-                            />
-                          </div>
-                          <div class="input-forms">
-                            <input
-                              class="input-form"
-                              name="Email"
-                              placeholder="Email"
-                              type="email"
-                            />
-                          </div>
-                          <div class="input-forms">
-                            <input
-                              class="input-form"
-                              name="Contact Number"
-                              placeholder="Contact Number"
-                              type="tel"
-                            />
-                          </div>
-                          <div class="input-forms">
-                            <input
-                              class="input-form"
-                              name="Invoice Number"
-                              placeholder="Invoice Number"
-                              type="number"
-                            />
-                          </div>
-                          <div class="input-forms">
-                            <div class="file-input-wrapper">
+                          <div class="input-grid">
+                            <div class="input-forms">
                               <input
-                                type="file"
-                                id="photo-item"
-                                name="photo-item"
-                                accept="image/*"
-                                onchange="updatePlaceholder(this)"
+                                class="input-form"
+                                name="Name"
+                                placeholder="Name"
+                                type="text"
                               />
-                              <div
-                                class="custom-file-label"
-                                onclick="triggerInput('photo-item')"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                  fill="currentColor"
-                                  width="20"
-                                  height="20"
-                                  class="file-icon"
-                                >
-                                  <path
-                                    d="M12 2a4 4 0 014 4H8a4 4 0 014-4zm6 6h-2.35a5.96 5.96 0 01-7.3 0H6a4 4 0 00-4 4v8a4 4 0 004 4h12a4 4 0 004-4v-8a4 4 0 00-4-4zm-6 11a4 4 0 110-8 4 4 0 010 8z"
-                                  />
-                                </svg>
-                                <span id="placeholder-photo-item"
-                                  >Photo of the Item</span
-                                >
-                              </div>
+                            </div>
+                            <div class="input-forms">
+                              <input
+                                class="input-form"
+                                name="Email"
+                                placeholder="Email"
+                                type="email"
+                              />
                             </div>
                           </div>
-
-                          <div class="input-forms">
-                            <div class="file-input-wrapper">
+                          <div class="input-grid">
+                            <div class="input-forms">
                               <input
-                                type="file"
-                                id="photo-box"
-                                name="photo-box"
-                                accept="image/*"
-                                onchange="updatePlaceholder(this)"
+                                class="input-form"
+                                name="Contact Number"
+                                placeholder="Contact Number"
+                                type="tel"
                               />
-                              <div
-                                class="custom-file-label"
-                                onclick="triggerInput('photo-box')"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                  fill="currentColor"
-                                  width="20"
-                                  height="20"
-                                  class="file-icon"
+                            </div>
+                            <div class="input-forms">
+                              <input
+                                class="input-form"
+                                name="Invoice Number"
+                                placeholder="Invoice Number"
+                                type="number"
+                              />
+                            </div>
+                          </div>
+                          <div class="input-grid">
+                            <div class="input-forms">
+                              <div class="file-input-wrapper">
+                                <input
+                                  type="file"
+                                  id="photo-item"
+                                  name="photo-item"
+                                  accept="image/*"
+                                  onchange="updatePlaceholder(this)"
+                                />
+                                <div
+                                  class="custom-file-label"
+                                  onclick="triggerInput('photo-item')"
                                 >
-                                  <path
-                                    d="M12 2a4 4 0 014 4H8a4 4 0 014-4zm6 6h-2.35a5.96 5.96 0 01-7.3 0H6a4 4 0 00-4 4v8a4 4 0 004 4h12a4 4 0 004-4v-8a4 4 0 00-4-4zm-6 11a4 4 0 110-8 4 4 0 010 8z"
-                                  />
-                                </svg>
-                                <span id="placeholder-photo-box"
-                                  >Photo of the Box</span
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    width="20"
+                                    height="20"
+                                    class="file-icon"
+                                  >
+                                    <path
+                                      d="M12 2a4 4 0 014 4H8a4 4 0 014-4zm6 6h-2.35a5.96 5.96 0 01-7.3 0H6a4 4 0 00-4 4v8a4 4 0 004 4h12a4 4 0 004-4v-8a4 4 0 00-4-4zm-6 11a4 4 0 110-8 4 4 0 010 8z"
+                                    />
+                                  </svg>
+                                  <span id="placeholder-photo-item"
+                                    >Photo of the Item</span
+                                  >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="input-forms">
+                              <div class="file-input-wrapper">
+                                <input
+                                  type="file"
+                                  id="photo-box"
+                                  name="photo-box"
+                                  accept="image/*"
+                                  onchange="updatePlaceholder(this)"
+                                />
+                                <div
+                                  class="custom-file-label"
+                                  onclick="triggerInput('photo-box')"
                                 >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    width="20"
+                                    height="20"
+                                    class="file-icon"
+                                  >
+                                    <path
+                                      d="M12 2a4 4 0 014 4H8a4 4 0 014-4zm6 6h-2.35a5.96 5.96 0 01-7.3 0H6a4 4 0 00-4 4v8a4 4 0 004 4h12a4 4 0 004-4v-8a4 4 0 00-4-4zm-6 11a4 4 0 110-8 4 4 0 010 8z"
+                                    />
+                                  </svg>
+                                  <span id="placeholder-photo-box"
+                                    >Photo of the Box</span
+                                  >
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -2291,7 +2298,7 @@
                           <div class="input-forms">
                             <textarea
                               aria-placeholder="Type message here"
-                              class="input-form"
+                              class="input-formss"
                               id="i5vyy-7"
                               placeholder="Detail description"
                             ></textarea>

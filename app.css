@@ -546,10 +546,10 @@ html {
 .cart-menu-price {
   display: flex;
   align-items: center;
- font-size: 0.8rem;
+ font-size: 1rem;
   font-weight: bold;
   color: #333;
- 
+ margin:0;
 }
 .close-btns {
   background: none;
@@ -567,17 +567,31 @@ html {
   font-weight: bold;
   cursor: pointer;
   font-size: 1rem;
+  margin: 0;
+  
 }
 .cart-items {
   display: flex;
   align-items: center;
   margin: 1rem 0 1rem 0;
   justify-content: space-between; /* Spread items horizontally */
-  gap: 1rem;
+  gap: 0.2rem;
   padding: 1rem 0;
   border-bottom: 2px solid #eee;
 }
-
+.negotiated-badge {
+  display: inline-block;
+  background-color: #28a745; /* Green background */
+  color: #fff;
+  font-size: 0.6rem; 
+  font-weight: bold;
+  padding: 2px 6px; 
+  border-radius: 12px; 
+  text-align: center;
+  vertical-align: middle;
+  margin-top:0;
+  margin-bottom: 0;
+}
 .cart-items img {
   width: 50px;
   height: 50px;
@@ -589,7 +603,14 @@ html {
   flex-direction: column;
   width: 40%;
 }
-
+.item-detailss {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
 .item-details p {
   color: black;
   margin: 0;
@@ -1628,7 +1649,7 @@ border: 1px solid rgba(0, 0, 0, 0.78);
 }
 
 /* Desktop Version (1030px and up) */
-@media (min-width: 1200px) and (max-width: 1599px) {
+@media (min-width: 1200px) and (max-width: 1650px) {
   .stores {
     flex-direction: row;
     gap: 1rem;
@@ -1653,7 +1674,7 @@ border: 1px solid rgba(0, 0, 0, 0.78);
 }
 
 /* Large Screen Version (1600px and up) */
-@media (min-width: 1400px) {
+@media (min-width: 1651px) {
   .stores {
     flex-direction: row;
     gap: 2rem;
@@ -2364,7 +2385,7 @@ h6 {
 }
 
 .input-form {
-  width: 90%;
+  width: 86%;
   padding: 13px;
   margin-bottom: 10px;
   background-color:white;
@@ -2405,7 +2426,7 @@ input[type="file"] {
 }
 
 .custom-file-label {
-  width: 90%;
+  width: 86%;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -3243,7 +3264,7 @@ input[type="file"] {
 .landing_page .form-box {
   background-color: #000000;
   color: white;
-  padding: 35px 25px 35px 30px;
+  padding: 35px 15px 35px 30px;
   border-radius: 10px;
   width: 350px;
   margin-left: 1rem;
@@ -3339,7 +3360,34 @@ input[type="file"] {
   border-image-outset: initial;
   border-image-repeat: initial;
 }
+.input-grid {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
 
+@media (min-width: 1200px) {
+  .input-grid {
+    flex-direction: row; /* Row layout for screens between 1200px and 1600px */
+  }
+  .landing_page .form-box {
+   
+    width: 620px;
+   
+  }
+}
+
+
+.input-formss {
+  width: 86%;
+  padding: 13px;
+  margin-bottom: 10px;
+  background-color: white;
+  border: none;
+  color: black;
+  border-radius: 5px;
+  font-size: 16px;
+}
 .landing_page {
   display: flex;
   justify-content: center; 
@@ -3348,7 +3396,7 @@ input[type="file"] {
 }
 
 .landing_page .submit-btns {
-  width: 90%;
+  width: 86%;
   height: 46px;
   border-radius: 5px;
   background-color: var(--red-color);
@@ -5098,6 +5146,20 @@ input[type="file"] {
 
 .info-section:not(.hidden) {
   display: block; /* Show section when 'hidden' class is removed */
+}
+.negotiation input {
+  width: 100px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.negotiation label {
+  font-size: 1rem;
+  font-weight: bold;
+  color:var(--white-color);
 }
 /* end */
 /* cart */
