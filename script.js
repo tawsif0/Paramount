@@ -844,13 +844,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Product Menu Toggle
 document.addEventListener("DOMContentLoaded", function () {
-  const productsTitle = document.querySelector(".products-title");
-  const productsMenu = document.querySelector(".products-menus");
+  const allMenus = document.querySelectorAll(".products-menus"); // Select all menus
+  const allTitles = document.querySelectorAll(
+    ".products-title, .products-titles"
+  ); // Select all toggle titles
 
-  productsTitle.addEventListener("click", function () {
-    productsMenu.classList.toggle("active");
+  allTitles.forEach((title, index) => {
+    title.addEventListener("click", function () {
+      // Close all menus except the clicked one
+      allMenus.forEach((menu, menuIndex) => {
+        if (menuIndex === index) {
+          menu.classList.toggle("active"); // Toggle the clicked menu
+        } else {
+          menu.classList.remove("active"); // Close other menus
+        }
+      });
+    });
   });
 });
+
 //Search Suggestions
 document.addEventListener("DOMContentLoaded", function () {
   const suggestions = [
@@ -1246,4 +1258,52 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+});
+//Price slider
+document.addEventListener("DOMContentLoaded", function () {
+  // Get references to the slider and value display elements
+  const priceRange = document.getElementById("price-range");
+  const priceValue = document.getElementById("price-value");
+
+  // Set the initial value display
+  priceValue.textContent = `$${priceRange.value}`;
+
+  // Add event listener for the 'input' event on the slider
+  priceRange.addEventListener("input", function () {
+    // Update the displayed price value
+    priceValue.textContent = `$${priceRange.value}`;
+  });
+});
+//Login page
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.getElementById("container");
+  const registerBtn = document.getElementById("register");
+  const loginBtn = document.getElementById("login");
+
+  registerBtn.addEventListener("click", () => {
+    container.classList.add("active");
+  });
+
+  loginBtn.addEventListener("click", () => {
+    container.classList.remove("active");
+  });
+});
+//login page mobile
+document.addEventListener("DOMContentLoaded", function () {
+  var x = document.getElementById("loginn");
+  var y = document.getElementById("registerr");
+  var z = document.getElementById("btnn");
+
+  // Make functions global
+  window.registerr = function () {
+    x.style.left = "-400px";
+    y.style.left = "50px";
+    z.style.left = "110px";
+  };
+
+  window.loginn = function () {
+    x.style.left = "50px";
+    y.style.left = "450px";
+    z.style.left = "0px";
+  };
 });
