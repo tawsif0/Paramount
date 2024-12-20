@@ -2145,7 +2145,8 @@ strong {
 
 .nft {
   user-select: none;
-  max-width: 400px;
+  max-width: 700px;
+ 
   margin: 5rem auto;
   border: 1px solid #ffffff22;
   background-color: #282c34;
@@ -2182,12 +2183,15 @@ strong {
 .nft .main-nft .tokenImage {
   border-radius: 0.5rem;
   max-width: 100%;
-  height: 250px;
-  object-fit: cover;
+  height: 350px;
+  object-fit: contain;
 
   @media screen and (max-width: 768px) {
-      height: 250px;
+      height: 350px;
   }
+  @media screen and (max-width: 480px) {
+    height: 200px;
+}
 }
 
 
@@ -2211,7 +2215,7 @@ strong {
 .btn-nft {
   margin-top: 10px;
   padding: 1.3em 3em;
-  font-size: 12px;
+  font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
@@ -2226,7 +2230,7 @@ strong {
   font-weight: 700;
 
   @media screen and (max-width: 768px) {
-      font-size: 10px;
+      font-size: 15px;
     
 
   }
