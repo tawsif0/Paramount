@@ -5002,6 +5002,22 @@ input[type="file"] {
   top: 50%;
   border-bottom: 2px solid red;
 }
+.cros {
+  position: relative;
+  display: inline-block;
+  color: #616161;
+  margin-left: 0.2rem;
+  font-size: 1rem;
+}
+
+.cros::after {
+  content: '';
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  border-bottom: 2px solid red;
+}
 .pagination {
   text-align: center;
   margin-top: 20px;
