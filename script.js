@@ -1261,19 +1261,60 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 //Price slider
 document.addEventListener("DOMContentLoaded", function () {
-  // Get references to the slider and value display elements
-  const priceRange = document.getElementById("price-range");
-  const priceValue = document.getElementById("price-value");
+  let minRangeSlider = document.getElementById("min-range-slider");
+  let maxRangeSlider = document.getElementById("max-range-slider");
+  let minRangeValue = document.getElementById("min-range-value");
+  let maxRangeValue = document.getElementById("max-range-value");
+  let rangeSliderTrack = document.querySelector(".range-slider-track");
+  let sliderMaxValue = parseInt(minRangeSlider.max); // Ensure it's treated as a number
+  let minGap = 0; // Allow overlap but no crossing
 
-  // Set the initial value display
-  priceValue.textContent = `$${priceRange.value}`;
+  // Initialize slider positions and track on load
+  function initializeSliders() {
+    updateMinRange();
+    updateMaxRange();
+    updateSliderTrack();
+  }
 
-  // Add event listener for the 'input' event on the slider
-  priceRange.addEventListener("input", function () {
-    // Update the displayed price value
-    priceValue.textContent = `$${priceRange.value}`;
-  });
+  // Update the minimum range slider value
+  function updateMinRange() {
+    if (
+      parseInt(maxRangeSlider.value) - parseInt(minRangeSlider.value) <
+      minGap
+    ) {
+      minRangeSlider.value = parseInt(maxRangeSlider.value) - minGap;
+    }
+    minRangeValue.textContent = `$${minRangeSlider.value}`; // Add dollar sign
+    updateSliderTrack();
+  }
+
+  // Update the maximum range slider value
+  function updateMaxRange() {
+    if (
+      parseInt(maxRangeSlider.value) - parseInt(minRangeSlider.value) <
+      minGap
+    ) {
+      maxRangeSlider.value = parseInt(minRangeSlider.value) + minGap;
+    }
+    maxRangeValue.textContent = `$${maxRangeSlider.value}`; // Add dollar sign
+    updateSliderTrack();
+  }
+
+  // Update the slider track color
+  function updateSliderTrack() {
+    let percent1 = (minRangeSlider.value / sliderMaxValue) * 100;
+    let percent2 = (maxRangeSlider.value / sliderMaxValue) * 100;
+    rangeSliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}%,#eb5939 ${percent1}%,#eb5939 ${percent2}%, #dadae5 ${percent2}%)`;
+  }
+
+  // Attach event listeners
+  minRangeSlider.addEventListener("input", updateMinRange);
+  maxRangeSlider.addEventListener("input", updateMaxRange);
+
+  // Initialize on load
+  initializeSliders();
 });
+
 //Login page
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("container");

@@ -1806,21 +1806,32 @@
                 <div class="products-links">
                   <a href="#" class="products-link-item">Price (high to low)</a>
                 </div>
-                <div class="price-slider">
-                  <label for="price-range" class="slider-label"
-                    >Select Price Range:</label
-                  >
-                  <div class="slider-range-labels">
-                    <span id="price-value" class="slider-left">$100</span>
-                    <input
-                      type="range"
-                      id="price-range"
-                      min="100"
-                      max="1000"
-                      value="100"
-                      step="10"
-                    />
-                    <span class="slider-right">$1000</span>
+                <div class="centered-body">
+                  <div class="range-slider-wrapper">
+                    <div class="range-values">
+                      <span id="min-range-value">0</span>
+                      <span> &dash; </span>
+                      <span id="max-range-value">100</span>
+                    </div>
+                    <div class="range-slider-container">
+                      <div class="range-slider-track"></div>
+                      <input
+                        type="range"
+                        min="100"
+                        max="10000"
+                        value="100"
+                        id="min-range-slider"
+                        oninput="updateMinRange()"
+                      />
+                      <input
+                        type="range"
+                        min="100"
+                        max="10000"
+                        value="10000"
+                        id="max-range-slider"
+                        oninput="updateMaxRange()"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2151,6 +2162,12 @@
             <div class="footer-section">
               <p class="footer-title">Helpful Links</p>
               <ul class="footer-links">
+                <li class="footer-item">
+                  <a href="#about" class="footer-link">About Us</a>
+                </li>
+                <li class="footer-item">
+                  <a href="#customer" class="footer-link">Contact Us</a>
+                </li>
                 <li class="footer-item">
                   <a href="/" class="footer-link">Delivery &amp; FAQ</a>
                 </li>
