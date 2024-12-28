@@ -440,7 +440,99 @@ html {
   flex-direction: column;
   padding: 1rem;
 }
+/* Login menu */
+.login-menu-body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
 
+.login-container {
+  position: relative;
+}
+
+.login-icon {
+  cursor: pointer;
+}
+
+.login-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #f8f9fa;
+  width: 300px; /* Full-width for smaller screens */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+
+/* Styles for very small devices */
+@media (max-width: 480px) {
+  .login-menu {
+    top: 50px;
+    right: 0;
+    width: 266px; /* Original width for desktop */
+  }
+}
+
+.login-header {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: normal;
+  color: #000;
+}
+
+.login-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin:20px 0 20px 0;
+}
+
+.login-btn,
+.signup-btn,
+.login-previous-records-btn,
+.login-dashboard-btn {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  background-color: var(--red-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn:hover,
+.signup-btn:hover,
+.login-previous-records-btn:hover,
+.login-dashboard-btn:hover {
+  background-color: var(--reds-color);
+}
+
+
+
+.login-close-btn {
+  background: none;
+  border: none;
+  font-size: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* end */
 .icon-container svg {
   color: var(--white-color);
   cursor: pointer;

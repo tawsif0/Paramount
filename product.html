@@ -840,23 +840,48 @@
           <input type="checkbox" id="check" class="toggle-input" />
           <label for="check" class="toggle-button"></label>
         </div>
+        <div class="login-menu-body">
+          <div class="login-container">
+            <svg
+              class="login-icon"
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 12c-2.761 0-5-2.239-5-5s2.239-5 5-5 5 2.239 5 5-2.239 5-5 5zm-8.4 8c.899-3.07 3.711-5 7.4-5 1.12 0 2.179.199 3.14.571-.277.476-.437 1.017-.497 1.593-.837-.385-1.758-.164-2.676-.164-2.368 0-4.462 1.045-5.294 3h8.676c.075.77.257 1.577.72 2.344-.019.009-.039.015-.058.024-.15.065-.317.1-.478.105h-10c-.596 0-1.098-.538-.941-1.116z"
+              />
+              <path d="M17 17v-2h3v-2l4 3-4 3v-2h-3z" />
+            </svg>
 
-        <a href="login.html">
-          <svg
-            stroke="currentColor"
-            fill="currentColor"
-            stroke-width="0"
-            viewBox="0 0 24 24"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M19 7H24V9H19V7ZM17 12H24V14H17V12ZM20 17H24V19H20V17ZM2 22C2 17.5817 5.58172 14 10 14C14.4183 14 18 17.5817 18 22H16C16 18.6863 13.3137 16 10 16C6.68629 16 4 18.6863 4 22H2ZM10 13C6.685 13 4 10.315 4 7C4 3.685 6.685 1 10 1C13.315 1 16 3.685 16 7C16 10.315 13.315 13 10 13ZM10 11C12.21 11 14 9.21 14 7C14 4.79 12.21 3 10 3C7.79 3 6 4.79 6 7C6 9.21 7.79 11 10 11Z"
-            ></path>
-          </svg>
-        </a>
-
+            <div class="login-menu">
+              <button class="login-close-btn">&times;</button>
+              <div class="login-buttons">
+                <button
+                  class="login-btn"
+                  onclick="window.location.href='login.html'"
+                >
+                  Login
+                </button>
+                <button
+                  class="signup-btn"
+                  onclick="window.location.href='login.html'"
+                >
+                  Signup
+                </button>
+              </div>
+              <h2 class="login-header">Welcome Tausifur Rahman</h2>
+              <button class="login-previous-records-btn">
+                Previous Records
+              </button>
+              <button class="login-dashboard-btn">Go to Dashboard</button>
+            </div>
+          </div>
+        </div>
         <div class="cart">
           <!-- Cart Icon -->
           <div class="cart-icon-container" onclick="toggleCartMenu()">

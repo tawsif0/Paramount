@@ -1228,11 +1228,49 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-//cart menu
+//Cart Menu
 function toggleCartMenu() {
   const cartMenu = document.getElementById("cartMenu");
+  const loginMenu = document.querySelector(".login-menu");
+
+  // Close the login menu if it's open
+  if (loginMenu.style.display === "block") {
+    loginMenu.style.display = "none";
+  }
+
+  // Toggle the cart menu
   cartMenu.classList.toggle("active");
 }
+
+// Login Menu
+document.addEventListener("DOMContentLoaded", () => {
+  const loginIcon = document.querySelector(".login-icon");
+  const loginMenu = document.querySelector(".login-menu");
+  const closeButton = document.querySelector(".login-close-btn");
+  const cartMenu = document.getElementById("cartMenu");
+
+  // Show login menu on hover
+  loginIcon.addEventListener("mouseenter", () => {
+    // Close the cart menu if it's open
+    if (cartMenu.classList.contains("active")) {
+      cartMenu.classList.remove("active");
+    }
+
+    // Show login menu
+    loginMenu.style.display = "block";
+  });
+
+  // Close login menu on clicking the close button
+  closeButton.addEventListener("click", () => {
+    loginMenu.style.display = "none";
+  });
+
+  // Close login menu when cursor leaves the container
+  loginMenu.addEventListener("mouseleave", () => {
+    loginMenu.style.display = "none";
+  });
+});
+
 //Cart menu
 document.addEventListener("DOMContentLoaded", function () {
   // Select all cart items with the class .cart-item
