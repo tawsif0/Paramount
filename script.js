@@ -1185,28 +1185,109 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 //Image Modal Effect
+let currentIndex = 0;
+let thumbnails;
+let modalImage;
+let mainImage;
+let prevArrow;
+let nextArrow;
+
+// Update the modal image based on the current index
+function updateModalImage() {
+  const totalImages = thumbnails.length;
+
+  // Set the modal image source
+  modalImage.src = thumbnails[currentIndex].src;
+
+  // Update the arrows' opacity
+  prevArrow.style.opacity = currentIndex === 0 ? "0.5" : "1";
+  nextArrow.style.opacity = currentIndex === totalImages - 1 ? "0.5" : "1";
+
+  // Update the main image to match the modal image
+  if (mainImage) {
+    mainImage.src = thumbnails[currentIndex].src;
+  }
+
+  updateActiveThumbnail(); // Update the active thumbnail
+}
+
 // Open the modal
 function openModal() {
   const modal = document.getElementById("imageModal");
-  const modalImage = document.getElementById("modalImage");
-  const mainImage = document.getElementById("mainImage");
-
-  // Set the modal image to the source of the clicked image
-  modalImage.src = mainImage.src;
-
-  // Show the modal
+  updateModalImage(); // Call the globally defined function
   modal.classList.remove("hidden");
-  modal.style.display = "flex"; // Make it visible with flex layout
+  modal.style.display = "flex";
 }
 
 // Close the modal
 function closeModal() {
   const modal = document.getElementById("imageModal");
-
-  // Hide the modal
   modal.classList.add("hidden");
-  modal.style.display = "none"; // Ensure it's not visible
+  modal.style.display = "none";
 }
+
+// Set the main image without opening the modal
+function setMainImage(imageElement) {
+  currentIndex = Array.from(thumbnails).indexOf(imageElement); // Update the current index
+  updateModalImage(); // Update the main image to match the thumbnail
+}
+
+// Update the active thumbnail based on the current index
+function updateActiveThumbnail() {
+  thumbnails.forEach((thumbnail, index) => {
+    if (index === currentIndex) {
+      thumbnail.classList.add("active"); // Add active class to the current thumbnail
+    } else {
+      thumbnail.classList.remove("active"); // Remove active class from other thumbnails
+    }
+  });
+}
+
+// Add event listeners once the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  thumbnails = document.querySelectorAll(".thumbnail");
+  modalImage = document.getElementById("modalImage");
+  mainImage = document.getElementById("mainImage");
+  prevArrow = document.getElementById("prevArrow");
+  nextArrow = document.getElementById("nextArrow");
+
+  // Attach click listener to the main image to open the modal
+  if (mainImage) {
+    mainImage.addEventListener("click", openModal);
+  }
+
+  // Attach click listeners to navigation arrows
+  if (prevArrow && nextArrow) {
+    prevArrow.addEventListener("click", function () {
+      navigateImage(-1);
+    });
+
+    nextArrow.addEventListener("click", function () {
+      navigateImage(1);
+    });
+  }
+
+  // Initialize the active thumbnail on page load
+  updateActiveThumbnail();
+});
+
+// Navigate images
+function navigateImage(direction) {
+  const totalImages = thumbnails.length;
+
+  // Update the current index
+  currentIndex += direction;
+
+  // Ensure the index wraps around correctly
+  if (currentIndex < 0) {
+    currentIndex = totalImages - 1; // Loop back to the last image
+  } else if (currentIndex >= totalImages) {
+    currentIndex = 0; // Loop back to the first image
+  }
+
+  updateModalImage(); // Update modal image after navigating
+}
+
 //quantity buttons
 document.addEventListener("DOMContentLoaded", function () {
   // Select elements
