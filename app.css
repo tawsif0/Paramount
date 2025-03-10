@@ -3901,7 +3901,7 @@ input[type="file"] {
   display: flex;
   flex-direction: column;
   gap: 0px;
-  margin-bottom: 15rem;
+  margin-bottom: 2rem;
   height: 1800px;
   justify-content: space-around;
 }
@@ -3911,7 +3911,7 @@ input[type="file"] {
     flex-direction: row;
     gap: 0;
     height: 900px;
-    margin-top: 250px;
+    margin-top: 150px;
   }
 }
 
